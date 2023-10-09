@@ -1,0 +1,68 @@
+/* Cabecera de categorias */
+.st-sectionCard {
+  position:relative;
+  &_content {
+    padding:2em ;
+    display:grid;
+    grid-template-columns:repeat(4, 0fr);
+    gap:2em 0;
+    justify-items:center;
+    justify-content: center;
+  }
+  &_header {
+    padding: 2em;
+    display:flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+  }
+  &_title {
+    font-family: var(--primary);
+    color:#DC5D64;
+  }
+  &_aside {
+    position:fixed;
+    bottom: 1em;
+    right:1em;
+    z-index: 1;
+  }
+  &_button{
+    background-color: #DC5D64;
+    height:3em;
+    width:3em;
+    padding:0 .5em;
+    color: #ffffff;
+    font-family: var(--base);
+    border-radius:100px;
+    box-shadow:4px 4px 8px -1px rgba(0,0,0,0.15);
+    transition:All .2s  ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &_icon {
+      font-size: var(--l);
+    }
+    &_text {
+      width:0%;
+      color:transparent;
+      font-size: var(--n);
+      font-weight: bold;
+      text-wrap: nowrap;
+      transition:All .2s  ease;
+    }
+  }
+  &_button:hover{
+    width:7em;
+    transition:All .3s  ease-in;
+  }
+  &_button:hover &_button_text {
+    color: #ffffff;
+    width:100%;
+    margin-left:.2em;
+    transition:All .3s  ease-in;
+  }
+}
+input:checked ~ .SectionLink_buttonA{
+  color:white;
+  background-color:#DC5D64;
+}

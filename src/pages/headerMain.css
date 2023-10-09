@@ -1,0 +1,63 @@
+/* Cabecera principal */
+.st-headerMain {
+  background-color:var(--background1);
+  height:4em;
+  padding:0 2em;
+  border-bottom:1px solid rgba(0,0,0,0.1);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:0.8em;
+  &_nav {
+    display:flex;
+    align-items:center;
+    gap:0 0.5em;
+  }
+  &_profile, &_button {
+    color:var(--text1);
+    font-weight: var(--bold);
+    font-family: var(--title2);
+  }
+  &_profile{
+    /* background-color:var(--background2); */
+    height:2.2em;
+    width:2.2em;
+    font-size: var(--xm);
+    text-align: center;
+    font-style: oblique;
+    border:2px solid white;
+    outline:2px solid var(--color4);
+    border-radius: 100%;
+    transition: all .5s ease;
+  }
+  &_button {
+    background-color:transparent;
+    padding:0.5em 0.6em;
+    border-radius: 10px;
+    display:flex;
+    gap:0 0.5em;
+    align-items: center;
+    flex-direction: row-reverse;
+    &_icon {
+      font-size: var(--3xm);
+    }
+  }
+  &_button:hover, &_profile:hover {
+    background-color: #faeaeb;
+    color:#DC5D64;
+  }
+  &_logo {
+    display:flex;
+    align-items: center;
+    gap:0.5em;
+    &_title {
+      color:var(--logoText);
+      font-family:var(--title1);
+      font-size:var(--xl);
+    }
+    &_photo {
+      height: 2.4em;
+      filter:var(--logoIcon);
+    }
+  }
+}

@@ -1,0 +1,101 @@
+/* HOVER */
+.cardArticle:hover {
+  border:1.5px solid #c0c0c0;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+}
+.cardArticle:hover .cardArticle_head_button {
+  display: flex;
+}
+/* COMPONENTE */
+.cardArticle{
+  background-color:var(--cardColor);
+  width:15em;
+  padding: 0.4em;
+  border:1px solid transparent;
+  display:flex;
+  flex-direction: column;
+  &_head, &_head_photo {
+    height:8em;
+    width:14em;
+    border-radius: 15px;
+  }
+  &_head {
+    background-color:var(--photoBackground);
+    position:relative;
+    &_button {
+      background-color:var(--cardColor);
+      padding:0.2em 0.2em;
+      color:var(--cardText);
+      font-size: var(--l);
+      border-radius: 10px;
+      display: none;
+      align-items: center;
+      position:absolute;
+      top: 0.5em;
+      right:0.5em;
+    }
+  }
+  &_body {
+    padding:0.8em;
+    display:flex;
+    flex-direction: column;
+    font-family: var(--title);
+    text-align: center;
+    gap:.2em;
+    position:relative;
+  }
+  &_title {
+    font-size: var(--xm);
+  }
+  &_tag {
+    color:var(--cardText);
+    font-size: var(--s);
+    text-transform:capitalize;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  &_action {
+    margin-top: 0.6em;
+    display:flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap:0.5em;
+    &_item {
+      /* background-color:#f0f0f0; */
+      padding: 0.1em 0.3em;
+      border-radius: 5px;
+      color:var(--cardText);
+      font-weight:bold;
+      border:1px solid #d0d0d0;
+      display:flex;
+      align-items: center;
+      flex-direction: row-reverse;
+      gap:0.4em;
+      &_text {
+        text-transform:capitalize;
+        font-size: var(--s);
+      }
+      &_icon {
+        font-size: var(--3xm);
+      }
+    }
+  }
+}
+
+.cardArticle_action_item.active {
+  background-color: var(--cardButton_active);
+  color:white;
+}
+
+.list.cardArticle {
+  width:20em;
+  flex-direction: row;
+  &_head, &_head_photo {
+    height:6.5em;
+    width:8em;
+    border-radius: 15px;
+  }
+}

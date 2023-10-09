@@ -1,0 +1,94 @@
+.st-headerTags ::-webkit-scrollbar {
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+.st-headerTags {
+  padding: 1.5em 3em;
+  display:flex;
+  justify-content:space-between;
+  &_tag {
+    width: 70%;
+    position: relative;
+    display: flex;
+    align-items:center;
+    &_container {
+      overflow-x:auto;
+      padding:.5em 0;
+      display:flex;
+      flex: auto 0 1;
+      align-items:center;
+      gap:.5em;
+    }
+    &_button {
+      background-color:var(--tagColor);
+      padding:.5em .8em;
+      height:max-content;
+      color:var(--tagText);
+      font-family: var(--title2);
+      font-size:var(--n);
+      font-weight: bold;
+      text-transform: capitalize;
+      white-space: nowrap;
+      border-radius:10px;
+      transform: scale(1);
+    }
+    &_button:hover {
+      transform: scale(1.1);
+      transition: transform  .2s ease-in-out;
+      z-index:1;
+    }
+    &_nav {
+      padding:.5em ;
+      color:var(--tagNav);
+      font-size:var(--m);
+      position:relative;
+    }
+    &_nav::before{
+      content:"";
+      padding:1.4em 1em;
+      position: absolute;
+      top:-0.2em;
+    }
+    &_nav:nth-of-type(1):before {
+      background:linear-gradient(to left, rgba(0,0,0,0), #ffffff 60%);
+      right:-1.2em;
+    }
+    &_nav:nth-of-type(2):before {
+      background:linear-gradient(to right, rgba(0,0,0,0), #ffffff 60%);
+      left:-1.2em;
+    }
+  }
+
+  &_setup {
+    display: flex;
+    align-items: center;
+    gap:.8em;
+    /* display: none; */
+    &_text {
+      color:var(--tagText);
+      font-family: var(--title2);
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+    &_button {
+      color:var(--tagText);
+      padding:0.4em 0.8em;
+      border:2px solid rgba(0,0,0,0.1);
+      border-radius:5px;
+      font-weight: bold;
+      font-family: var(--title2);
+      text-transform: capitalize;
+      white-space: nowrap;
+      display: flex;
+      flex-direction:row-reverse;
+      gap:.5em;
+    }
+    &_icon {
+      font-size: var(--xm);
+    }
+  }
+}
+
+[data-estilo="active"]{
+  background-color:#404040;
+  color:white;
+}

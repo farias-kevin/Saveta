@@ -1,0 +1,19 @@
+.footerMain {
+  background-color: #F9E4E5;
+  padding:1em 2.5em;
+  display:flex;
+  color:gray;
+  justify-content: space-between;
+  align-items: center;
+  &_container {
+    display: flex;
+    justify-content: center;
+  }
+  &_text {
+    font-size: var(--text-s);
+    font-family: var(--primary);
+  }
+  &_icon {
+    font-size:2.5em;
+  }
+}

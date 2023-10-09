@@ -1,0 +1,87 @@
+/* Typography -------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gabarito:wght@400;600;700&display=swap');
+
+/* Font variables  --------------------------------------------------------- */
+:root {
+	/* Font family */
+		--title:  'Poppins', sans-serif;
+		--title2: 'Montserrat', sans-serif;
+		--base:   'Inter', sans-serif;
+		--base2:  'Gabarito', sans-serif;
+	/* Font weight */
+		--extrabold:800;  --bold:700;  --semibold:600;  --medium:500;  --regular:400; --light:300;
+	/* Font size */
+		--3xh:  3.313em; /* 53px */
+    --xxh:  3.000em; /* 48px */
+    --xh:   2.688em; /* 43px */
+    --h:    2.438em; /* 39px */
+    --3xl:  2.188em; /* 35px */
+    --xxl:  1.938em; /* 31px */
+    --xl:   1.750em; /* 28px */
+    --l:    1.563em; /* 25px */
+    --3xm:  1.375em; /* 22px */
+    --xxm:  1.250em; /* 20px */
+    --xm:   1.125em; /* 18px */
+    --m:    1.000em; /* 16px */
+    --n:    0.938em; /* 15px */
+    --s:    0.875em; /* 14px */
+    --xs:   0.844em; /* 13.5px */
+    --xxs:  0.781em; /* 12.5px */
+    --3xs:  0.719em; /* 11.5px */
+  }
+
+/* General ---------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  border:0px;
+  color: inherit;
+  font-family:inherit;
+  /* outline: 1px solid black; */
+}
+html {
+  scroll-behavior:smooth;
+  /* color:#1f1f1f; */
+  font-size:15px;
+  color:#404040;
+}
+body {
+  min-height:100dvh;
+}
+.root {
+  min-height:100vh;
+}
+img {
+  object-fit:cover; -o-object-fit:cover;
+}
+ul {
+  margin: 0;
+  padding-left: 0;
+  list-style-type: none;
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+}
+
+button,
+summary {
+  outline: none;
+  cursor: pointer;
+}
+
+button {
+  background-color: transparent;
+}
+input {
+  appearance: none;
+}
