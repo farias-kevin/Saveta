@@ -1,5 +1,5 @@
 /* Cabecera principal */
-.st-headerMain {
+.NavBar {
   background-color:var(--background1);
   height:4em;
   padding:0 2em;
@@ -59,5 +59,31 @@
       height: 2.4em;
       filter:var(--logoIcon);
     }
+  }
+  &_search {
+    padding:0 .5em;
+    display:flex;
+    align-items:center;
+    font-family: var(--secondary);
+    &_icon {
+      color:#DC5D64;
+      font-weight: var(--bold);
+      font-size:var(--text-xxm)
+    }
+    &_input {
+      background-color: transparent;
+      font-weight: var(--bold);
+      height:2em;
+      width:4.2em;
+      transition: all 0.5s ease;
+    }
+    &_input:focus {
+      transition: all 0.5s ease;
+      width:15em;
+    }
+  }
+
+  &_search input::-webkit-search-cancel-button{
+    -webkit-appearance: none;
   }
 }

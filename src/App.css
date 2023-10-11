@@ -1,12 +1,11 @@
 /* RECURSOS*/
-@import "./pages/footerMain.css";
-@import "./pages/cardArticle.css";
-@import "./pages/sectionCard.css";
-@import "./pages/searchMain.css";
+@import "./pages/FooterMain.css";
+@import "./pages/CardArticle.css";
+@import "./pages/SectionCard.css";
+@import "./pages/HeaderTags.css";
+@import "./pages/NavBar.css";
+@import "./pages/BannerMain.css";
 @import "./pages/dropdown.css";
-@import "./pages/headerTags.css";
-@import "./pages/headerMain.css";
-@import "./pages/bannerMain.css";
 
 :root {
   /* VARIABLE */

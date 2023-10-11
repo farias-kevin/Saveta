@@ -1,12 +1,15 @@
 import {ButtonT} from "../components/button.jsx"
 
-export default function DropdownHeader(){
+export default function Dropdown({css, children}){
   return(
-        <div className="dropdown_body js_dropdown" >
-          <ButtonT css="dropdown_button"><b>Nicola Mendoza </b></ButtonT>
-          <ButtonT css="dropdown_button">Export</ButtonT>
-          <ButtonT css="dropdown_button">History</ButtonT>
-          <ButtonT css="dropdown_button">Log out</ButtonT>
-        </div>
+    <div>
+      {children}
+      <div className={`${css}_body js_dropdown`} >
+        <ButtonT css={`${css}_button`}><b>Nicola Mendoza </b></ButtonT>
+        <ButtonT css={`${css}_button`}>Export</ButtonT>
+        <ButtonT css={`${css}_button`}>History</ButtonT>
+        <ButtonT css={`${css}_button`}>Log out</ButtonT>
+      </div>
+    </div>
   );
 }

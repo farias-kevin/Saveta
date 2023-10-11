@@ -1,36 +1,24 @@
 // RECURSOS
-import FooterMain from "./pages/footerMain.jsx"
-import HeaderMain from "./pages/headerMain.jsx"
-import SectionCard from "./pages/sectionCard.jsx"
-import BannerMain from "./pages/bannerMain.jsx"
-import HeaderTags from "./pages/headerTags.jsx"
-import {useState} from 'react'
+import BannerMain from "./pages/BannerMain.jsx"
+import FooterMain from "./pages/FooterMain.jsx"
+import NavBar from "./pages/NavBar.jsx"
+import SectionCard from "./pages/SectionCard.jsx"
+import HeaderTags from "./pages/HeaderTags.jsx"
+import CnDataProvider from "./utils/CnDataProvider.jsx"
 import "./App.css"
 
-export default function App() {
-
-  const [datosHeredados, setDatosHeredados] = useState("");
-  const fn_recibirDatos = (value) => {
-    // alert(value)
-    setDatosHeredados(value);
-  }
-
+export default function App(){
   return (
     <>
-      <HeaderMain css="st-headerMain"/>
-      <main className="st-page ">
-        {/* <BannerMain css="st-bannerMain" /> */}
-        {/* <section> */}
-        {/*   <HeaderTags css="st-headerTags" heredarDatos={fn_recibirDatos}/> */}
-        {/*   <SectionCard css="st-sectionCard" info={datosHeredados}/> */}
-        {/* </section> */}
-
-        <BannerMain css="st-bannerMain" />
-        <HeaderTags css="st-headerTags" heredarDatos={fn_recibirDatos}/>
-        <SectionCard css="st-sectionCard" info={datosHeredados}/>
+      <NavBar css="NavBar"/>
+      <main className="page">
+        <CnDataProvider>
+          <BannerMain css="BannerMain"/>
+          <HeaderTags css="HeaderTags"/>
+          <SectionCard css="SectionCard"/>
+        </CnDataProvider>
       </main>
-      <FooterMain css="footerMain" />
+      <FooterMain css="FooterMain" />
     </>
   );
 }
-

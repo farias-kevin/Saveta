@@ -1,14 +1,14 @@
 /* HOVER */
-.cardArticle:hover {
+.CardArticle:hover {
   border:1.5px solid #c0c0c0;
   border-radius: 15px;
   transition: all 0.3s ease;
 }
-.cardArticle:hover .cardArticle_head_button {
+.CardArticle:hover .CardArticle_head_button {
   display: flex;
 }
 /* COMPONENTE */
-.cardArticle{
+.CardArticle{
   background-color:var(--cardColor);
   width:15em;
   padding: 0.4em;

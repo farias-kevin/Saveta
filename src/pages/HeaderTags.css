@@ -1,7 +1,7 @@
-.st-headerTags ::-webkit-scrollbar {
+.HeaderTags ::-webkit-scrollbar {
     background: transparent;  /* Optional: just make scrollbar invisible */
 }
-.st-headerTags {
+.HeaderTags {
   padding: 1.5em 3em;
   display:flex;
   justify-content:space-between;
@@ -10,7 +10,29 @@
     position: relative;
     display: flex;
     align-items:center;
+    &_nav {
+      padding:.5em ;
+      color:var(--tagNav);
+      font-size:var(--m);
+      position:relative;
+    }
+    &_nav::before{
+      content:"";
+      padding:1.4em 1em;
+      position: absolute;
+      top:-0.2em;
+      z-index:2;
+    }
+    &_nav:nth-of-type(1):before {
+      background:linear-gradient(to left, rgba(0,0,0,0), #ffffff 60%);
+      right:-1.2em;
+    }
+    &_nav:nth-of-type(2):before {
+      background:linear-gradient(to right, rgba(0,0,0,0), #ffffff 60%);
+      left:-1.2em;
+    }
     &_container {
+      /* width: 100%; */
       overflow-x:auto;
       padding:.5em 0;
       display:flex;
@@ -36,28 +58,7 @@
       transition: transform  .2s ease-in-out;
       z-index:1;
     }
-    &_nav {
-      padding:.5em ;
-      color:var(--tagNav);
-      font-size:var(--m);
-      position:relative;
-    }
-    &_nav::before{
-      content:"";
-      padding:1.4em 1em;
-      position: absolute;
-      top:-0.2em;
-    }
-    &_nav:nth-of-type(1):before {
-      background:linear-gradient(to left, rgba(0,0,0,0), #ffffff 60%);
-      right:-1.2em;
-    }
-    &_nav:nth-of-type(2):before {
-      background:linear-gradient(to right, rgba(0,0,0,0), #ffffff 60%);
-      left:-1.2em;
-    }
   }
-
   &_setup {
     display: flex;
     align-items: center;
@@ -88,7 +89,7 @@
   }
 }
 
-[data-estilo="active"]{
+[data-css="active"]{
   background-color:#404040;
   color:white;
 }
