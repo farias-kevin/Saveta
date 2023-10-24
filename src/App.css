@@ -5,7 +5,8 @@
 @import "./pages/HeaderTags.css";
 @import "./pages/NavBar.css";
 @import "./pages/BannerMain.css";
-@import "./pages/dropdown.css";
+@import "./pages/DropdownBox.css";
+@import "./pages/ModalCreate.css";
 
 :root {
   /* VARIABLE */
@@ -15,37 +16,39 @@
   /* --color1:#e60023; */
   --color2:#F9E4E5;
   --color3:#f0f0f0;
-  --text1:#707070;
-  --text2:#8e8e8e;
+  --text1:#8e8e8e;
   --logoColor:red;
   --filter: invert(28%) sepia(60%) saturate(3945%) hue-rotate(6deg) brightness(107%) contrast(101%);
   /* --filter: invert(51%) sepia(34%) saturate(946%) hue-rotate(308deg) brightness(87%) contrast(97%); */
   /* DEFINICION */
   --bannerColor:var(--background2);
   --cardColor:var(--background1);
-  --cardText:var(--text2);
+  --cardText:var(--text1);
   --cardButton_active:var(--color1);
   --logoIcon:var(--filter);
   --logoText:var(--logoColor);
   --photoColor:var(--background2);
-  --tagNav:var(--text2);
+  --tagNav:var(--text1);
   --tagColor:var(--color3);
-  --tagText:var(--text2);
+  --tagText:var(--text1);
 
 
 }
-
-.page2.st-page {
+.Modal {
+  background:rgba(0,0,0,0.3);
+  min-width:100%;
+  min-height:100%;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  position:fixed;
+  z-index:10;
+  &_container {
+    min-width:100%;
+    min-height:100%;
+    position:fixed;
+  }
 }
-.page2.st-page > section {
-width:70%;
-}
- .page2.st-page .st-sectionCard {
-   &_content {
-    /* grid-template-columns:repeat(1, 0fr); */
- }}
-
   /*   display: -webkit-box; */
   /*   -webkit-line-clamp: 1; */
   /*   -webkit-box-orient: vertical; */

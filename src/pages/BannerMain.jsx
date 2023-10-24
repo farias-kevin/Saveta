@@ -4,15 +4,20 @@ import { CnData } from "../utils/CnDataProvider.jsx";
 
 export default function HeaderSection({css}){
 
-  const {tagValue} = useContext(CnData);
-  let msj = `Welcome to ${tagValue.name}`;
+  const {tagCreated} = useContext(CnData)
+  const {tagId} = useContext(CnData);
+
+  let infoObj = tagCreated[tagId];
+  let msj = `Welcome to ${infoObj.name}`;
+
+
   let msjWelcome = `Welcome back, Kevin Nico`;
   return(
     <header className={`${css}`}>
-      <h3 className={`${css}_title`}>{tagValue.name === '' ? msjWelcome : msj}</h3>
+      <h3 className={`${css}_title`}>{infoObj.id === 0 ? msjWelcome : msj}</h3>
       <div className={`${css}_details`}>
         <ButtonI css={`${css}_details_button`} icon="mdi:bookmark-outline">
-          {tagValue.num}
+          {infoObj.num === "" ? 0 : infoObj.num}
         </ButtonI>
         <ButtonI css={`${css}_details_button`} icon="mdi:history">
           23 abr 2020

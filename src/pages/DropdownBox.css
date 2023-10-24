@@ -1,27 +1,27 @@
-.dropdown {
+.DropdownBox {
   position:relative;
-  &_body {
+  &_main {
     background: white;
     border:1px solid cyan;
     border-radius: 10px;
     padding: 0.3em;
+    display: block;
     position:absolute;
     right: 0;
     z-index: 2;
-    display: none;
     animation: slideaway 200ms;
-  }
-  &_button {
-    width: 100%;
-    padding: .5em 1.5em .5em .5em;
-    color:gray;
-    font-family: var(--base);
-    white-space: nowrap;
-    border-radius: 5px;
-    display: flex;
-  }
-  &_button:hover {
-    background-color: #ebebeb;
+    &_button {
+      width: 100%;
+      padding: .5em 1.5em .5em .5em;
+      color:gray;
+      font-family: var(--base);
+      white-space: nowrap;
+      border-radius: 5px;
+      display: flex;
+    }
+    &_button:hover {
+      background-color: #ebebeb;
+    }
   }
 }
 

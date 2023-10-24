@@ -3,30 +3,25 @@ import dataAll from './DtBookmarkCard.jsx' // DATA
 import FnFilterData from './FnFilterData.jsx'
 import FnTagCreated from "../utils/FnTagCreated.jsx";
 
-// (2)
+// (1)
 export const CnData = createContext();
 
-// (1)
+// (2)
 export default function CnDataProvider({children}){
 
-
-
 // (4)
-  const [data, setData] = useState(dataAll)
-  const [tagValue, setTagValue] = useState({name:'', num:''})
+  const [data, setData] = useState(dataAll);
+  const [tagId, setTagId] = useState("0");
+
   const value = {
-    tagValue,
-    setTagValue,
+    tagId,
+    setTagId,
     data,
     setData,
     tagCreated:FnTagCreated(dataAll),
   }
 
 
-//   if(tagValue !== ''){
-//     setData(FnFilterData(dataAll, tagValue))
-//     setTagValue('')
-// }
 
 // (3)
   return (

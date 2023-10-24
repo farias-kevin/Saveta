@@ -1,16 +1,15 @@
 import {ButtonI} from "../components/button.jsx"
 import { useState, useContext} from "react";
 import { CnData } from "../utils/CnDataProvider.jsx";
+import DropdownBox from "./DropdownBox.jsx";
 
 export default function headerTags({css}){
   // HOOKS
-  const {setTagValue, tagCreated} = useContext(CnData)
+  const {setTagId, tagCreated} = useContext(CnData)
   const [color, setColor] = useState("");
 
-  const FnClick = (datos, num) => {
-    setTagValue(
-      {name:datos, num:num}
-    ); // Use context
+  const FnClick = (datos, id) => {
+    setTagId(id); // Use context
     setColor(datos);
   }
 
@@ -24,7 +23,7 @@ export default function headerTags({css}){
               <li
                 key={crypto.randomUUID()}
                 className={`${css}_tag_button`}
-                onClick={() => FnClick(elem.name, elem.num)}
+                onClick={() => FnClick(elem.name, elem.id)}
                 data-css={elem.name != color ? "" : "active"}>
                 {elem.name}
               </li>
@@ -34,9 +33,10 @@ export default function headerTags({css}){
         </div>
         <div className={`${css}_setup`} >
           <p className={`${css}_setup_text`}>Sort by</p>
-          <ButtonI css={`${css}_setup_button`} icon="tabler:adjustments-horizontal">
-            alphabet
-          </ButtonI>
+          <DropdownBox
+            css={`${css}_setup_button`} id="2" icon="tabler:adjustments-horizontal">
+            Alphabet
+          </DropdownBox>
         </div>
       </header>
     </>

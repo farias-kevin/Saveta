@@ -1,0 +1,75 @@
+
+.ModalCreate_label_input::placeholder {
+    color:#c0c0c0;
+}
+
+.ModalCreate {
+  background: #ffffff;
+  padding:3em 4em;
+  border-radius: 20px;
+  box-shadow: 5px 5px 20px 1px rgba(0,0,0,0.1);
+  color:#8e8e8e;
+  font-family: var(--base);
+  display:flex;
+  flex-direction: column;
+  align-items: space-between;
+  gap:4.5em;
+  position: relative;
+  &_icon_close {
+    font-size: var(--l);
+    position:absolute;
+    top:1.5em;
+    right:2.5em;
+  }
+  &_main {
+    display: flex;
+    gap:1.5em;
+  }
+  &_icon {
+    font-size: var(--l);
+  }
+  &_label {
+    display: flex;
+    flex-direction: column;
+    gap:.5em;
+    &_text {
+      font-weight: bold;
+      font-size: var(--m);
+      display: flex;
+      align-items: center;
+      gap:.5em;
+    }
+    &_input {
+      font-weight: bold;
+      font-family: var(--base);
+      height: 3em;
+      padding: .5em 1em;
+      border:2px solid rgba(0,0,0,0.2);
+      border-radius: .8em;
+    }
+    &_input:before:valid {
+      content:"aaa";
+    color:#dc5d64;
+    }
+  }
+  &_footer {
+    display:flex;
+    justify-content: center;
+    gap:.5em;
+  }
+  &_button {
+    background-color:#f0f0f0;
+    width:8em;
+    padding: 1em 2em;
+    font-weight: bold;
+    border-radius:2em;
+  }
+  &_button:nth-of-type(2) {
+    background-color:#dc5d64;
+    color:#ffffff;
+  }
+  &_button:hover {
+    text-decoration: underline;
+  }
+
+}
