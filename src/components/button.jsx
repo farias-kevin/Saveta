@@ -1,8 +1,8 @@
 // COMPONENTE
-function ButtonT({name, css, fn, value, children, text, active}){
+function ButtonT({name, css, fn, value, children, text, active, type}){
   return(
     <>
-      <button className={`${css}`} name={name} value={value} onClick={fn} data-name={active}>
+      <button className={`${css}`} name={name} type={type} value={value} onClick={fn} data-name={active}>
         <span className={`${css}_text`}>{children}</span>
         {text}
       </button>
