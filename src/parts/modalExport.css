@@ -1,11 +1,13 @@
 
-.ModalCreate_label_input::placeholder {
+.ModalExport_label_input::placeholder {
     color:#c0c0c0;
+    font-weight:var(--semibold);
 }
 
-.ModalCreate {
+.ModalExport {
   background: #ffffff;
-  padding:3em 4em;
+  width:60%;
+  padding:2em 4em;
   border-radius: 20px;
   box-shadow: 5px 5px 20px 1px rgba(0,0,0,0.1);
   color:#8e8e8e;
@@ -13,25 +15,37 @@
   display:flex;
   flex-direction: column;
   align-items: space-between;
-  gap:4.5em;
+  gap:3em;
   position: relative;
-  &_icon_close {
-    font-size: var(--l);
-    position:absolute;
-    top:1.5em;
-    right:2.5em;
+  &_container {
+    display: flex;
+    gap:1em;
+  }
+  &_header {
+    position: relative;
+    text-align: center;
+    &_title {
+      margin-bottom:.2em;
+    }
+    &_action {
+      font-size: var(--3xm);
+      position:absolute;
+      top:-.5em;
+      right:-1em;
+    }
   }
   &_main {
     display: flex;
-    gap:1.5em;
-  }
-  &_icon {
-    font-size: var(--l);
+    flex-direction: column;
+    gap:1.2em;
   }
   &_label {
     display: flex;
     flex-direction: column;
     gap:.5em;
+    &_icon {
+      font-size: var(--3xm);
+    }
     &_text {
       font-weight: bold;
       font-size: var(--m);
@@ -40,28 +54,33 @@
       gap:.5em;
     }
     &_input {
+      width:100%;
+      height:8em;
+      padding: .5em 1em;
       font-weight: bold;
       font-family: var(--base);
-      height: 3em;
-      padding: .5em 1em;
       border:2px solid rgba(0,0,0,0.2);
       border-radius: .8em;
     }
-    &_input:before:valid {
-      content:"aaa";
-    color:#dc5d64;
-    }
+  }
+  &_subtext {
+    margin: .5em;
+      font-family: var(--base);
   }
   &_footer {
     display:flex;
     justify-content: center;
     gap:.5em;
   }
-  &_button {
+  &_button, &_button2{
     background-color:#f0f0f0;
-    width:8em;
-    padding: 1em 2em;
+    padding: .8em 2em;
     font-weight: bold;
+    border-radius:20px;
+  }
+  &_button2 {
+    background-color:#f0f0f0;
+    width:100%;
     border-radius:2em;
   }
   &_button:nth-of-type(2) {

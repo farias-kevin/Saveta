@@ -1,5 +1,5 @@
-// COMPONENTE
-function ButtonT({name, css, fn, value, children, text, active, type}){
+// Componente boton con 1 texto
+export function ButtonT({name, css, fn, value, children, text, active, type}){
   return(
     <>
       <button className={`${css}`} name={name} type={type} value={value} onClick={fn} data-name={active}>
@@ -11,19 +11,17 @@ function ButtonT({name, css, fn, value, children, text, active, type}){
 }
 
 // COMPONENTE
-function ButtonI({name, css, fn, value, icon, children}){
+export function ButtonI({name, css, fn, value, icon, children}){
   return(
-    <>
-      <button className={`${css}`} onClick={fn} name={name} value={value} >
-        <i className={`iconify ${css}_icon`} data-icon={icon} ></i>
-        {children}
-      </button>
-    </>
+    <button className={`${css}`} onClick={fn} name={name} value={value} >
+      <i className={`iconify ${css}_icon`} data-icon={icon} ></i>
+      {children}
+    </button>
   )
 }
 
 // COMPONENTE
-function ButtonIT({name, css, fn, value, icon, children}){
+export function ButtonIT({name, css, fn, value, icon, children}){
   return(
     <>
       <button className={`${css}`} onClick={fn} name={name} value={value} >
@@ -34,7 +32,7 @@ function ButtonIT({name, css, fn, value, icon, children}){
   )
 }
 // COMPONENTE
-function ButtonP({name, css, fn, value, photo, children}){
+export function ButtonP({name, css, fn, value, photo, children}){
   return(
     <>
       <button className={`${css}`} onClick={fn} name={name} value={value} >
@@ -44,4 +42,14 @@ function ButtonP({name, css, fn, value, photo, children}){
     </>
   )
 }
-export {ButtonT, ButtonI, ButtonIT, ButtonP};
+// export function ButtonI2({name, css, fn, value, icon, children}){
+//   let valid = icon; // Validador de elemento
+//   return(
+//     <button className={`${css}`} onClick={fn} name={name} value={value} >
+//       {children}
+//       {(valid &&
+//         <i className={`iconify ${css}_icon`} data-icon={icon} ></i>
+//       )}
+//     </button>
+//   )
+// }

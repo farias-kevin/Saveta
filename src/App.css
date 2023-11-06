@@ -1,25 +1,24 @@
 /* RECURSOS*/
-@import "./pages/FooterMain.css";
-@import "./pages/CardArticle.css";
-@import "./pages/SectionCard.css";
-@import "./pages/HeaderTags.css";
-@import "./pages/NavBar.css";
-@import "./pages/BannerMain.css";
-@import "./pages/DropdownBox.css";
-@import "./pages/ModalCreate.css";
+@import "./parts/footerMain.css";
+@import "./parts/cardArticle.css";
+@import "./parts/sectionCard.css";
+@import "./parts/headerTags.css";
+@import "./parts/navBar.css";
+@import "./parts/bannerMain.css";
+@import "./parts/dropdownBox.css";
+@import "./parts/modalCreate.css";
+@import "./parts/modalExport.css";
 
 :root {
   /* VARIABLE */
   --background1:#ffffff;
   --background2:#dedede;
   --color1:#dc5d64;
-  /* --color1:#e60023; */
   --color2:#F9E4E5;
   --color3:#f0f0f0;
   --text1:#8e8e8e;
   --logoColor:red;
   --filter: invert(28%) sepia(60%) saturate(3945%) hue-rotate(6deg) brightness(107%) contrast(101%);
-  /* --filter: invert(51%) sepia(34%) saturate(946%) hue-rotate(308deg) brightness(87%) contrast(97%); */
   /* DEFINICION */
   --bannerColor:var(--background2);
   --cardColor:var(--background1);

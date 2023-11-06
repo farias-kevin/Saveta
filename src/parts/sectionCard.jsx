@@ -1,38 +1,39 @@
-// RECURSOS
-import CardArticle from './CardArticle.jsx';
+import CardArticle from './cardArticle.jsx';
 import { ButtonIT } from '../components/button.jsx';
-import { CnData } from '../utils/CnDataProvider.jsx';
 import imageUrl from '../assets/example5.jpg';
 import { useContext } from 'react';
-import { ActivatorContext } from '../utils/CnProviderActivator.jsx';
+import { InfoProvider } from '../hooks/contextInfo.jsx';
+import { DataProvider } from '../hooks/contextData.jsx';
 
 export default function SectionCard({css}){
 
-  const {data} = useContext(CnData)
-  const { SetModalValue } = useContext(ActivatorContext);
+  const { dataEdition } = useContext(DataProvider)
+  const { SetModalValue } = useContext(InfoProvider);
 
-  const CloseFunction = (info) => {
+  const FunOpenModal = (info) => {
     SetModalValue(info)
   }
+
+
 
   return (
     <section className={`${css}_content`}>
       <aside className={`${css}_aside`}>
         <ButtonIT
-          fn={() => CloseFunction(true)}
+          fn={() => FunOpenModal(1)}
           icon='mdi:plus-circle-outline'
           css={`${css}_button`}>
           Add Bookmarks
         </ButtonIT>
       </aside>
       <div className={`${css}_content`}>
-        {data.map((elem) => (
+        {dataEdition.map((elem) => (
           <CardArticle
             css="CardArticle"
             key={crypto.randomUUID()}
             title={elem.title}
             tag={elem.tag}
-            photo={imageUrl}>
+            photo={elem.image}>
           </CardArticle>
         ))}
       </div>

@@ -3,7 +3,7 @@ export default function FooterMain({css}){
     <>
       <footer className={`${css}`}>
         <div className={`${css}_aside`}>
-          <p className={`${css}_text`}>v0.23.0928</p>
+          <p className={`${css}_text`}>v0.23.1102</p>
         </div>
         <figure className={`${css}_media`}>
           <i className={`iconify ${css}_icon`} data-icon="uiw:github" ></i>

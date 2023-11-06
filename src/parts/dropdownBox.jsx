@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import {ButtonI} from "../components/button.jsx"
+import { InfoProvider } from "../hooks/contextInfo.jsx";
 
 export default function DropdownBox({css, icon, id, children}){
-
-  const [isOpen, setIsOpen] = useState(0);
+  // Hook
+  const [isOpen, setIsOpen] = useState(0); // valida la activacion
+  const { SetModalValue } = useContext(InfoProvider); //
 
   const toggleDropdown = (val) => {
     setIsOpen(val);
@@ -19,6 +21,10 @@ export default function DropdownBox({css, icon, id, children}){
     document.removeEventListener('click', handleOutsideClick);
   };
 
+
+  const FunOpenModal = (info) => {
+    SetModalValue(info)
+  }
 
   return(
     <>
@@ -38,8 +44,13 @@ export default function DropdownBox({css, icon, id, children}){
               <ButtonI css={`DropdownBox_main_button`}>
                 History
               </ButtonI>
+              <ButtonI
+                css={`DropdownBox_main_button`}
+                fn={() => FunOpenModal(2)}>
+               Backup data
+              </ButtonI>
               <ButtonI css={`DropdownBox_main_button`}>
-                Update
+                Log out
               </ButtonI>
             </div>
             : (isOpen == 2) ?

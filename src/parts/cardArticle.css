@@ -1,7 +1,6 @@
 /* HOVER */
 .CardArticle:hover {
   border:1.5px solid #c0c0c0;
-  border-radius: 15px;
   transition: all 0.3s ease;
 }
 .CardArticle:hover .CardArticle_head_button {
@@ -11,18 +10,24 @@
 .CardArticle{
   background-color:var(--cardColor);
   width:15em;
-  padding: 0.4em;
+  /* padding: 0.4em; */
   border:1px solid transparent;
+  border-radius: 15px;
+  box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.1);
   display:flex;
   flex-direction: column;
-  &_head, &_head_photo {
-    height:8em;
-    width:14em;
-    border-radius: 15px;
-  }
+
   &_head {
-    background-color:var(--photoBackground);
+    height:8em;
+    width:15em;
+    border-radius: 15px;
+    background-color:var(--photoColor);
     position:relative;
+    &_photo {
+      height:8em;
+      width:15em;
+      border-radius: 15px;
+    }
     &_button {
       background-color:var(--cardColor);
       padding:0.2em 0.2em;
@@ -37,7 +42,7 @@
     }
   }
   &_body {
-    padding:0.8em;
+    padding:0.8emr1em;
     display:flex;
     flex-direction: column;
     font-family: var(--title);
@@ -47,6 +52,9 @@
   }
   &_title {
     font-size: var(--xm);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-wrap: nowrap;
   }
   &_tag {
     color:var(--cardText);

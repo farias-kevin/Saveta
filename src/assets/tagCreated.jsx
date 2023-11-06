@@ -1,21 +1,25 @@
-
+// funcion > para crear elemntos tags
 export default function FnCreatedTags (dataAll){
-  // Con el metodo 'flatMap' combinar los elementos del array 'tag' dentro del objeto
+
+  // con flatmap() aplanas los elementos del tag[] y creas un nuevo array
   let tagsAll = dataAll.flatMap(function(obj){
     return obj.tag;
-    // Utilizar map para convertir cada elemento a minúsculas
+
+    // adjunta otro map() y transformas a minúsculas los elementos
   }).map(function(elem){
     return elem.toLowerCase();
   })
 
-  //
+  // con filter() eliminas los elementos duplicados y creas un nuevo array
   let tagsData = tagsAll.filter((elem, indice, data)=> {
     return  data.indexOf(elem) === indice;
   })
+
   let i = 0
   //
   let info = tagsData.map((obj)=>{
     i++
+      console.log(tagsAll)
     //
     let counter = tagsAll.reduce((acumulador, elem)=> {
       //

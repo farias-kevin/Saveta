@@ -1,7 +1,7 @@
 import { ButtonI, ButtonIT } from "../components/button";
 
-export default function CardArticle({css, title, text, tag, photo}){
-  // TERNARIO > TRUE, USO EL VALOR Y LO ESTILIZO : FALSE, VALOR VACIO
+export default function CardArticle({css, title, tag, photo}){
+  // para TRUE, uso el valor y lo estilizo. para FALSE el valor es vacio
   let valor = tag != undefined ? tag.join(', ') : [];
 
   function fn_pulsar(e){

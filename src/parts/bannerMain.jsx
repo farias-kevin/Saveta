@@ -1,13 +1,12 @@
+import { ButtonI } from "../components/button.jsx";
 import { useContext } from "react";
-import {ButtonI} from "../components/button.jsx";
-import { CnData } from "../utils/CnDataProvider.jsx";
+import { DataProvider } from "../hooks/contextData.jsx";
 
 export default function HeaderSection({css}){
 
-  const {tagCreated} = useContext(CnData)
-  const {tagId} = useContext(CnData);
+  const { tagCreate, tagInfo } = useContext(DataProvider)
 
-  let infoObj = tagCreated[tagId];
+  let infoObj = tagCreate[tagInfo];
   let msj = `Welcome to ${infoObj.name}`;
 
 

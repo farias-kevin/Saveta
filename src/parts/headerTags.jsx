@@ -1,16 +1,24 @@
-import {ButtonI} from "../components/button.jsx"
+import { ButtonI } from "../components/button.jsx"
+import DropdownBox from "./dropdownBox.jsx";
 import { useState, useContext} from "react";
-import { CnData } from "../utils/CnDataProvider.jsx";
-import DropdownBox from "./DropdownBox.jsx";
+import { DataProvider } from "../hooks/contextData.jsx";
+import FunFilterData from "../utils/filterData.jsx";
 
 export default function headerTags({css}){
-  // HOOKS
-  const {setTagId, tagCreated} = useContext(CnData)
-  const [color, setColor] = useState("");
+  // hooks
+  const {setTagInfo, tagCreate, dataOriginal, setDataEdition} = useContext(DataProvider);
+  const [color, setColor] = useState(""); // valida el color
 
-  const FnClick = (datos, id) => {
-    setTagId(id); // Use context
-    setColor(datos);
+  const FunClick = (name, id) => {
+
+
+    let FilterInfo = (name == "all") ? dataOriginal : FunFilterData(dataOriginal, name)
+
+    // para hook context
+    setTagInfo(id);
+    setDataEdition( FilterInfo )
+    // para hook state
+    setColor(name);
   }
 
   return(
@@ -19,11 +27,11 @@ export default function headerTags({css}){
         <div className={`${css}_tag`}>
           <ButtonI css={`${css}_tag_nav`} icon="ep:arrow-left-bold" />
           <ul className={`${css}_tag_container`} >
-            {tagCreated.map((elem)=>(
+            {tagCreate.map((elem)=>(
               <li
                 key={crypto.randomUUID()}
                 className={`${css}_tag_button`}
-                onClick={() => FnClick(elem.name, elem.id)}
+                onClick={() => FunClick(elem.name, elem.id)}
                 data-css={elem.name != color ? "" : "active"}>
                 {elem.name}
               </li>

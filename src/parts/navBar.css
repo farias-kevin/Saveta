@@ -18,18 +18,6 @@
     font-weight: var(--bold);
     font-family: var(--title2);
   }
-  &_profile{
-    /* background-color:var(--background2); */
-    height:2.2em;
-    width:2.2em;
-    font-size: var(--xm);
-    text-align: center;
-    font-style: oblique;
-    border:2px solid white;
-    outline:2px solid var(--color4);
-    border-radius: 100%;
-    transition: all .5s ease;
-  }
   &_button {
     background-color:transparent;
     padding:0.5em 0.6em;
@@ -45,6 +33,18 @@
   &_button:hover, &_profile:hover {
     background-color: #faeaeb;
     color:#DC5D64;
+  }
+  &_button2{
+    /* background-color:var(--background2); */
+    height:2.2em;
+    width:2.2em;
+    font-size: var(--xm);
+    text-align: center;
+    font-style: oblique;
+    border:2px solid white;
+    outline:2px solid var(--color4);
+    border-radius: 100%;
+    transition: all .5s ease;
   }
   &_logo {
     display:flex;

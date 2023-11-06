@@ -1,30 +1,32 @@
-// RECURSOS
+// recursos
 import "./App.css"
-import BannerMain from "./pages/BannerMain.jsx"
-import FooterMain from "./pages/FooterMain.jsx"
-import NavBar from "./pages/NavBar.jsx"
-import SectionCard from "./pages/SectionCard.jsx"
-import HeaderTags from "./pages/HeaderTags.jsx"
-import Modal from "./components/Modal.jsx"
-import CnDataProvider from "./utils/CnDataProvider.jsx"
-import CnActivatorProvider from "./utils/CnProviderActivator.jsx"
+import Modal from "./components/modal.jsx"
+import NavBar from "./parts/navBar.jsx"
+import BannerMain from "./parts/bannerMain.jsx"
+import FooterMain from "./parts/footerMain.jsx"
+import SectionCard from "./parts/sectionCard.jsx"
+import HeaderTags from "./parts/headerTags.jsx"
+import ContextData from "./hooks/contextData.jsx"
+import ContextInfo from "./hooks/contextInfo.jsx"
 
+import TestComponent from "./parts/test/test.jsx"
 
 export default function App(){
   return (
     <>
-      <CnDataProvider>
-        <CnActivatorProvider>
+      <ContextData>
+        <ContextInfo>
           <Modal css="Modal"/>
           <NavBar css="NavBar"/>
+          <TestComponent />
           <main className="Page">
             <BannerMain css="BannerMain"/>
             <HeaderTags css="HeaderTags"/>
             <SectionCard css="SectionCard"/>
           </main>
           <FooterMain css="FooterMain" />
-        </CnActivatorProvider>
-      </CnDataProvider>
+        </ContextInfo>
+      </ContextData>
     </>
   );
 }
