@@ -41,8 +41,8 @@
 *::after {
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
   border:0px;
+  box-sizing: border-box;
   color: inherit;
   font-family:inherit;
   /* outline: 1px solid black; */

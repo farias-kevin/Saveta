@@ -1,24 +1,20 @@
-import ModalCreate from "../parts/modalCreate.jsx";
-import ModalExport from "../parts/modalExport.jsx";
+import ModalCreate from "../parts/modal/modalCreate.jsx";
+import ModalExport from "../parts/modal/modalExport.jsx";
 import { useContext } from "react";
 import { InfoProvider } from "../hooks/contextInfo.jsx";
 
 
 export default function Modal ({css}) {
   // hooks
-  const { ModalValue, SetModalValue } = useContext(InfoProvider);
+  const { modalActivate, setModalActivate } = useContext(InfoProvider);
 
-  let IsActive = ModalValue
-  //
-  const ModalFunction = () => {
-    SetModalValue(false)
-  }
+  let IsActive = modalActivate
 
   return (
     <>
       {(IsActive &&
         <aside className={`${css}`}>
-          <div className={`${css}_container js-modal`} onClick={ModalFunction}/>
+          <div className={`${css}_container js-modal`} onClick={() => setModalActivate(false)}/>
           { IsActive == 1 ?
             <ModalCreate css="ModalCreate" />
             : IsActive == 2 ?

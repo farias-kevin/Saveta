@@ -2,18 +2,19 @@
     display: block;
 }
 
-.Dropdown {
+.dropdownMenu {
   position:relative;
   &_main {
     background: white;
     border:1px solid cyan;
     border-radius: 10px;
     padding: 0.3em;
-    display: none;
+    display: block;
     position:absolute;
     right: 0;
     z-index: 2;
     animation: slideaway 200ms;
+    }
     &_button {
       width: 100%;
       padding: .5em 1.5em .5em .5em;
@@ -26,7 +27,7 @@
     &_button:hover {
       background-color: #ebebeb;
     }
-  }
+
 }
 
 .dropdownOpen {

@@ -1,24 +1,28 @@
-import { ButtonI } from "../components/button.jsx"
-import DropdownBox from "./dropdownBox.jsx";
+import { ButtonI } from "../../components/button.jsx"
+import Dropdown from "../../components/dropdown.jsx"
+import DropdownMenu from "../dropdown/dropdownMenu.jsx"
 import { useState, useContext} from "react";
-import { DataProvider } from "../hooks/contextData.jsx";
-import FunFilterData from "../utils/filterData.jsx";
+import { DataProvider } from "../../hooks/contextData.jsx";
+import FunFilterData from "../../utils/filterData.jsx";
+
 
 export default function headerTags({css}){
-  // hooks
+
+  // hooks context, para tag y datos
   const {setTagInfo, tagCreate, dataOriginal, setDataEdition} = useContext(DataProvider);
-  const [color, setColor] = useState(""); // valida el color
+  // hook state, para captura el nombre del boton
+  const [buttonName, setButtonName] = useState("");
 
   const FunClick = (name, id) => {
+    //
+    let FilterInfo = (name == "all")
+      ? dataOriginal
+      : FunFilterData(dataOriginal, name);
 
-
-    let FilterInfo = (name == "all") ? dataOriginal : FunFilterData(dataOriginal, name)
-
-    // para hook context
-    setTagInfo(id);
-    setDataEdition( FilterInfo )
     // para hook state
-    setColor(name);
+    setDataEdition( FilterInfo )
+    setButtonName(name);
+    setTagInfo(id);
   }
 
   return(
@@ -32,7 +36,7 @@ export default function headerTags({css}){
                 key={crypto.randomUUID()}
                 className={`${css}_tag_button`}
                 onClick={() => FunClick(elem.name, elem.id)}
-                data-css={elem.name != color ? "" : "active"}>
+                data-css={ (elem.name != buttonName) ? "" : "active"}>
                 {elem.name}
               </li>
             ))}
@@ -41,10 +45,16 @@ export default function headerTags({css}){
         </div>
         <div className={`${css}_setup`} >
           <p className={`${css}_setup_text`}>Sort by</p>
-          <DropdownBox
-            css={`${css}_setup_button`} id="2" icon="tabler:adjustments-horizontal">
-            Alphabet
-          </DropdownBox>
+          <Dropdown
+            css={`${css}_setup_button`}
+            id="Q7YbWmitzJ"
+            icon="tabler:adjustments-horizontal"
+            title="Alphabet" >
+            <DropdownMenu
+              css=""
+              id="2"
+            />
+          </Dropdown>
         </div>
       </header>
     </>

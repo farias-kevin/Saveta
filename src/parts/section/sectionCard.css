@@ -2,15 +2,11 @@
 .SectionCard {
   position:relative;
   &_content {
-    /* background:red; */
     padding:2em ;
     display:grid;
-    grid-template-columns:repeat(4, 0fr);
-    gap:2em .5em;
-    justify-items:center;
+    grid-template-columns:repeat(3, 0fr);
     justify-content: center;
-    /* align-content: center; */
-    /* align-items: center; */
+    gap:2em 1em;
   }
   &_aside {
     position:fixed;

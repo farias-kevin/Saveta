@@ -1,6 +1,6 @@
-import { ButtonI, ButtonIT } from "../components/button";
+import { ButtonT, ButtonI, ButtonIT } from "../../components/button";
 
-export default function CardArticle({css, title, tag, photo}){
+export default function CardArticle({css, title, text, tag, photo}){
   // para TRUE, uso el valor y lo estilizo. para FALSE el valor es vacio
   let valor = tag != undefined ? tag.join(', ') : [];
 
@@ -21,12 +21,17 @@ export default function CardArticle({css, title, tag, photo}){
     console.log(valorContador)
   }
 
+// ============================================================
+
+
+
+
   return(
     <>
       <article className={`${css}`} >
         <figure className={`${css}_head`}>
-          <img className={`${css}_head_photo`} src={photo} alt="image_main" />
-          <ButtonI css={`${css}_head_button`} icon="mdi:dots-horizontal" />
+          <img className={`${css}_head_image`} src={photo} alt="image_main" />
+          <ButtonI css={`${css}_option`} icon="mdi:dots-horizontal" />
         </figure>
         <div className={`${css}_body`} >
           <h4 className={`${css}_title`}>
@@ -34,12 +39,28 @@ export default function CardArticle({css, title, tag, photo}){
           </h4>
           <p className={`${css}_tag`} data-tags={valor}>
             {valor}
+            {text}
           </p>
           <div className={`${css}_action`}>
-            <ButtonIT css={`${css}_action_item`} icon="mdi:eye-outline" >
-              100 M
+            {/* <ButtonIT */}
+            {/*   css={`${css}_action_item`} */}
+            {/*   icon="mdi:eye-outline" > */}
+            {/*   100 M */}
+            {/* </ButtonIT> */}
+            <ButtonT
+              css={`${css}_action_item`}
+              icon="material-symbols:info-outline" >
+              Music
+            </ButtonT>
+            <ButtonIT
+              css={`${css}_action_item`}
+              icon="mdi:link" >
+              Level
             </ButtonIT>
-            <ButtonIT css={`${css}_action_item`} icon="mdi:heart-outline" fn={fn_pulsar} value="5" >
+            <ButtonIT
+              css={`${css}_action_item`}
+              icon="mdi:heart-outline"
+              value="5" >
               5
             </ButtonIT>
           </div>

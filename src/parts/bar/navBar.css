@@ -13,7 +13,7 @@
     align-items:center;
     gap:0 0.5em;
   }
-  &_profile, &_button {
+  &_button-b, &_button {
     color:var(--text1);
     font-weight: var(--bold);
     font-family: var(--title2);
@@ -34,8 +34,8 @@
     background-color: #faeaeb;
     color:#DC5D64;
   }
-  &_button2{
-    /* background-color:var(--background2); */
+  &_button-b{
+    background-color:var(--background2);
     height:2.2em;
     width:2.2em;
     font-size: var(--xm);

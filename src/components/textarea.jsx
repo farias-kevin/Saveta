@@ -1,6 +1,18 @@
+// recursos
+import { useContext } from "react";
+import { InfoProvider } from "../hooks/contextInfo";
 
 
 export default function Textarea ({css, children, placeholder, value, fn, id}){
+
+  // const [textareaValue, setTextareaValue] = useState('');
+  // const { resultTextarea } = useContext(InfoProvider)
+
+  // const handleChange = (event) => {
+  //   console.log(event.target.value)
+  //   setTextareaValue(event.target.value);
+  // };
+
   return(
     <>
       <label className={`${css}`}>
@@ -8,9 +20,8 @@ export default function Textarea ({css, children, placeholder, value, fn, id}){
         <textarea
           className={`${css}_input`}
           id={id}
-          onBlur={fn}
           placeholder={placeholder}
-          defaultValue={value}>
+        >
         </textarea>
       </label>
     </>

@@ -1,60 +1,55 @@
-import { ButtonI, ButtonT } from "../components/button.jsx"
-import InputText from "../components/input.jsx"
-import { HeaderTT } from "../components/header.jsx"
+// recursos
+import { ButtonI, ButtonT } from "../../components/button.jsx"
+import InputText from "../../components/input.jsx"
+import { HeaderTT } from "../../components/header.jsx"
+// import apiJson from "../../data/apiJson-jsonlink.jsx"
+import apiJson from "../../data/apiJson-iframely.jsx"
 import { useContext, useEffect, useState } from "react"
-import getJson from "../utils/getJson.jsx";
-import { DataProvider } from "../hooks/contextData.jsx"
-import { InfoProvider } from "../hooks/contextInfo.jsx"
+import { DataProvider } from "../../hooks/contextData.jsx"
+import { InfoProvider } from "../../hooks/contextInfo.jsx"
 
 
 export default function ModalCreate({css}){
 
-  // hooks
-  const { SetModalValue } = useContext(InfoProvider)
+  // hook context, de datos y referencias
   const { dataOriginal, setDataOriginal, setDataEdition} = useContext(DataProvider);
-
-  const [FormData, setFormData] = useState({}); // valida dataBase
-  const [resultUrl, setResultUrl] = useState([]);
-// ==============================
-
-  useEffect(() => {
-    console.log("=== FUNCION FINAL ===");
-    console.log(resultUrl.domain);
-
-    if(resultUrl.domain){
-      formulario()
-    }
-  }, [resultUrl]);
+  const { setModalActivate } = useContext(InfoProvider);
+  // hooks state, para el evento del formulario y el resultado del fetch()
+  const [formValue, setFormValue] = useState({});
+  const [fetchResult, setFetchResult] = useState([]);
 
   const SendFunction = (event) => {
-    event.preventDefault()
-
-    getJson(FormData.url)
+    // cancela el efecto de enviar el formulario
+    event.preventDefault();
+    // abre una promesa y obten la respuesta del fetch()
+    apiJson(formValue.url)
       .then(data => {
-        console.log(data);
-        setResultUrl(data);
-      });
+        console.log(data)
+        setFetchResult(data);
+      })
   }
 
-  const formulario = () => {
-    // alert()
-    let arrayTag = FormData.tag.split(',')
-    let newItem = {
-      title: resultUrl.domain,
-      tag: arrayTag,
-      url: FormData.url,
-      image:  resultUrl.images[0],
-    }
+  useEffect(() => {
+    // valida si el parametro tiene contenido
+    if(fetchResult.url) formulario()
+    // indica que variable que deseas renderizar al obtener cambio
+  }, [fetchResult]);
 
+  const formulario = () => {
+    // objeto con todos los parametros para el marcador
+    let newItem = {
+      title:  fetchResult.title,
+      sitename: fetchResult.sitename,
+      image:  fetchResult.image,
+      url:  formValue.url,
+      tag:  formValue.tag.split(','),
+    }
+alert(newItem)
+    // copias el objeto ha ambas base de datos
     setDataOriginal([ newItem, ...dataOriginal ])
     setDataEdition([ newItem, ...dataOriginal ])
   }
 
-
-  const CloseFunction = (info) => {
-    console.log(dataOriginal)
-    SetModalValue(info);
-  }
   return(
     <>
       <form className={`${css} js-x`} onSubmit={SendFunction}>
@@ -63,13 +58,13 @@ export default function ModalCreate({css}){
             title="Add New Bookmarks"
             text="save your favorite sites with Saveta">
             <ButtonI
-              fn={() => CloseFunction(false)}
+              fn={() => setModalActivate(false)}
               css={`${css}_header_action`}
               icon="mdi:window-close"
             />
           </HeaderTT>
           <InputText
-            fn={(e) => setFormData({...FormData, url: e.target.value})}
+            fn={(e) => setFormValue( {...formValue, url: e.target.value} )}
             css={`${css}_label`}
             name="url"
             placeholder="saveta.com...">
@@ -78,7 +73,7 @@ export default function ModalCreate({css}){
           </InputText>
           <div className={`${css}_row`}>
           <InputText
-            fn={(e) => setFormData({...FormData, title: e.target.value})}
+            fn={(e) => setFormValue( {...formValue, title: e.target.value} )}
             css={`${css}_label`}
             name="tag"
             placeholder="Webs of favorite...">
@@ -86,7 +81,7 @@ export default function ModalCreate({css}){
             <i className={`iconify ${css}_icon`} data-icon="mdi:form-textbox"></i>
           </InputText>
           <InputText
-            fn={(e) => setFormData({...FormData, tag: e.target.value})}
+            fn={(e) => setFormValue( {...formValue, tag: e.target.value} )}
             css={`${css}_label`}
             name="tag"
             placeholder="movie, games...">
@@ -97,7 +92,7 @@ export default function ModalCreate({css}){
         </section>
         <footer className={`${css}_footer`}>
           <ButtonT
-            fn={() => CloseFunction(false)}
+            fn={() => setModalActivate(false)}
             css={`${css}_button`}>
            Cancel all
           </ButtonT>

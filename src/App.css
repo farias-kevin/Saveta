@@ -1,13 +1,13 @@
-/* RECURSOS*/
-@import "./parts/footerMain.css";
-@import "./parts/cardArticle.css";
-@import "./parts/sectionCard.css";
-@import "./parts/headerTags.css";
-@import "./parts/navBar.css";
-@import "./parts/bannerMain.css";
-@import "./parts/dropdownBox.css";
-@import "./parts/modalCreate.css";
-@import "./parts/modalExport.css";
+/* recursos */
+@import "./parts/bar/navBar.css";
+@import "./parts/footer/footerMain.css";
+@import "./parts/card/cardArticle.css";
+@import "./parts/section/sectionCard.css";
+@import "./parts/header/headerTags.css";
+@import "./parts/section/sectionBanner.css";
+@import "./parts/modal/modalCreate.css";
+@import "./parts/modal/modalExport.css";
+@import "./parts/dropdown/dropdownMenu.css";
 
 :root {
   /* VARIABLE */
@@ -47,6 +47,14 @@
     min-height:100%;
     position:fixed;
   }
+}
+input[type="file"] {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
 }
   /*   display: -webkit-box; */
   /*   -webkit-line-clamp: 1; */

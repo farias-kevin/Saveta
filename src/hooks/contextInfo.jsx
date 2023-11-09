@@ -1,19 +1,20 @@
 import { createContext, useState } from "react";
 
-
-
 // create context
 export const InfoProvider = createContext();
+
 // create function components
 export default function ContextInfo({children}){
-
-  const[ModalValue, SetModalValue] = useState("");
-
+  // hook
+  const [modalActivate, setModalActivate] = useState("");
+  const [resultTextarea, setResultTextarea] = useState("");
 
   // create value data
   const value = {
-    ModalValue,
-    SetModalValue
+    modalActivate,
+    setModalActivate,
+    resultTextarea,
+    setResultTextarea,
   }
 
   // create component and provider
