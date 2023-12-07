@@ -1,5 +1,5 @@
 // funcion >> para filtrar datos
-export default function FunFilterData(dataBase, name){
+const FunFilterData = (dataBase, name) => {
 
   // con filter() elimina los datos repetidos en el array
   let dataNew = dataBase.filter((elem)=> {
@@ -9,4 +9,4 @@ export default function FunFilterData(dataBase, name){
 
   return dataNew;
 }
-
+export default FunFilterData

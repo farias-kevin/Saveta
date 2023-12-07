@@ -9,16 +9,15 @@ const apiJson = async (url) => {
     // Metodo para obtener acceso a la api
     const response =  await fetch(apiUrl);
     const data = await response.json();
+console.log(data)
+
     // parametros selecionados para que se envien en la respuesta
     const dataParameter = {
-      title: data.meta.title,
-      description: data.meta.description,
-      favicon: data.links.icon[0].href,
-      image: data.links.thumbnail[0].href,
-      sitename:data.meta.site,
-      url: data.url,
+      title: data?.meta?.title,
+      description: data?.meta?.description,
+      image: data?.links?.thumbnail?.[0]?.href,
+      favicon: data?.links?.icon?.[0]?.href,
     }
-
     return dataParameter;
     // Metodo para capturar errores en la solicitud
   }catch (error) {

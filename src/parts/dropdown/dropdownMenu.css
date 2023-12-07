@@ -1,40 +1,29 @@
-.DropdownBox {
-    display: block;
-}
-
 .dropdownMenu {
-  position:relative;
-  &_main {
     background: white;
-    border:1px solid cyan;
+    border:1px solid rgba(0,0,0,0.1);
     border-radius: 10px;
-    padding: 0.3em;
+    box-shadow: 1px 1px 15px 1px rgba(0,0,0,0.1);
     display: block;
+    overflow: hidden;
     position:absolute;
     right: 0;
     z-index: 2;
     animation: slideaway 200ms;
-    }
     &_button {
       width: 100%;
-      padding: .5em 1.5em .5em .5em;
-      color:gray;
+      padding: 0.5rem 2rem 0.5rem 1rem;
+      color:#8e8e8e;
       font-family: var(--base);
+      font-size: var(--n);
       white-space: nowrap;
-      border-radius: 5px;
       display: flex;
     }
     &_button:hover {
       background-color: #ebebeb;
     }
+  }
 
-}
-
-.dropdownOpen {
-  display: block;
-  opacity: 1;
-}
-@keyframes slideaway {
-  from { display: block; opacity: 0;}
-  to { transform: translateY(0px); opacity: 1;}
+  @keyframes slideaway {
+    from { display: block; opacity: 0; }
+    to { transform: translateY(0px); opacity: 1;}
 }

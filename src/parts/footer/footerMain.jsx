@@ -1,4 +1,8 @@
-export default function FooterMain({css}){
+// recursos
+import Icon from "../../components/icon"
+
+
+const FooterMain = ({css}) => {
   return(
     <>
       <footer className={`${css}`}>
@@ -6,7 +10,9 @@ export default function FooterMain({css}){
           <p className={`${css}_text`}>v1.23.1109</p>
         </div>
         <figure className={`${css}_media`}>
-          <i className={`iconify ${css}_icon`} data-icon="uiw:github" ></i>
+          <Icon
+            icon={<IconifyGithub/>}
+            css={`${css}_icon`}/>
         </figure>
         <div className={`${css}_aside`}>
           <p className={`${css}_text`}>@Saveta</p>
@@ -15,3 +21,4 @@ export default function FooterMain({css}){
     </>
   )
 }
+export default FooterMain

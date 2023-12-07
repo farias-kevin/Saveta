@@ -1,8 +1,8 @@
-import { ButtonT, ButtonI, ButtonIT } from "../../components/button";
+import Button from "../../components/button";
+import Dropdown from "../../components/dropdown";
+import DropdownMenu from "../dropdown/dropdownMenu";
 
-export default function CardArticle({css, title, text, tag, photo}){
-  // para TRUE, uso el valor y lo estilizo. para FALSE el valor es vacio
-  let valor = tag != undefined ? tag.join(', ') : [];
+const CardArticle = ({css, id, title, text, url, sitename, tag, photo}) => {
 
   function fn_pulsar(e){
     // DETERMINO LAS UBICACIONES
@@ -17,59 +17,50 @@ export default function CardArticle({css, title, text, tag, photo}){
     } else {
       contador[0].textContent = parseInt(valorContador);
     }
-      lugar.value = parseInt(valorContador);
+    lugar.value = parseInt(valorContador);
     console.log(valorContador)
   }
-
-// ============================================================
-
-
-
 
   return(
     <>
       <article className={`${css}`} >
-        <figure className={`${css}_head`}>
-          <img className={`${css}_head_image`} src={photo} alt="image_main" />
-          <ButtonI css={`${css}_option`} icon="mdi:dots-horizontal" />
-        </figure>
-        <div className={`${css}_body`} >
-          <h4 className={`${css}_title`}>
-            {title}
-          </h4>
-          <p className={`${css}_tag`} data-tags={valor}>
-            {valor}
-            {text}
-          </p>
-          <div className={`${css}_action`}>
-            {/* <ButtonIT */}
-            {/*   css={`${css}_action_item`} */}
-            {/*   icon="mdi:eye-outline" > */}
-            {/*   100 M */}
-            {/* </ButtonIT> */}
-            <ButtonT
-              css={`${css}_action_item`}
-              icon="material-symbols:info-outline" >
-              Music
-            </ButtonT>
-            <ButtonIT
-              css={`${css}_action_item`}
-              icon="mdi:link" >
-              Level
-            </ButtonIT>
-            <ButtonIT
-              css={`${css}_action_item`}
-              icon="mdi:heart-outline"
-              value="5" >
-              5
-            </ButtonIT>
-          </div>
+        <header className={`${css}_head`}>
+          <Dropdown
+            id={id}
+            icon={<IconifyDotsHorizontal/>}
+            css={`${css}_option`}>
+            <DropdownMenu
+              id="3"
+              type="dropdownMenu"
+              css={`dropdownTool`}/>
+          </Dropdown>
+          <a href={url}>
+            <img className={`${css}_head_image`} src={photo} alt={title} />
+          </a>
+        </header>
+        <div className={`${css}_body`}>
+          <div className={`${css}_body_dot`} />
+            <div className={`${css}_main`} >
+              <p className={`${css}_text`} >{text}</p>
+              <p className={`${css}_title`}>{title}</p>
+            </div>
+          <footer className={`${css}_footer`}>
+            <Button
+              text="2"
+              // icon={<IconifyFolderOutline/>}
+              // icon={<IconifyStickerTextOutline/>}
+              icon={<IconifyTagOutline/>}
+              css={`${css}_footer_button`}
+            />
+            <Button
+              text="12"
+              icon={<IconifyHeartOutline/>}
+              css={`${css}_footer_button`}
+            />
+          </footer>
         </div>
       </article>
     </>
   );
 }
-
-    {/* {Valor.map((tags) => ( */}
-  {/*   <button className={`${css}_tag_item`} key={crypto.randomUUID()} value={tags}>{tags}</button> */}
-   {/* ))} */}
+export default CardArticle

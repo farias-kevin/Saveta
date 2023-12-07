@@ -1,53 +1,86 @@
 /* Cabecera de categorias */
+/* .SectionCard.animacion .SectionCard_header_container_title, */
+.animacion {
+        animation: myAnim 0.5s ease 0s 1 normal forwards;
+}
+
 .SectionCard {
+  background-color:var(--sectionCardColor);
   position:relative;
-  &_content {
-    padding:2em ;
-    display:grid;
-    grid-template-columns:repeat(3, 0fr);
-    justify-content: center;
-    gap:2em 1em;
+  &_body {
+    /* padding:3rem 4rem; */
+    display:flex;
+    flex-direction: column;
+    gap:1rem;
   }
-  &_aside {
-    position:fixed;
-    bottom: 1em;
-    left:1em;
-    z-index: 1;
-  }
-  &_button{
-    background-color: #DC5D64;
-    height:3.3em;
-    width:3.3em;
-    padding:0 .5em;
-    color: #ffffff;
-    font-family: var(--base);
-    border-radius:100px;
-    box-shadow:4px 4px 8px -1px rgba(0,0,0,0.15);
-    transition:All .2s  ease;
-    display: flex;
-    justify-content: center;
+
+  /* !Cabecera: */
+  &_header {
+    background:#ffffff;
+    padding: 1rem 0;
+    display:flex;
     align-items: center;
-    &_icon {
-      font-size: var(--3xl);
+    gap:1rem;
+    &_container {
+      font-family: var(--title2);
+      color:var(--cardText);
+      display:flex;
+      order: 1;
+      flex-direction: column;
+      &_title {
+        font-size: var(--l);
+        font-weight:var(--bold);
+        text-transform: capitalize;
+      }
+      &_text {
+        font-size: var(--m);
+      }
     }
+    &_container-2 {
+      margin-left: auto;
+      display:flex;
+      order: 2;
+      gap:1rem;
+    }
+  }
+  &_button, &_buttonPrev {
+    color:#8e8e8e;
+    font-family:var(--title);
+    display: flex;
+    align-items: center;
+    gap:0.5rem;
     &_text {
-      width:0%;
-      color:transparent;
-      font-size: var(--n);
-      font-weight: bold;
-      overflow:hidden;
-      text-wrap: nowrap;
-      transition:All .2s  ease;
+      font-size:var(--xm);
+    }
+    &_icon {
+      font-size:var(--n);
     }
   }
-  &_button:hover{
-    width:11em;
-    transition:All .3s  ease-in;
+
+  &_buttonPrev {
+    display: flex;
+    order: 0;
+    &_icon {
+      font-size: var(--xl);
+
+    }
   }
-  &_button:hover &_button_text {
-    color: #ffffff;
-    width:100%;
-    margin-left:.2em;
-    transition:All .3s  ease-in;
+  &_content {
+    padding: 1rem 0;
+    display:grid;
+    grid-template-columns:repeat(4, 0fr);
+    justify-content:flex-start;
+    gap:4rem 1.4rem;
   }
+}
+@keyframes myAnim {
+	0% {
+		opacity: 0;
+		transform: translateY(-50px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }

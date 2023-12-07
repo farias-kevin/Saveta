@@ -1,5 +1,5 @@
 // funcion >> para crear los tag y añadirlos a la database
-export default function FnCreatedTags(dataAll) {
+const FnCreatedTags = (dataAll) => {
 
   // con flatmap() aplanas los elementos del array y retornas un nuevo array
   const tagAll = dataAll.flatMap(data => data.tag)
@@ -29,7 +29,7 @@ export default function FnCreatedTags(dataAll) {
     };
   });
 
-  // con unshit() añades al comienzo del array el nuevo elemento
+  // !opcional: con unshit() añades al comienzo del array el nuevo elemento
   dataUpgrade.unshift({
     /* (INCLUYE ESTE PARAMETRO PARA ANULAR LOS FILTRO ACTIVADO) */
     id: 0,
@@ -39,3 +39,4 @@ export default function FnCreatedTags(dataAll) {
 
   return dataUpgrade;
 }
+export default FnCreatedTags

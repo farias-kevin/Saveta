@@ -14,8 +14,6 @@ const apiJson = async (url) => {
       title: data.title,
       description: data.description,
       image: data.images[0],
-      sitename: data.sitename,
-      url: data.url,
       domain: data.domain,
     }
     return dataParameter;

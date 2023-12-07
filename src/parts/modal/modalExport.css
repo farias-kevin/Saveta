@@ -75,7 +75,7 @@
   }
   &_subtext {
     margin: .5em;
-      font-family: var(--base);
+    font-family: var(--base);
   }
   &_footer {
     display:flex;

@@ -1,19 +1,20 @@
+// recurso
 import { useState, createContext } from "react";
-import dataAll from '../data/dataBookmarks.jsx' // DATA
+import dataAll from '../data/dataBookmarks.json' // DATA
 import FunTagCreated from "../utils/tagCreated.jsx";
 
 
-// 1# crea la instancia del useContext()
-export const DataProvider = createContext();
+// #01: crea la instancia del useContext()
+const DataProvider = createContext();
 
-// 2# crea la funcion de accion del hook
-export default function ContextData({children}){
+// #02: crea la funcion de accion del hook
+const ContextData = ({children}) => {
 
   const [dataOriginal, setDataOriginal] = useState(dataAll);
   const [dataEdition, setDataEdition] = useState(dataOriginal);
   const [tagInfo, setTagInfo] = useState("0");
 
-  // #4 informacion que 'compartira' el proveedor de datos
+  // #04: informacion que 'compartira' el proveedor de datos
   const value = {
     // grupo data
     dataOriginal,
@@ -23,15 +24,14 @@ export default function ContextData({children}){
     // grupo tag
     tagInfo,
     setTagInfo,
-    tagCreate:FunTagCreated(dataOriginal),
+    tagCreate:FunTagCreated(dataOriginal["bookmarks"]),
   }
 
-
-// 3# crea un 'proveedor de datos' que envuelva a los demas componentes
+// #03: crea un 'proveedor de datos' que envuelva a los demas componentes
   return (
     <DataProvider.Provider value={value}>
       {children}
     </DataProvider.Provider>
   )
 }
-
+export { ContextData, DataProvider }

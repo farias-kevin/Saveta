@@ -1,0 +1,85 @@
+{
+  "bookmarks": [
+    {
+      "title": "Give lady of they such they sure it",
+      "sitename": "Google.com",
+      "image": "https://picsum.photos/601",
+      "content": "Give lady of they such they sure it. Me contained explained my education.",
+      "tag": ["GAME", "MOVIE", "MUSIC", "VIDEO", "DOWNLOAD", "SOCIAL NETWORK", "UX/UI"]
+    },
+    {
+      "title": "Facebook Meta",
+      "sitename": "Facebook.net",
+      "image": "https://picsum.photos/602",
+      "content": "instrument out reasonably.",
+      "tag": ["movie"]
+    },
+    {
+      "title": "Me contained explained my education again keeps",
+      "sitename": "X.com",
+      "image": "https://picsum.photos/603",
+      "content": "Again keeps at no meant stuff.",
+      "tag": ["video"]
+    },
+    {
+      "title": "Give lady of they such they sure it",
+      "image": "https://picsum.photos/604",
+      "content": "Again keeps at no meant stuff instrument out reasonably",
+      "tag": ["game", "video"]
+    }
+  ],
+  "activities": [
+    {
+      "text": "implementa la función de búsqueda para el componente search.",
+      "state": "EnProceso"
+    },
+    {
+      "text": "Personalizar el diseño de las tarjetas de los marcadores.",
+      "state": "EnProceso"
+    },
+    {
+      "text": "Mostrar el botón ALL del componente TAG como botón de inicio activo.",
+      "state": "EnProceso"
+    },
+    {
+      "text": "Implementar la función para ordenar los marcadores.",
+      "state": "EnProceso"
+    },
+    {
+      "text": "Establecer un índice de Z-INDEX basado en la importancia del elemento en la página.",
+      "state": "EnProceso"
+    },
+    {
+      "text": "Crear un botón flotante con opciones de borrar, editar y cancelar.",
+      "state": "EnProceso"
+    },
+    {
+      "text": "Desarrollar las funciones para borrar y editar los marcadores.",
+      "state": "EnProceso"
+    },
+    {
+      "text": "desarrollar una función de carrusel para los botones (siguiente y atrás) de los tag.",
+      "state": "Pendiente"
+    },
+    {
+      "text": "crear la página de la sección discover.",
+      "state": "Pendiente"
+    },
+    {
+      "text": "Agregar un contador para los 'Me gusta' o visitas en los marcadores.",
+      "state": "Pendiente"
+    },
+    {
+      "text": "crear un modal para la sección de perfil.",
+      "state": "Pendiente"
+    },
+    {
+      "text": "diseñar la página de inicio (home page).",
+      "state": "Pendiente"
+    },
+    {
+      "text": "implementar una función en el componente section banner para actualizar la fecha al añadir nuevos marcadores.",
+      "state": "Pendiente"
+    }
+  ]
+}

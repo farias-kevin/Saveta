@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { InfoProvider } from "../hooks/contextInfo";
 
 
-export default function Textarea ({css, children, placeholder, value, fn, id}){
+export default function Textarea ({css, children, placeholder, read, id}){
 
   // const [textareaValue, setTextareaValue] = useState('');
   // const { resultTextarea } = useContext(InfoProvider)
@@ -18,6 +18,7 @@ export default function Textarea ({css, children, placeholder, value, fn, id}){
       <label className={`${css}`}>
         <span className={`${css}_text`}>{children}</span>
         <textarea
+          readOnly={read}
           className={`${css}_input`}
           id={id}
           placeholder={placeholder}

@@ -1,18 +1,19 @@
+import Icon from "./icon"
 
-export default function InputText ({css, children, placeholder, name, value, fn}){
+const Input = ({css, icon, type, children, placeholder, name, value, fn}) => {
   return(
-    <>
-      <label className={`${css}`}>
+    <div className={`${css}`} htmlFor={name} >
+      {(children &&
         <span className={`${css}_text`}>{children}</span>
-        <input
-          className={`${css}_input`}
-          onBlur={fn}
-          type="text"
-          name={name}
-          value={value}
-          placeholder={placeholder}
+      )}
+      <input className={`${css}_input`} onChange={fn} type={type} name={name} value={value} placeholder={placeholder}/>
+      {(icon &&
+        <Icon
+          icon={icon}
+          css={`${css}_icon`}
         />
-      </label>
-    </>
+      )}
+    </div>
   )
 }
+export default Input

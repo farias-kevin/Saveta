@@ -2,6 +2,7 @@ import ModalCreate from "../parts/modal/modalCreate.jsx";
 import ModalExport from "../parts/modal/modalExport.jsx";
 import { useContext } from "react";
 import { InfoProvider } from "../hooks/contextInfo.jsx";
+import ModalEdit from "../parts/modal/modalEdit.jsx";
 
 
 export default function Modal ({css}) {
@@ -18,8 +19,10 @@ export default function Modal ({css}) {
           { IsActive == 1 ?
             <ModalCreate css="ModalCreate" />
             : IsActive == 2 ?
-              <ModalExport css="ModalExport" />
-              : null }
+              <ModalEdit css="ModalEdit" />
+              : IsActive == 3 ?
+                <ModalExport css="ModalExport" />
+                : null }
         </aside>
       )}
     </>

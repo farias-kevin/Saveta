@@ -1,0 +1,55 @@
+
+.asideButton {
+  width:100%;
+  padding:1rem 0;
+  position: sticky;
+  bottom:0;
+  /* right:1em; */
+  z-index: 1;
+
+  &_button{
+    transition:All .2s  ease;
+    background-color: #DC5D64;
+    height:3.3em;
+    width:3.3em;
+    padding:0 .5em;
+    color: #ffffff;
+    font-family: var(--base);
+    font-weight: var(--bold);
+    border-radius:100px;
+    box-shadow: 1px 1px 20px 1px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position:absolute;
+    top:-2.5rem;
+    right:-2.8rem;
+    &_icon,
+    &:hover &_icon,
+    &:hover &_text {
+      transition:All .2s  ease;
+    }
+    &:hover {
+      transition:All .3s  ease;
+      width:11em;
+    }
+    &_icon {
+      font-size: var(--xxl);
+    }
+    &:hover &_icon {
+      font-size: var(--xxm);
+    }
+    &_text {
+      transition:All 1s  ease;
+      width:0%;
+      color: #ffffff;
+      font-size: var(--n);
+      overflow:hidden;
+      text-wrap: nowrap;
+    }
+    &:hover &_text {
+      width:100%;
+      margin-left:.2em;
+    }
+  }
+}

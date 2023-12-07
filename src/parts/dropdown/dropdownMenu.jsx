@@ -1,44 +1,73 @@
 // recursos
 import { useContext } from "react"
-import { ButtonI } from "../../components/button"
+import Button from "../../components/button"
 import { InfoProvider } from "../../hooks/contextInfo"
 
-const dropdownMenu = ({id}) => {
+const DropdownMenu = ({id, css, type}) => {
 const { setModalActivate } = useContext(InfoProvider)
 
   return (
     <>
       { (id == 1) ?
-        <div>
-          <ButtonI css={`dropdownMenu_button`}>
+        <div className={`${css} ${type}`} >
+          <Button css={`${type}_button`}>
             Kevin Nico
-          </ButtonI>
-          <ButtonI css={`dropdownMenu_button`}>
+          </Button>
+          <Button css={`${type}_button`}>
             History
-          </ButtonI>
-          <ButtonI css={`dropdownMenu_button`}
-            fn={() => setModalActivate(2)}>
+          </Button>
+          <Button
+            fn={() => setModalActivate(2)}
+            css={`${type}_button`}>
             Backup data
-          </ButtonI>
-          <ButtonI css={`dropdownMenu_button`}>
+          </Button>
+          <Button css={`${type}_button`}>
             Log out
-          </ButtonI>
+          </Button>
         </div>
         : (id == 2) ?
-          <div>
-            <ButtonI css={`dropdownMenu_button`}>
+          <div className={`${css} ${type}`} >
+            <Button css={`${type}_button`}>
               Recent
-            </ButtonI>
-            <ButtonI css={`dropdownMenu_button`}>
+            </Button>
+            <Button css={`${type}_button`}>
               Alphabet
-            </ButtonI>
-            <ButtonI css={`dropdownMenu_button`}>
+            </Button>
+            <Button css={`${type}_button`}>
               A - Z
-            </ButtonI>
+            </Button>
           </div>
-          : null }
+          : (id == 3) ?
+            <div className={`${css} ${type}`} >
+              <Button
+                icon="mdi:pencil-outline"
+                css="dropdownTool_button">
+                Edit
+              </Button>
+              <Button
+                icon="mdi:folder-move-outline"
+                css="dropdownTool_button">
+                Move
+              </Button>
+              <Button
+                icon="mdi:information-slab-circle-outline"
+                css="dropdownTool_button">
+                Info
+              </Button>
+              <Button
+                icon="mdi:flag-outline"
+                css="dropdownTool_button">
+                Report
+              </Button>
+              <Button
+                icon="mdi:delete-outline"
+                css="dropdownTool_button">
+                Delete
+              </Button>
+            </div>
+            : null }
     </>
   )
 }
 
-export default dropdownMenu
+export default DropdownMenu

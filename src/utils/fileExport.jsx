@@ -1,12 +1,7 @@
 
-const fileExport = (site, file, type) => {
-  let blob;
+const fileExport = (site, file) => {
   //
-  if(type === "txt"){
-    blob = new Blob([file], {type: 'application/json'});
-  }else{
-    return
-  }
+  let blob = new Blob([file], {type: 'application/json'});
 
   // url con referencia a 'blob',
   let link = document.getElementById(`${site}`);

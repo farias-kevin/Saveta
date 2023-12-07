@@ -1,20 +1,21 @@
 import { useContext, useState } from "react";
-import {ButtonT} from "../components/button.jsx"
+import Button from "../components/button.jsx"
 
-export default function DropdownBox({css, icon, title, id, children}){
+const Dropdown = ({css, icon, title, value, id, children}) => {
   // Hook
   const [isOpen, setIsOpen] = useState(""); // valida la activacion
 
   const toggleDropdown = (val) => {
+    console.log(val)
     setIsOpen(val);
     if (val) {
       document.addEventListener('click', handleOutsideClick);
     }
   }
-  let car = id
+  // let car = id
   const handleOutsideClick = (event) => {
-    // if (event.target.closest('.js-dropdown')){
-    if (event.target.closest(`#${car}`)){
+    //
+    if (event.target.closest('#N' + id)){
       return;
     }
     setIsOpen("")
@@ -24,19 +25,21 @@ export default function DropdownBox({css, icon, title, id, children}){
 
   return(
     <>
-      <aside className={`Dropdown`} id={id} >
-        <ButtonT
-          fn={() => toggleDropdown(id)}
-          css={css}
-          icon={icon}>
-          {title}
-        </ButtonT>
+      <aside style={{position:"relative"}} id={'N' + id} >
+        <Button
+          css={`${css}`}
+          fn={() => toggleDropdown(id)} value={value}
+          title={title}
+          icon={(icon && icon)}
+          />
         {(isOpen &&
-          <div className={`Dropdown_main`} >
+          <>
             {children}
-          </div>
+          </>
         )}
       </aside>
     </>
   );
 }
+
+export default Dropdown;

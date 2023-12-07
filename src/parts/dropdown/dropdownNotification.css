@@ -1,0 +1,64 @@
+
+.dropdownNotification:before {
+  content:"";
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 25px solid #dc5d64;
+  /* border-bottom: 25px solid #f0f0f0; */
+  border-top: 20px solid transparent;
+  position: absolute;
+  top:-2rem;
+  right:1rem;
+}
+
+
+.dropdownNotification {
+  background: #f0f0f0;
+  width:20rem;
+  border-radius: 0.625rem;
+  box-shadow: 1px 1px 10px 0.1px rgba(0,0,0,0.1);
+  z-index: 11;
+  animation: slideaway 200ms;
+  &_header {
+    /* background: #f0f0f0; */
+    /* color:#8e8e8e; */
+    background-color:#dc5d64;
+    color:#fff;
+    border-radius: 0.625rem 0.625rem 0 0;
+    padding:.7em;
+    font-family: var(--base);
+    font-weight: bold;
+  }
+  &_main {
+    overflow:auto;
+    max-height:17rem;
+  }
+  &_card {
+    background: white;
+    width: 100%;
+    padding: .5em 1em;
+    color:#8e8e8e;
+    font-family: var(--base);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    border-radius: 5px;
+    display: flex;
+    gap:1em;
+  }
+  &_icon {
+    /* background: #f0f0f0; */
+    font-size:var(--xl);
+    display:flex;
+    align-items: flex-start;
+  }
+  &_button {
+    background: #fff;
+    color:#8e8e8e;
+    width:100%;
+    padding:.6em;
+    font-family: var(--base);
+    font-weight: bold;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    border-radius: 0 0 0.625rem 0.625rem;
+  }
+
+}

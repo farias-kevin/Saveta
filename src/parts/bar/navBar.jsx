@@ -1,43 +1,70 @@
 // recursos
 import logoUrl from "../../assets/logoSaveta.png"
-import { ButtonI } from "../../components/button.jsx"
-import { LogoP } from "../../components/logo.jsx"
+import logoUr from "../../assets/LogoSaveta.svg"
+import Button from "../../components/button.jsx"
+import Logo from "../../components/logo.jsx"
 import Search from "../../components/search.jsx"
 import Dropdown from "../../components/dropdown.jsx"
 import DropdownMenu from "../dropdown/dropdownMenu.jsx"
+import DropdownNotification from "../dropdown/dropdownNotification"
+import InputText from "../../components/input.jsx"
 
-
-export default function NavBar({css}){
+const NavBar = ({css}) => {
 
   return(
     <>
       <header className={`${css}`}>
+        <Logo
+          title="Saveta"
+          css={`${css}_logo`}
+          image={logoUr}
+        />
         <div className={`${css}_side`}>
-          <LogoP css={`${css}_logo`} photo={logoUrl}>
-            Saveta
-          </LogoP>
+          <InputText
+            placeholder="Search by bookmarks / @users"
+            css={`${css}_search`}
+            icon={<IconifyMagnify/>}
+          />
         </div>
         <nav className={`${css}_nav`} >
-          <Search
-            css={`${css}_search`}
-            icon="fluent:search-12-filled"
-            text="Search"
+          <Button
+            // title="Activity"
+            css={`${css}_button`}
+            icon={<IconifyBellOutline/>}
           />
-          <ButtonI css={`${css}_button`} icon="tdesign:explore">
-            Discover
-          </ButtonI>
+          <Button
+            // title="Discover"
+            css={`${css}_button`}
+            icon={<IconifyCompassOutline/>}
+          />
+          {/* <Button */}
+          {/*   title="Nicola" */}
+          {/*   css={`${css}_button`} */}
+          {/*   icon={<IconifyEmoticonExcitedOutline/>} */}
+          {/* /> */}
           <Dropdown
-            css={`${css}_button-b`}
-            title="Ni"
+            css={`${css}_button`}
+            icon={<IconifyEmoticonExcitedOutline/>}
+            title="Nicola"
             id="HuthJQPdGc" >
             <DropdownMenu
-              css=""
               id="1"
-            />
+              type="dropdownMenu"
+              css={`${css}_dropdown`}/>
           </Dropdown>
-          <ButtonI css={`${css}_button`} icon="iconamoon:notification-bold" />
+          {/* <Dropdown */}
+          {/*   icon={<IconifyBell/>} */}
+          {/*   id="NsV5xgjzyC" */}
+          {/*   css={`${css}_button`}> */}
+          {/**/}
+          {/*   <DropdownNotification */}
+          {/*     id="3" */}
+          {/*     type="dropdownNotification" */}
+          {/*     css={`${css}_dropdown-notification`}/> */}
+          {/* </Dropdown> */}
         </nav>
       </header>
     </>
   )
 }
+export default NavBar;

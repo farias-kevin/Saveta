@@ -1,27 +1,24 @@
- export const handleOutsideClic = (event) => {
-    if (event.target.closest('.js-dropdown')) {
-      console.log("CHECKLIST");
-      return;
-    }
-    setOpen(false);
-    SetDropdownValue("0");
-  };
+ // export const handleOutsideClic = (event) => {
+ //    if (event.target.closest('.js-dropdown')) {
+ //      console.log("CHECKLIST");
+ //      return;
+ //    }
+ //    setOpen(false);
+ //    SetDropdownValue("0");
+ //  };
 
 
-
-
-export default function fnClickOut(event) {
-  const ClickPosition = e.currentTarget;
-  document.addEventListener("click", clickWindow, true);
-
-  function clickWindow(event){
-    if (event.target.closest('.js-dropdown')) {
-      document.removeEventListener("click", clickWindow, true);
-    }
-     return
-  }
-}
-
+// export default function fnClickOut(event) {
+//   const ClickPosition = e.currentTarget;
+//   document.addEventListener("click", clickWindow, true);
+//
+//   function clickWindow(event){
+//     if (event.target.closest('.js-dropdown')) {
+//       document.removeEventListener("click", clickWindow, true);
+//     }
+//      return
+//   }
+// }
 
 
   // // CON parentNode RETROCEDES LA POSICION PARA OBTENER EL CONTENEDROR PRINCIPAL

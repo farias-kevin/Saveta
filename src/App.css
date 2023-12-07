@@ -1,38 +1,29 @@
 /* recursos */
+@import "./parts/aside/asideButton.css";
 @import "./parts/bar/navBar.css";
-@import "./parts/footer/footerMain.css";
 @import "./parts/card/cardArticle.css";
-@import "./parts/section/sectionCard.css";
+@import "./parts/card/cardNote.css";
+@import "./parts/dropdown/dropdownMenu.css";
+@import "./parts/dropdown/dropdownNotification.css";
+@import "./parts/footer/footerMain.css";
+@import "./parts/header/headerBanner.css";
 @import "./parts/header/headerTags.css";
-@import "./parts/section/sectionBanner.css";
 @import "./parts/modal/modalCreate.css";
 @import "./parts/modal/modalExport.css";
-@import "./parts/dropdown/dropdownMenu.css";
+@import "./parts/modal/modalEdit.css";
+@import "./parts/section/sectionCard.css";
+@import "./parts/section/sectionFolder.css";
+@import "./parts/section/sectionNote.css";
 
-:root {
-  /* VARIABLE */
-  --background1:#ffffff;
-  --background2:#dedede;
-  --color1:#dc5d64;
-  --color2:#F9E4E5;
-  --color3:#f0f0f0;
-  --text1:#8e8e8e;
-  --logoColor:red;
-  --filter: invert(28%) sepia(60%) saturate(3945%) hue-rotate(6deg) brightness(107%) contrast(101%);
-  /* DEFINICION */
-  --bannerColor:var(--background2);
-  --cardColor:var(--background1);
-  --cardText:var(--text1);
-  --cardButton_active:var(--color1);
-  --logoIcon:var(--filter);
-  --logoText:var(--logoColor);
-  --photoColor:var(--background2);
-  --tagNav:var(--text1);
-  --tagColor:var(--color3);
-  --tagText:var(--text1);
-
-
+main {
+  min-height:100svh;
+  padding:2em 3em;
+  overflow: hidden;
+  display: flex;
+  /* flex-direction: column; */
+  gap:1rem;
 }
+
 .Modal {
   background:rgba(0,0,0,0.3);
   min-width:100%;
@@ -41,23 +32,30 @@
   justify-content: center;
   align-items: center;
   position:fixed;
-  z-index:10;
+  z-index:15;
   &_container {
     min-width:100%;
     min-height:100%;
     position:fixed;
   }
 }
-input[type="file"] {
-	width: 0.1px;
-	height: 0.1px;
-	opacity: 0;
-	overflow: hidden;
-	position: absolute;
-	z-index: -1;
+
+:root {
+  /* VARIABLE */
+  --filter: invert(28%) sepia(60%) saturate(3945%) hue-rotate(6deg) brightness(107%) contrast(101%);
+  /* DEFINICION */
+  --bodyColor:#ffffff;
+  --bannerColor:#dedede;
+  --cardColor:#ffffff;
+  --cardText:#8e8e8e;
+  --cardButton_active:#dc5d64;
+  --logoText:#ff7675;
+  --navBarColor:#ff7675;
+  --sectionCardColor:#ffffff;
+  --photoColor:#dedede;
+  --tagNav:#8e8e8e;
+  --tagColor:#f0f0f0;
+  --tagText:#8e8e8e;
+
+
 }
-  /*   display: -webkit-box; */
-  /*   -webkit-line-clamp: 1; */
-  /*   -webkit-box-orient: vertical; */
-  /* box-shadow:4px 4px 8px -1px rgba(0,0,0,0.12); */
-  /* border:1px solid rgba(0,0,0,0.1); */
