@@ -1,10 +1,10 @@
 import Icon from "./icon"
 
-const Input = ({css, icon, type, children, placeholder, name, value, fn}) => {
+const Input = ({css, icon, type, children, text, placeholder, name, value, fn}) => {
   return(
     <div className={`${css}`} htmlFor={name} >
-      {(children &&
-        <span className={`${css}_text`}>{children}</span>
+      {(text &&
+        <span className={`${css}_text`}>{text}</span>
       )}
       <input className={`${css}_input`} onChange={fn} type={type} name={name} value={value} placeholder={placeholder}/>
       {(icon &&

@@ -1,12 +1,13 @@
 // funcion >> para filtrar datos
-const FunFilterData = (dataBase, name) => {
+const funFilterData = (data, nameSearch, dataId) => {
 
   // con filter() elimina los datos repetidos en el array
-  let dataNew = dataBase.filter((elem)=> {
+  let dataNew = data.filter((elem)=> {
     // para evitar errores de búsqueda, lleva el array a texto y a minúsculas
-    return elem.tag.toString().toLowerCase().includes(name)
+    // return elem[dataId].toString().toLowerCase().includes(nameSearch)
+    return elem[dataId].toLowerCase().includes(nameSearch)
   })
 
   return dataNew;
 }
-export default FunFilterData
+export default funFilterData

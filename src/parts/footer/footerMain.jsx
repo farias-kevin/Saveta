@@ -1,7 +1,6 @@
 // recursos
 import Icon from "../../components/icon"
 
-
 const FooterMain = ({css}) => {
   return(
     <>

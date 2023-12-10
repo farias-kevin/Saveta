@@ -7,9 +7,8 @@ import { useContext, useEffect, useState } from "react"
 import { DataProvider } from "../../hooks/contextData.jsx"
 import { InfoProvider } from "../../hooks/contextInfo.jsx"
 import apiJson from "../../data/apiJson-iframely.jsx"
-import EditorUrl from "../../utils/editorUrl.jsx"
-import GetDate from "../../utils/getDate.jsx"
-import Icon from "../../components/icon.jsx"
+import editorUrl from "../../utils/editorUrl.jsx"
+import getDate from "../../utils/getDate.jsx"
 
 
 const ModalCreate = ({css}) => {
@@ -47,13 +46,13 @@ const ModalCreate = ({css}) => {
     // objeto con todos los parametros para el marcador
     let newItem = {
       title:  fetchResult?.title,
-      nickname:  formValue?.title,
       description:  fetchResult?.description,
-      sitename: EditorUrl(formValue?.url),
       image:  fetchResult?.image,
       favicon:  fetchResult?.favicon,
+      sitename: editorUrl(formValue?.url),
+      date: getDate,
+      nickname:  formValue?.title,
       tag:  formValue?.tag,
-      date: GetDate,
       url:  formValue?.url,
     }
     // Para no sobrescribir los datos, copias los valores de dataOriginal
@@ -74,48 +73,33 @@ const ModalCreate = ({css}) => {
           css={`${css}_buttonClose`}
           icon={<IconifyWindowClose/>}
         />
-        <Header css={`js-title ${css}_header`}
+        <Header css={`${css}_header`}
           title="Add New Bookmarks"
           text="save your favorite sites with Saveta">
         </Header>
         <section className={`${css}_main`}>
-          <label className={`${css}_label`} >
-            <Icon
-              css={`${css}_label_icon`}
-              icon={<IconifyLink/>}
-            />
-            <Input
-              fn={(e) => setFormValue( {...formValue, url: e.target.value} )}
-              placeholder="Website link (Eg: http://www.saveta.com...)"
-              name="url"
-              type="url"
-              css={`${css}_label_field`}
-            />
-          </label>
-          {/* <label className={`${css}_label`} > */}
-          {/*   <Icon */}
-          {/*     css={`${css}_label_icon`} */}
-          {/*     icon={<IconifyFormTextbox/>} */}
-          {/*   /> */}
-          {/*   <Input */}
-          {/*     fn={event => setFormValue( {...formValue, title:event.target.value} )} */}
-          {/*     placeholder="Bookmark title (Eg: Webs of favorite...)" */}
-          {/*     name="tag" */}
-          {/*     css={`${css}_label_field`} */}
-          {/*   /> */}
-          {/* </label> */}
-          <div className={`${css}_label`} >
-            <Icon
-              css={`${css}_label_icon`}
-              icon={<IconifyMapMarkerOutline/>}
-            />
-            <InputTag
-              placeholder="Enter a tag and press Space"
-              id="VlRmPyArU8"
-              keyboard=" "
-              css={`${css}_label_fieldTag`}
-            />
-          </div>
+          <Input
+            fn={(e) => setFormValue( {...formValue, url: e.target.value} )}
+            placeholder="Website link (Eg: http://www.saveta.com...)"
+            name="url"
+            icon={<IconifyLink/>}
+            type="url"
+            css={`${css}_label`}
+          />
+          <Input
+            fn={event => setFormValue( {...formValue, title:event.target.value} )}
+            placeholder="Folder title (Eg: Articles...)"
+            name="tag"
+            icon={<IconifyFolderOutline/>}
+            css={`${css}_label`}
+          />
+          <InputTag
+            placeholder="Enter a tag and press Space"
+            id="VlRmPyArU8"
+            icon={<IconifyMapMarkerOutline/>}
+            keyboard=" "
+            css={`${css}_labelTag`}
+          />
         </section>
         <footer className={`${css}_footer`}>
           <Button

@@ -1,10 +1,13 @@
 /* Cabecera de categorias */
-/* .SectionCard.animacion .SectionCard_header_container_title, */
-.animacion {
-        animation: myAnim 0.5s ease 0s 1 normal forwards;
+.animacionA {
+  animation: myAnimA 0.5s ease 0s 1 normal forwards;
+}
+.animacionB {
+  animation: myAnimB 0.3s ease 0s 1 normal forwards;
 }
 
-.SectionCard {
+.sectionCard {
+  width: 100em;
   background-color:var(--sectionCardColor);
   position:relative;
   &_body {
@@ -27,14 +30,14 @@
       display:flex;
       order: 1;
       flex-direction: column;
-      &_title {
-        font-size: var(--l);
-        font-weight:var(--bold);
-        text-transform: capitalize;
-      }
-      &_text {
-        font-size: var(--m);
-      }
+    }
+    &_title {
+      font-size: var(--l);
+      font-weight:var(--bold);
+      text-transform: capitalize;
+    }
+    &_text {
+      font-size: var(--m);
     }
     &_container-2 {
       margin-left: auto;
@@ -62,7 +65,6 @@
     order: 0;
     &_icon {
       font-size: var(--xl);
-
     }
   }
   &_content {
@@ -73,14 +75,23 @@
     gap:4rem 1.4rem;
   }
 }
-@keyframes myAnim {
+@keyframes myAnimA {
 	0% {
 		opacity: 0;
-		transform: translateY(-50px);
+		transform: translateY(-150px);
 	}
-
 	100% {
 		opacity: 1;
 		transform: translateY(0);
+	}
+
+}@keyframes myAnimB {
+	0% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+	100% {
+		opacity: 0;
+		transform: translateY(250px);
 	}
 }

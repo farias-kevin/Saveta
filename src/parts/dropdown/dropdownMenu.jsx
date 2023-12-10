@@ -40,27 +40,27 @@ const { setModalActivate } = useContext(InfoProvider)
           : (id == 3) ?
             <div className={`${css} ${type}`} >
               <Button
-                icon="mdi:pencil-outline"
+                icon={<IconifyPencilOutline/>}
                 css="dropdownTool_button">
                 Edit
               </Button>
               <Button
-                icon="mdi:folder-move-outline"
+                icon={<IconifyFolderMoveOutline/>}
                 css="dropdownTool_button">
                 Move
               </Button>
               <Button
-                icon="mdi:information-slab-circle-outline"
+                icon={<IconifyInformationSlabCircleOutline/>}
                 css="dropdownTool_button">
                 Info
               </Button>
+              {/* <Button */}
+              {/*   icon={<IconifyFlagOutline/>} */}
+              {/*   css="dropdownTool_button"> */}
+              {/*   Report */}
+              {/* </Button> */}
               <Button
-                icon="mdi:flag-outline"
-                css="dropdownTool_button">
-                Report
-              </Button>
-              <Button
-                icon="mdi:delete-outline"
+                icon={<IconifyDeleteOutline/>}
                 css="dropdownTool_button">
                 Delete
               </Button>

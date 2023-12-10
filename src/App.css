@@ -1,6 +1,7 @@
 /* recursos */
 @import "./parts/aside/asideButton.css";
 @import "./parts/bar/navBar.css";
+@import "./parts/bar/sideBar.css";
 @import "./parts/card/cardArticle.css";
 @import "./parts/card/cardNote.css";
 @import "./parts/dropdown/dropdownMenu.css";
@@ -12,9 +13,14 @@
 @import "./parts/modal/modalExport.css";
 @import "./parts/modal/modalEdit.css";
 @import "./parts/section/sectionCard.css";
-@import "./parts/section/sectionFolder.css";
 @import "./parts/section/sectionNote.css";
 
+body {
+  /* padding-top:4rem; */
+}
+hr {
+  height: 4em;
+}
 main {
   min-height:100svh;
   padding:2em 3em;

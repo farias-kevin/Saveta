@@ -1,7 +1,8 @@
 import  { useState } from "react";
 import Button from "../components/button";
+import Icon from "../components/icon";
 
-const InputTag = ({css, id, keyboard, placeholder}) => {
+const InputTag = ({css, id, icon, keyboard, placeholder}) => {
   //
   const [tags, setTags] = useState([]);
   const [inputValue, setInputValue] = useState("");
@@ -26,19 +27,24 @@ const InputTag = ({css, id, keyboard, placeholder}) => {
 
   return (
     <>
-      <div className={`${css}`} id={id}>
+      <label className={`${css} goB`} htmlFor="kev" id={id}>
         {tags.map((tag,index) => (
           <Button
             key={index}
             fn={() => removeTag(tag)}
             title="x"
+            type="button"
             text={tag}
             css={`${css}_item`}
           />
         ))}
-        <input className={`${css}_input`} value={inputValue} onChange={InputChange} placeholder={placeholder} />
+        <input className={`${css}_input goA`} id="kev" value={inputValue} onChange={InputChange} placeholder={placeholder} />
         <div className="foco" />
-      </div>
+        <Icon
+          icon={icon}
+          css={`${css}_icon`}
+        />
+      </label>
    </>
   );
 };
