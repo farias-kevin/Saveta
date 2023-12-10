@@ -1,9 +1,9 @@
 import Icon from "./icon"
 
-const Button = ({name, text, title, css, fn, value, icon, children}) => {
+const Button = ({name, text, title, css, fn, value, type, icon, children}) => {
   return(
     <>
-      <button className={`${css}`} onClick={fn} name={name} value={value} >
+      <button className={`${css}`} onClick={fn} type={type} name={name} value={value} >
         {(icon &&
           <Icon
             icon={icon}
@@ -11,7 +11,7 @@ const Button = ({name, text, title, css, fn, value, icon, children}) => {
           />
         )}
         {(children &&
-          <span className={`${css}_text`}>{children}</span>
+          <div className={`${css}_text`}>{children}</div>
         )}
         {(title &&
           <span className={`${css}_title`}>{title}</span>

@@ -1,11 +1,10 @@
 
 .here.here{
   width:50%;
-  /* display:block; */
   transition: all 0.5s ease-in;
 }
 
-.sectionFolder {
+.sideBar {
   width:0%;
   transition: all 0.5s ease-out;
   &_body {
@@ -29,7 +28,7 @@
       display:flex;
       order: 1;
       flex-direction: column;
-
+    }
     &_title {
       font-size: var(--l);
       font-weight:var(--bold);
@@ -39,7 +38,6 @@
       font-size: var(--s);
     }
   }
-}
 
   &_main {
     /* background: #f0f0f0; */
@@ -58,9 +56,8 @@
     display:flex;
     align-items: center;
     gap:0.5rem;
-    &_box {
+    &_container {
       display:flex;
-      /* background: #ff7675; */
       flex-direction: column;
       gap:0.2em;
     }

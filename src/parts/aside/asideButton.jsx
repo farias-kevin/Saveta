@@ -10,8 +10,8 @@ const AsideButton = ({css}) => {
     <aside className={`${css}`}>
       <Button
         fn={() => setModalActivate(1)}
-        text="Add Bookmarks"
-        icon={<IconifyPlusCircleOutline/>}
+        text="Go up!"
+        icon={<IconifyChevronUpCircleOutline/>}
         css={`${css}_button`}
       />
     </aside>

@@ -1,5 +1,5 @@
 .CardArticle{
-  background-color:var(--cardColor);
+  /* background-color:var(--cardColor); */
   width:13rem;
   border-radius: 1rem;
   box-shadow: rgba(149, 157, 165, 0.15) 0px 3px 6px 0px;
@@ -51,7 +51,7 @@
     gap:0.8rem;
     position: relative;
     &_dot {
-      background:#fff;
+      background:#ffffff;
       width:100%;
       height:0.5em;
       border-radius: 35px 35px 0 0;
@@ -121,14 +121,16 @@
     padding: 0.4rem 0.8rem;
     padding-right: 2.8rem;
     color:#8e8e8e;
-    font-family: var(--base);
-    font-size: var(--n);
+    font-family: var(--title2);
     font-weight: var(--semibold);
     display:flex;
     align-items: center;
     gap:0.6rem;
     &_icon {
-      font-size: var(--xxm);
+      font-size: var(--m);
+    }
+    &_text {
+      font-size: var(--xs);
     }
   }
   &_button:hover {

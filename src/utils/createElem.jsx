@@ -12,7 +12,6 @@ const FnCreatedTags = (dataAll) => {
 
   // recorre los elementos unicos
   const dataUpgrade = tagNames.map((name, indice) => {
-
     // ahora recorres
     const counterNum = tagAll.reduce((counter, data) => {
       // con includes() buscas coincidencia entre el elemento y los datos

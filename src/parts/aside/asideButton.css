@@ -1,10 +1,10 @@
 
 .asideButton {
   width:100%;
-  padding:1rem 0;
-  position: sticky;
-  bottom:0;
-  /* right:1em; */
+  height:1em;
+  /* position: fixed; */
+  bottom:0rem;
+  right:1em;
   z-index: 1;
 
   &_button{
@@ -21,9 +21,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    position:absolute;
-    top:-2.5rem;
-    right:-2.8rem;
+    /* position:absolute; */
+    position:fixed;
+    bottom:1rem;
+    right:1rem;
     &_icon,
     &:hover &_icon,
     &:hover &_text {
@@ -31,7 +32,7 @@
     }
     &:hover {
       transition:All .3s  ease;
-      width:11em;
+      width:7em;
     }
     &_icon {
       font-size: var(--xxl);

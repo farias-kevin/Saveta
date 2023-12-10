@@ -29,10 +29,13 @@ const NavBar = ({css}) => {
         <nav className={`${css}_nav`} >
           <Button
             // title="Activity"
+            text="New"
             css={`${css}_button`}
-            icon={<IconifyBellOutline/>}
+            icon={<IconifyPlus/>}
+            // icon={<IconifyBellOutline/>}
           />
           <Button
+            text="Explore"
             // title="Discover"
             css={`${css}_button`}
             icon={<IconifyCompassOutline/>}

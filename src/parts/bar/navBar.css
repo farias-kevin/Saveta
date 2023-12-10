@@ -5,12 +5,15 @@
   color:#fff;
   height:4em;
   padding:0 2em;
-  /* border-bottom:1px solid rgba(0,0,0,0.1); */
-  /* box-shadow: 0 3px 6px 1px rgba(149, 157, 165, 0.15); */
+  box-shadow:0 3px 6px 1px rgba(149, 157, 165, 0.15);
   display:flex;
   justify-content:space-between;
   align-items:center;
   gap:0.8em;
+  position: fixed;
+  z-index:10;
+  width: 100%;
+  top:0;
 
   /* !logo: */
   &_logo {
@@ -79,9 +82,14 @@
     display:flex;
     gap:0.5rem;
     align-items: center;
-    /* flex-direction: row-reverse; */
     &_icon {
       font-size: var(--xxm);
+    }
+    &_text {
+      display:none;
+    }
+    &:last-child &_text {
+      display:flex;
     }
   }
   &_button:hover, &_profile:hover {
