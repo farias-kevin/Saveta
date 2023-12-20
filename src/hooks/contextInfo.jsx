@@ -1,5 +1,5 @@
 // recursos
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import createTag from "../utils/createTag";
 
 
@@ -11,15 +11,21 @@ const ContextInfo = ({children}) => {
   // hook
   const [modalActivate, setModalActivate] = useState("");
   const [resultTextarea, setResultTextarea] = useState("");
-  const [nameFolder, setNameFolder] = useState("");
+  const [nameFolder, setNameFolder] = useState("All Bookmarks");
   const [tagInfo, setTagInfo] = useState( {} );
-  const [buttonName, setButtonName] = useState("all");
+  const [buttonTagName, setButtonTagName] = useState("all");
+  const [infoDropdown, setInfoDropdown] = useState("");
 
   // #04: informacion que 'compartira' el proveedor de datos
+  useEffect(() => {
+    tagInfo
+  },[nameFolder])
+
+
   const value = {
     //
-    buttonName,
-    setButtonName,
+    buttonTagName,
+    setButtonTagName,
     //
     modalActivate,
     setModalActivate,
@@ -30,8 +36,11 @@ const ContextInfo = ({children}) => {
     tagInfo,
     setTagInfo,
     //
-    setNameFolder,
     nameFolder,
+    setNameFolder,
+    //
+    infoDropdown,
+    setInfoDropdown
   }
 
 // #03: crea un 'proveedor de datos' que envuelva a los demas componentes

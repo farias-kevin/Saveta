@@ -1,0 +1,15 @@
+/* !cardBookmark: */
+.cardBookmark_header {
+  &_dropdown {
+    position:absolute;
+    top: 0.6rem;
+    right:0.4em;
+  }
+}
+
+/* !navBar: */
+.navBar_nav {
+  &_dropdown {
+    position: relative;
+  }
+}

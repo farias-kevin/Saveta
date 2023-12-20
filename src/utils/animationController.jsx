@@ -1,5 +1,6 @@
 
-const animationElem = (location, animationEntrace, time, animationExit) => {
+const animationController = (location, animationEntrace, time, animationExit) => {
+  if(location === null) return
   //
   let element = document.getElementById(location);
   element.classList.add(animationExit)
@@ -10,4 +11,4 @@ const animationElem = (location, animationEntrace, time, animationExit) => {
   }, time);
 }
 
-export default animationElem
+export default animationController

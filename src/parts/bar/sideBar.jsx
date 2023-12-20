@@ -1,29 +1,29 @@
 
-import Card from "../../components/card.jsx"
-import Header from "../../components/header"
-import { useContext, useEffect } from "react"
+import "./sideBar.css";
+import Card from "../../components/card/card.jsx"
+import Header from "../../components/header/header.jsx"
+import { useContext } from "react"
 import { DataProvider } from "../../hooks/contextData"
 import { InfoProvider } from "../../hooks/contextInfo"
-import funFilterData from "../../utils/filterData.jsx";
-import animationElem from "../../utils/animationElem.jsx"
+import filterData from "../../utils/filterData.jsx";
+import animationController from "../../utils/animationController";
 
 const SideBar = ({css}) => {
   //
-  const { dataOriginal, setDataEditFolder, folderCreate } = useContext(DataProvider);
-  const { setNameFolder, setButtonName } = useContext(InfoProvider);
+  const { dataOriginal, setDataEditFolder, folderData } = useContext(DataProvider);
+  const { setNameFolder, setButtonTagName } = useContext(InfoProvider);
 
   function ButtonFolder(titleFolder){
-    // para hook state
-    let newInfo = (titleFolder == "all")
-      ? dataOriginal["bookmarks"]
-      : funFilterData(dataOriginal["bookmarks"], titleFolder, "folder");
 
     //animacion
-    animationElem("aaa", "animacionA", 300, "animacionB")
+    animationController("aaa", "animacionA", 300, "animacionB")
     setTimeout(() => {
-      setButtonName("all")
+      setButtonTagName("all")
       setNameFolder(titleFolder);
-      setDataEditFolder( {...dataOriginal, bookmarks: newInfo})
+      setDataEditFolder({
+        ...dataOriginal,
+        bookmarks: filterData(dataOriginal["bookmarks"], "folder", titleFolder, 'All Bookmarks')
+      })
     },100)
   }
 
@@ -37,20 +37,19 @@ const SideBar = ({css}) => {
         />
         <div className={`${css}_main`}>
           <Card
-            fn={() => ButtonFolder("all")}
-
+            fn={() => ButtonFolder("All Bookmarks", 0)}
             title="All Bookmarks"
             text="folder"
-            icon={<IconifyDotsCircle/>}
+            icon={<IconifyFolderOpenOutline/>}
             css={`${css}_card`}
           />
-          {folderCreate.map(elem => (
+          {folderData.map(elem => (
             <Card
-              fn={() => ButtonFolder(elem.name)}
               key={crypto.randomUUID()}
+              fn={() => ButtonFolder(elem.name, crypto.randomUUID())}
               title={elem.name}
               text="folder"
-              icon={<IconifyDotsCircle/>}
+              icon={<IconifyFolderOpenOutline/>}
               css={`${css}_card`}
             />
           ))}

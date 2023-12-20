@@ -15,26 +15,6 @@
 	/* Font weight */
 		--extrabold:800;  --bold:700;  --semibold:600;  --medium:500;  --regular:400; --light:300;
 	/* Font size */
-  /*
-		--3xh:  3.313rem;
-    --xxh:  3.000rem;
-    --xh:   2.688rem;
-    --h:    2.438rem;
-    --3xl:  2.188rem;
-    --xxl:  1.938rem;
-    --xl:   1.750rem;
-    --l:    1.563rem;
-    --3xm:  1.375rem;
-    --xxm:  1.250rem;
-    --xm:   1.125rem;
-    --m:    1.000rem;
-    --n:    1.000rem;
-    --s:    0.938rem;
-    --xs:   13px;
-    --xxs:  12px;
-    --3xs:  0.6875rem;
-*/
-
     --xxh:  2.625rem;
     --xh:   2.375rem;
     --h:    2.125rem;
@@ -55,8 +35,8 @@
 *,
 *::before,
 *::after {
-  padding: 0;
-  margin: 0;
+  padding: 0px;
+  margin: 0px;
   border:0px;
   box-sizing: border-box;
   color: inherit;
@@ -100,14 +80,20 @@ summary {
 button {
   background-color: transparent;
 }
-input {
-  appearance: none;
-}
 input[type="file"] {
 	width: 0.1px;
 	height: 0.1px;
-	opacity: 0;
-	overflow: hidden;
-	position: absolute;
-	z-index: -1;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+input {
+  appearance: none;
+  &:focus {
+    outline: none;
+  }
+  &::placeholder {
+    color:rgba(0,0,0,0.3);
+  }
 }

@@ -1,6 +1,6 @@
 // recursos
 import { useContext } from "react";
-import { InfoProvider } from "../hooks/contextInfo";
+import { InfoProvider } from "../../hooks/contextInfo";
 
 
 export default function Textarea ({css, children, placeholder, read, id}){

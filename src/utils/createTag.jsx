@@ -4,7 +4,8 @@ const createTag = (dataAll, idObject) => {
   // con flatmap() aplanas los elementos del array y retornas un nuevo array
   const tagAll = dataAll.flatMap(data => data[idObject].split(","))
   // continuas trabajando en la variable 'tagAll' al adjuntar un .map()
-  .map(elem => elem.toLowerCase());
+  .map(elem => elem.trim().toLowerCase());
+
 
   // con new set() eliminas los valores duplicados
   // luego con '...' clonas el resultado en un nuevo array
@@ -20,14 +21,8 @@ const createTag = (dataAll, idObject) => {
     }
   ));
 
-  // dataUpgrade.unshift({
-  //       num: dataAll.length,
-  //       name: 'All xd',
-  //       id: 0,
-  //   })
-
-
   return dataUpgrade;
 }
 
 export default createTag
+

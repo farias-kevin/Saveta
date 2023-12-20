@@ -1,0 +1,32 @@
+.dropdownNav {
+  background: white;
+  margin-top:0.2rem;
+  padding:0.3rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction:column;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  position:absolute;
+  top:100%;
+  right:0.4em;
+  z-index: 2;
+  animation: slideaway 200ms;
+  &_button {
+    padding: 0.4rem 1rem;
+    color:#8e8e8e;
+    font-family: var(--title2);
+    font-weight: var(--semibold);
+    font-size: var(--s);
+    text-align: left;
+    white-space: nowrap;
+  }
+  &_button:hover {
+    background-color: #ebebeb;
+  }
+}
+
+
+@keyframes slideaway {
+    from { display: block; opacity: 0; }
+    to { transform: translateY(0px); opacity: 1;}
+}

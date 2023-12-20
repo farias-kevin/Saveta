@@ -1,8 +1,10 @@
-/* Cabecera principal */
-.NavBar {
+/*
+!Cabecera:
+ */
+.navBar {
   background-color:var(--navBarColor);
   background-color:#ff7675;
-  color:#fff;
+  color:#ffffff;
   height:4em;
   padding:0 2em;
   box-shadow:0 3px 6px 1px rgba(149, 157, 165, 0.15);
@@ -14,104 +16,9 @@
   z-index:10;
   width: 100%;
   top:0;
-
-  /* !logo: */
-  &_logo {
-    display:flex;
-    align-items: center;
-    gap:0.5em;
-    &_title {
-      color:var(--logoText);
-      /* color:#ff7675; */
-      color:#fff;
-      font-family:var(--title);
-      font-size:var(--xl);
-    }
-    &_image {
-      height: 2em;
-    }
-  }
-
-  &_search {
-    background-color: #fff;
-    padding-left:1rem;
-    padding-right:2rem;
-    color:#8e8e8e;
-    border-radius: 10px;
-    display:flex;
-    align-items:center;
-    position: relative;
-    &_icon {
-      font-size:var(--xm);
-      position: absolute;
-      right: 0.5rem;
-    }
-    &_input {
-      width:25em;
-      padding:.6em 0;
-      background: transparent;
-      font-family: var(--title2);
-      font-size: var(--s);
-      font-weight: var(--semibold);
-      /* height:2em; */
-      transition: all 0.5s ease;
-    }
-    &_input::placeholder {
-      color:rgba(0,0,0,0.3);
-    }
-    &_input:focus {
-      transition: all 0.5s ease;
-    }
-  }
-  /* !navegacion: */
   &_nav {
     display:flex;
     align-items:center;
     gap:0 0.5em;
-  }
-  &_button-b, &_button {
-    /* color:#8f8f8f; */
-    font-size: var(--n);
-    font-weight: var(--bold);
-    font-family: var(--title2);
-  }
-  &_button {
-    background-color:transparent;
-    padding:0.4rem 0.6rem;
-    border-radius: 10px;
-    display:flex;
-    gap:0.5rem;
-    align-items: center;
-    &_icon {
-      font-size: var(--xxm);
-    }
-    &_text {
-      display:none;
-    }
-    &:last-child &_text {
-      display:flex;
-    }
-  }
-  &_button:hover, &_profile:hover {
-    background-color: #faeaeb;
-    color:#DC5D64;
-  }
-  &_button-b{
-    background-color:var(--background2);
-    height:2.2em;
-    width:2.2em;
-    font-size: var(--xm);
-    text-align: center;
-    font-style: oblique;
-    border:2px solid white;
-    outline:2px solid var(--color4);
-    border-radius: 100%;
-    transition: all .5s ease;
-  }
-
-  &_dropdown-notification {
-    position:absolute;
-    right: -1em;
-    top:3.4em;
   }
 }

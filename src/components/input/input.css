@@ -1,0 +1,59 @@
+/*
+!modalCreate:
+!modalEdit:
+ */
+.modalCreate_field,
+.modalEdit_field {
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  border:1px solid rgba(0,0,0,0.2);
+  position: relative;
+  &_icon {
+    font-size: var(--xm);
+    position: absolute;
+    left:0.8rem;
+  }
+  &_input {
+    background: transparent;
+    padding: 0.6rem 0.6rem;
+    padding-left: 3rem;
+    font-weight: var(--semibold);
+    font-family: var(--title2);
+    font-size: var(--s);
+    border-radius: 10px;
+    border:1px solid transparent;
+    flex: 1;
+    &:focus {
+      border:1px solid yellow;
+    }
+  }
+}
+
+/* !modalCreate: */
+.dropdownBookmark_field {
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  border:1px solid rgba(0,0,0,0.2);
+  position: relative;
+  &_icon {
+    font-size: var(--m);
+    position: absolute;
+    left:0.8rem;
+  }
+  &_input {
+    background: transparent;
+    padding: 0.5rem 0.5rem;
+    padding-left: 3rem;
+    font-weight: var(--semibold);
+    font-family: var(--title2);
+    font-size: var(--s);
+    border-radius: 10px;
+    border:1px solid transparent;
+    flex: 1;
+    &:focus {
+      border:1px solid yellow;
+    }
+  }
+}

@@ -1,6 +1,12 @@
-const Header = ({title, text, children, css}) => {
-  return(
-    <header className={`${css}`}>
+import "./card.css"
+
+const Card = ({css, icon, text, title, fn, children}) => {
+
+  return (
+    <article className={`${css}`} onClick={fn}>
+      {(icon &&
+        <i className={`${css}_icon`}>{icon}</i>
+      )}
       <div className={`${css}_container`}>
         {(title &&
           <p className={`${css}_title`}>{title}</p>
@@ -12,8 +18,8 @@ const Header = ({title, text, children, css}) => {
       {(children &&
         <>{children}</>
       )}
-    </header>
+    </article>
   )
 }
 
-export default Header
+export default Card

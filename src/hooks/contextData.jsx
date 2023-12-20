@@ -13,12 +13,8 @@ const ContextData = ({children}) => {
   const [dataOriginal, setDataOriginal] = useState(dataAll);
   const [dataEditFolder, setDataEditFolder] = useState(dataOriginal);
   const [dataEditTag, setDataEditTag] = useState(dataEditFolder);
-  //
-  const [folderCreate, setFolderCreate] = useState( createTag(dataOriginal["bookmarks"], "folder") );
-  const [tagCreate, setTagCreate] = useState( createTag(dataEditFolder["bookmarks"], "tag") );
-  //
+
   useEffect(() => {
-    setTagCreate( createTag(dataEditFolder["bookmarks"], "tag") )
     setDataEditTag( {...dataEditTag, bookmarks: dataEditFolder["bookmarks"]} )
   },[dataEditFolder])
 
@@ -32,10 +28,8 @@ const ContextData = ({children}) => {
     setDataEditFolder,
     setDataEditTag,
     // grupo create
-    folderCreate,
-    tagCreate,
-    setTagCreate,
-    setFolderCreate,
+    folderData:createTag(dataOriginal["bookmarks"], "folder"),
+    tagData:createTag(dataEditFolder["bookmarks"], "tag"),
   }
 
 // #03: crea un 'proveedor de datos' que envuelva a los demas componentes

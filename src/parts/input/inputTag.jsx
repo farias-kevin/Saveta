@@ -1,6 +1,6 @@
 import  { useState } from "react";
-import Button from "../components/button";
-import Icon from "../components/icon";
+import Button from "../../components/button/button.jsx";
+import Input from "../../components/input/input.jsx";
 
 const InputTag = ({css, id, icon, keyboard, placeholder}) => {
   //
@@ -27,7 +27,7 @@ const InputTag = ({css, id, icon, keyboard, placeholder}) => {
 
   return (
     <>
-      <label className={`${css} goB`} htmlFor="kev" id={id}>
+      <label className={`${css}`} htmlFor="kev" id={id}>
         {tags.map((tag,index) => (
           <Button
             key={index}
@@ -38,14 +38,17 @@ const InputTag = ({css, id, icon, keyboard, placeholder}) => {
             css={`${css}_item`}
           />
         ))}
-        <input className={`${css}_input goA`} id="kev" value={inputValue} onChange={InputChange} placeholder={placeholder} />
-        <div className="foco" />
-        <Icon
+        <Input
+          css={`${css}_field`}
+          fn={InputChange}
+          name="kev"
           icon={icon}
-          css={`${css}_icon`}
-        />
+          value={inputValue}
+          placeholder={placeholder}>
+          <div className="foco" />
+        </Input>
       </label>
-   </>
+    </>
   );
 };
 

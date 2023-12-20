@@ -1,11 +1,10 @@
 /* recursos */
-import Icon from "../../components/icon"
 
 const CardList = ({css, icon, text}) => {
   return (
     <>
       <article className={`${css}`}>
-        <Icon css={`${css}_icon`} icon={icon}/>
+        <i className={`${css}_icon`}>{icon}</i>
         <span className={`${css}_text`}>{text}</span>
       </article>
     </>

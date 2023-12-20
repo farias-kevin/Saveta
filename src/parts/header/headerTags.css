@@ -1,30 +1,28 @@
 .HeaderTags {
+  /* width: 100%; */
   background-color:#ffffff;
   padding: 1rem 0;
   display:flex;
   justify-content:space-between;
   &_tag {
+  /* width: 100%; */
+    padding:.5em 0;
     position: relative;
     display: flex;
+    flex-wrap: wrap;
     align-items:center;
-    &_nav {
-      padding:0.5rem ;
-      color:var(--tagNav);
-      font-size:var(--m);
-      position:relative;
-      display:none;
-    }
-    &_container {
-      padding:.5em 0;
-      overflow-x:auto;
-      display:flex;
-      flex: auto 0 1;
-      flex-wrap: wrap;
-      align-items:center;
       gap:.5em;
-    }
-    &_button,
-    &_buttonON {
+    /* &_container { */
+    /*   padding:.5em 0; */
+    /*   overflow-x:auto; */
+    /*   display:flex; */
+    /*   flex: auto 0 1; */
+    /*   flex-wrap: wrap; */
+    /*   align-items:center; */
+    /*   gap:.5em; */
+    /* } */
+    &_item,
+    &_itemON {
       background-color:var(--tagColor);
       padding:.5em .8em;
       height:max-content;
@@ -37,48 +35,15 @@
       border-radius:10px;
       transform: scale(1);
     }
-    &_buttonON {
+    &_itemON {
       background-color:#404040;
       color:white;
     }
-    &_button:hover,
-    &_buttonON:hover {
+    &_item:hover,
+    &_itemON:hover {
       transform: scale(1.1);
       transition: transform  .2s ease-in-out;
       z-index:1;
     }
   }
-  &_setup {
-    display: flex;
-    align-items: center;
-    gap:.8em;
-    /* display: none; */
-    &_text {
-      color:var(--tagText);
-      font-family: var(--title2);
-      text-transform: uppercase;
-      font-weight: bold;
-    }
-    &_button {
-      color:var(--tagText);
-      padding:0.4em 0.8em;
-      border:2px solid rgba(0,0,0,0.1);
-      border-radius:5px;
-      font-weight: bold;
-      font-family: var(--title2);
-      text-transform: capitalize;
-      white-space: nowrap;
-      display: flex;
-      flex-direction:row-reverse;
-      gap:.5em;
-    }
-    &_icon {
-      font-size: var(--3xm);
-    }
-  }
-}
-
-[data-css="active"]{
-  background-color:#404040;
-  color:white;
 }

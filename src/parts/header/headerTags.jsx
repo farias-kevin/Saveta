@@ -1,26 +1,21 @@
 // recursos
-import { useState, useContext} from "react";
+import "./headerTags.css";
+import { useContext} from "react";
 import { DataProvider } from "../../hooks/contextData.jsx";
 import { InfoProvider } from "../../hooks/contextInfo.jsx";
-import funFilterData from "../../utils/filterData.jsx";
-
+import filterData from "../../utils/filterData.jsx";
 
 const HeaderTags = ({css}) => {
   // hooks context, para tag y datos
-  const { tagCreate, dataEditFolder, dataEditTag, setDataEditTag} = useContext(DataProvider);
-  const { setTagInfo, buttonName, setButtonName }  = useContext(InfoProvider);
+  const { tagData, dataEditFolder, dataEditTag, setDataEditTag} = useContext(DataProvider);
+  const { setTagInfo, buttonTagName, setButtonTagName }  = useContext(InfoProvider);
 
   function ButtonActive(name, id, num) {
-    //
-    let newInfo = (name == "all" )
-      ? dataEditFolder["bookmarks"]
-      : funFilterData(dataEditFolder["bookmarks"], name, "tag");
-
     // para hook state
-    setButtonName(name);
+    setButtonTagName(name);
     setDataEditTag({
       ...dataEditTag,
-      bookmarks: newInfo
+      bookmarks: filterData(dataEditFolder["bookmarks"], "tag", name, "all")
     })
     setTagInfo({
       idItem: id,
@@ -31,24 +26,22 @@ const HeaderTags = ({css}) => {
 
   return(
     <header className={`${css}`} >
-      <div className={`${css}_tag`}>
-        <ul className={`${css}_tag_container`} >
+      <ul className={`${css}_tag`} >
+        <li
+          key={crypto.randomUUID()}
+          onClick={() => ButtonActive("all", 0, dataEditFolder["bookmarks"].length)}
+          className={"all" != buttonTagName ? `${css}_tag_item` : `${css}_tag_itemON`}>
+          All
+        </li>
+        {tagData.map((elem)=>(
           <li
             key={crypto.randomUUID()}
-            onClick={() => ButtonActive("all", 0, dataEditFolder["bookmarks"].length)}
-            className={"all" != buttonName ? `${css}_tag_button` : `${css}_tag_buttonON`}>
-            All
+            onClick={() => ButtonActive(elem.name, elem.id, elem.num)}
+            className={elem.name != buttonTagName ? `${css}_tag_item` : `${css}_tag_itemON`}>
+            {elem.name}
           </li>
-          {tagCreate.map((elem)=>(
-            <li
-              key={crypto.randomUUID()}
-              onClick={() => ButtonActive(elem.name, elem.id, elem.num)}
-              className={elem.name != buttonName ? `${css}_tag_button` : `${css}_tag_buttonON`}>
-              {elem.name}
-            </li>
-          ))}
-        </ul>
-      </div>
+        ))}
+      </ul>
       {/* <div className={`${css}_setup`} > */}
       {/*   <p className={`${css}_setup_text`}>Sort by</p> */}
       {/*   <Dropdown */}
