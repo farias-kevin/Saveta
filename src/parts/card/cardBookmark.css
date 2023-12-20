@@ -1,0 +1,83 @@
+.cardBookmark {
+  background-color:var(--cardColor);
+  width:13rem;
+  border-radius: 1rem;
+  box-shadow: rgba(149, 157, 165, 0.15) 0px 3px 6px 0px;
+  display:flex;
+  flex-direction: column;
+  gap:0.4rem;
+  transition: all 0.3s ease;
+  position: relative;
+  &:hover {
+    transition: all 0.3s ease;
+  }
+  &:hover &_header_dropdown_button {
+    display: flex;
+  }
+
+  /* !header: */
+  &_header,
+  &_header_image {
+    background-color:var(--photoColor);
+    height:7rem;
+    border-radius: 0.6rem 0.6rem 0 0;
+    position: relative;
+    &_image {
+      width:100%;
+    }
+  }
+
+  /* !body: */
+  &_body {
+    height:100%;
+    padding:0 0.8rem 0.8rem;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap:0.8rem;
+    position: relative;
+    &_dot {
+      background:#fff;
+      width:100%;
+      height:0.5em;
+      border-radius: 35px 35px 0 0;
+      position: absolute;
+      top:-0.8rem;
+      left:0;
+    }
+  }
+
+  /* !principal: */
+  &_main {
+    display:flex;
+    flex-direction: column;
+    gap:0.5rem;
+  }
+  &_text, &_title {
+    font-family: var(--title);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  &_title {
+    font-size: var(--n);
+    font-weight: var(--semibold);
+    -webkit-line-clamp: 2;
+  }
+  &:hover &_title {
+    text-decoration: underline;
+  }
+  &_text {
+    color:var(--cardText);
+    font-size: var(--xs);
+    -webkit-line-clamp:1;
+  }
+
+  /* !detalles: */
+  &_footer{
+    display:flex;
+    gap:1rem;
+  }
+}
+
+

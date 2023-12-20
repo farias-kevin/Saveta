@@ -1,23 +1,19 @@
 // recursos
-import Icon from "../../components/icon"
+import "./footerMain.css";
 
 const FooterMain = ({css}) => {
   return(
-    <>
-      <footer className={`${css}`}>
-        <div className={`${css}_aside`}>
-          <p className={`${css}_text`}>v1.23.1109</p>
-        </div>
-        <figure className={`${css}_media`}>
-          <Icon
-            icon={<IconifyGithub/>}
-            css={`${css}_icon`}/>
-        </figure>
-        <div className={`${css}_aside`}>
-          <p className={`${css}_text`}>@Saveta</p>
-        </div>
-      </footer>
-    </>
+    <footer className={`${css}`}>
+      <div className={`${css}_aside`}>
+        <p className={`${css}_text`}>v1a.23.1211</p>
+      </div>
+      <figure className={`${css}_media`}>
+        <i className={`${css}_icon`}>{<IconifyGithub/>}</i>
+      </figure>
+      <div className={`${css}_aside`}>
+        <p className={`${css}_text`}>Made by Hecdin Farias</p>
+      </div>
+    </footer>
   )
 }
 export default FooterMain

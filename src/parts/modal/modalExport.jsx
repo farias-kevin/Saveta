@@ -1,16 +1,18 @@
-import Button from "../../components/button.jsx"
-import Textarea from "../../components/textarea.jsx"
-import Inputfile from "../../components/inputfile.jsx"
-import Header from "../../components/header.jsx";
-import fileExport from "../../utils/fileExport.jsx";
+
+import "./modalExport.css";
+import Button from "../../components/button/button.jsx"
+import Textarea from "../../components/input/textarea.jsx"
+import Header from "../../components/header/header.jsx";
+import InputFile from "../input/inputFile.jsx"
 import { useContext, useState } from "react"
 import { InfoProvider } from "../../hooks/contextInfo.jsx";
 import { DataProvider } from "../../hooks/contextData.jsx";
+import fileExport from "../../utils/fileExport.jsx";
 
-const ModalExport = ({css}) => {
+const ModalExport = ({css="ModalExport"}) => {
   //
   const { setModalActivate } = useContext(InfoProvider)
-  const { dataOriginal, setDataOriginal, setDataEdition } = useContext(DataProvider);
+  const { dataOriginal, setDataOriginal, setDataEditFolder } = useContext(DataProvider);
 
   //
   const [ fileName, setFileName ] = useState("")
@@ -26,7 +28,7 @@ const ModalExport = ({css}) => {
     //
     let data = JSON.parse(file)
     setDataOriginal(data)
-    setDataEdition(data)
+    setDataEditFolder(data)
   }
 
   function funGetFile(event) {
@@ -80,14 +82,14 @@ const ModalExport = ({css}) => {
             css={`${css}_label`}
             placeholder="Only .json format files are allowed...">
           </Textarea>
-          <Inputfile
+          <InputFile
             fun={funGetFile}
             format=".txt"
             id="bvcQtTU83Q">
             <div className={`${css}_button2`}>
               {fileName ? fileName : 'Upload backup'}
             </div>
-          </Inputfile>
+          </InputFile>
           <sup className={`${css}_subtext`}>
             * Don't forget to click on "import data", if you have added new information.
           </sup>

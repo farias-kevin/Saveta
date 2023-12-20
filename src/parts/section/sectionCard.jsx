@@ -1,17 +1,18 @@
 // recursos
-import CardArticle from "../card/cardArticle.jsx";
-import Button from "../../components/button.jsx";
-import Header from "../../components/header.jsx";
+import "./sectionCard.css";
+import Button from "../../components/button/button.jsx";
+import Header from "../../components/header/header.jsx";
+import CardBookmark from "../card/cardBookmark.jsx";
 import HeaderTags from "../header/headerTags.jsx";
 import imageStatic from "../../assets/example6.jpg"
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { DataProvider } from "../../hooks/contextData.jsx";
 import { InfoProvider } from "../../hooks/contextInfo.jsx";
 
 const SectionCard = ({css, children}) => {
   // hook context, de datos y referencias
   const { dataEditTag } = useContext(DataProvider);
-  const { nameFolder, tagInfo } = useContext(InfoProvider);
+  const { nameFolder, tagInfo, setModalActivate } = useContext(InfoProvider);
   //
   let numBookmark = (tagInfo.numItem == undefined)
     ? 0
@@ -27,50 +28,56 @@ const SectionCard = ({css, children}) => {
     <div className={`${css}`} id="aaa">
       <section className={`${css}_body`}>
         <Header
-          title={nameFolder ? nameFolder : "All" }
+          title={nameFolder}
           text={`${numBookmark} bookmarks`}
           css={`${css}_header`}>
-          <>
+          <div className={`${css}_header_container-b`}>
             <Button
-              css={`${css}_buttonPrev`}
+              css={`${css}_header_buttonB`}
               fn={()=> activeMenu()}
-              // icon={<IconifyChevronLeftCircleOutline/>}
-              icon={<IconifyMenuOpen/>}
-            />
-          </>
-          <div className={`${css}_header_container-2`}>
+              icon={<IconifyMenuOpen/>} >
+            </Button>
+          </div>
+          <div className={`${css}_header_container-c`}>
             <Button
-              title="Tags"
-              css={`${css}_button`}
-              icon={<IconifyTagOutline/>}
+              title="Type"
+              css={`${css}_header_button`}
+              icon={<IconifyTune/>}
             />
             <Button
               title="Order"
-              css={`${css}_button`}
-              icon={<IconifyFilterVariant/>}
+              css={`${css}_header_button`}
+              icon={<IconifyOrderAlphabeticalAscending/>}
             />
           </div>
         </Header>
-        <HeaderTags
-          css="HeaderTags"
-        />
+        <>
+          <HeaderTags
+            css={"HeaderTags"}>
+          </HeaderTags>
+        </>
         <div className={`${css}_content`}>
           {dataEditTag["bookmarks"].map((elem) => (
-            <CardArticle
+            <CardBookmark
               title={elem.title}
               text={elem.sitename}
               tag={elem.tag}
-              photo={imageStatic}
-              // photo={elem.image}
-              css="CardArticle"
-              id={crypto.randomUUID()}
+              image={imageStatic}
+              // image={elem.image}
+              css={`cardBookmark`}
+              id={elem.id}
               key={crypto.randomUUID()}>
-            </CardArticle>
+            </CardBookmark>
           ))}
         </div>
       </section>
-
-{children}
+      <aside className={`${css}_aside`}>
+        <Button
+          // icon={<IconifyChevronUpCircleOutline/>}
+          icon={<IconifyArrowUp/>}
+          css={`${css}_aside_button`}
+        />
+      </aside>
     </div>
   )
 }

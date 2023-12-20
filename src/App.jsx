@@ -1,13 +1,11 @@
 // recursos
 import "./App.css"
-import Modal from "./components/modal.jsx"
-import AsideButton from "./parts/aside/asideButton.jsx"
+import Modal from "./components/modal/modal.jsx"
 import NavBar from "./parts/bar/navBar.jsx"
 import SideBar from "./parts/bar/sideBar.jsx"
 import FooterMain from "./parts/footer/footerMain.jsx"
 import HeaderBanner from "./parts/header/headerBanner.jsx"
 import SectionCard from "./parts/section/sectionCard.jsx"
-import SectionNote from "./parts/section/sectionNote.jsx"
 import { ContextData } from "./hooks/contextData.jsx"
 import { ContextInfo } from "./hooks/contextInfo.jsx"
 
@@ -16,17 +14,15 @@ export default function App(){
     <>
       <ContextData>
         <ContextInfo>
-          <Modal css="Modal"/>
-          <NavBar css="NavBar"/>
+          <Modal css="modal"/>
+          <NavBar css="navBar"/>
           <hr/>
           <HeaderBanner css="headerBanner"/>
           <main>
             <SideBar css="sideBar" />
-            <SectionCard css="sectionCard">
-              <AsideButton css="asideButton" />
-            </SectionCard>
+            <SectionCard css="sectionCard" />
           </main>
-          <FooterMain css="FooterMain" />
+          <FooterMain css="footerMain" />
         </ContextInfo>
       </ContextData>
     </>

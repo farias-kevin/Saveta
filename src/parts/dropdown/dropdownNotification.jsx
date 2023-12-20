@@ -1,9 +1,9 @@
 // recursos
-import { useContext } from 'react'
-import Button from '../../components/button'
-import Icon from '../../components/icon.jsx'
-import { DataProvider } from '../../hooks/contextData.jsx'
+import "./dropdownNotification.css";
+import Button from '../../components/button/button.jsx'
 import CardList from '../card/cardList.jsx'
+import { useContext } from 'react'
+import { DataProvider } from '../../hooks/contextData.jsx'
 
 
 const DropdownNotification = ({css, type, icon, text}) => {
@@ -18,7 +18,7 @@ const DropdownNotification = ({css, type, icon, text}) => {
         </header>
         <div className={`${type}_main`}>
           {dataEdition.activities.map(elem => {
-            let icons = (elem.state == "EnProceso")
+            let icon = (elem.state == "EnProceso")
               ? "mdi:wrench-clock"
               : (elem.state == "Pendiente")
                 ? "mdi:timer-pause-outline"
@@ -26,9 +26,7 @@ const DropdownNotification = ({css, type, icon, text}) => {
 
             return (
               <article className={`${type}_card`} key={crypto.randomUUID()}>
-                <Icon
-                  css={`${type}_icon`}
-                  icon={icons}/>
+                <i className={`${type}_icon`}>{icon}</i>
                 <span className={`${type}_text`}>{elem.text}</span>
               </article> )
           })}

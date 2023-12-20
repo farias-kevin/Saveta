@@ -1,9 +1,8 @@
-import Button from "../../components/button.jsx";
-import { useContext } from "react";
-import { DataProvider } from "../../hooks/contextData.jsx";
+
+import "./headerBanner.css";
+import Button from "../../components/button/button.jsx";
 
 const HeaderBanner = ({css}) => {
-
   return(
     <>
       <header className={`${css}`}>
@@ -14,17 +13,11 @@ const HeaderBanner = ({css}) => {
             css={`${css}_button`}
             icon={<IconifyBookmarkOutline/>}
           />
-          {/* <Button */}
-          {/*   title="Archive" */}
-          {/*   text="00" */}
-          {/*   css={`${css}_button`} */}
-          {/*   icon={<IconifyNoteTextOutline/>} */}
-          {/* /> */}
           <Button
-            title="Videos"
+            title="Following"
             text="01"
             css={`${css}_button`}
-            icon={<IconifyVideoOutline/>}
+            icon={<IconifyAccountMultipleOutline/>}
           />
           <Button
             title="Favorite"

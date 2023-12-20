@@ -1,73 +1,50 @@
 // recursos
-import logoUrl from "../../assets/logoSaveta.png"
-import logoUr from "../../assets/LogoSaveta.svg"
-import Button from "../../components/button.jsx"
-import Logo from "../../components/logo.jsx"
-import Search from "../../components/search.jsx"
-import Dropdown from "../../components/dropdown.jsx"
-import DropdownMenu from "../dropdown/dropdownMenu.jsx"
-import DropdownNotification from "../dropdown/dropdownNotification"
-import InputText from "../../components/input.jsx"
+import "./navBar.css";
+import logoUrl from "../../assets/LogoSaveta.svg"
+import Button from "../../components/button/button.jsx"
+import Logo from "../../components/logo/logo.jsx"
+import Dropdown from "../../components/dropdown/dropdown.jsx"
+import InputSearch from "../input/inputSearch.jsx";
+import DropdownNav from "../dropdown/dropdownNav";
+import { useContext } from "react";
+import { InfoProvider } from "../../hooks/contextInfo";
 
 const NavBar = ({css}) => {
 
+  const { setModalActivate } = useContext(InfoProvider);
+
   return(
-    <>
-      <header className={`${css}`}>
-        <Logo
-          title="Saveta"
-          css={`${css}_logo`}
-          image={logoUr}
+    <header className={`${css}`}>
+      <Logo
+        title="Saveta"
+        image={logoUrl}
+        css={`${css}_logo`}
+      />
+      <InputSearch
+        id="MmBUBrE89X"
+        css="searchMain"
+      />
+      <nav className={`${css}_nav`} >
+        <Button
+          text="Add new"
+          fn={() => setModalActivate("modalCreate")}
+          icon={<IconifyPlus/>}
+          css={`${css}_nav_button`}
         />
-        <div className={`${css}_side`}>
-          <InputText
-            placeholder="Search by bookmarks / @users"
-            css={`${css}_search`}
-            icon={<IconifyMagnify/>}
+        <Button
+          text="Discover"
+          icon={<IconifyCompassOutline/>}
+          css={`${css}_nav_button`}
+        />
+        <Dropdown
+          text="Nicola"
+          icon={<IconifyEmoticonExcitedOutline/>}
+          css={`${css}_nav_dropdown`}>
+          <DropdownNav
           />
-        </div>
-        <nav className={`${css}_nav`} >
-          <Button
-            // title="Activity"
-            text="New"
-            css={`${css}_button`}
-            icon={<IconifyPlus/>}
-            // icon={<IconifyBellOutline/>}
-          />
-          <Button
-            text="Explore"
-            // title="Discover"
-            css={`${css}_button`}
-            icon={<IconifyCompassOutline/>}
-          />
-          {/* <Button */}
-          {/*   title="Nicola" */}
-          {/*   css={`${css}_button`} */}
-          {/*   icon={<IconifyEmoticonExcitedOutline/>} */}
-          {/* /> */}
-          <Dropdown
-            css={`${css}_button`}
-            icon={<IconifyEmoticonExcitedOutline/>}
-            title="Nicola"
-            id="HuthJQPdGc" >
-            <DropdownMenu
-              id="1"
-              type="dropdownMenu"
-              css={`${css}_dropdown`}/>
-          </Dropdown>
-          {/* <Dropdown */}
-          {/*   icon={<IconifyBell/>} */}
-          {/*   id="NsV5xgjzyC" */}
-          {/*   css={`${css}_button`}> */}
-          {/**/}
-          {/*   <DropdownNotification */}
-          {/*     id="3" */}
-          {/*     type="dropdownNotification" */}
-          {/*     css={`${css}_dropdown-notification`}/> */}
-          {/* </Dropdown> */}
-        </nav>
-      </header>
-    </>
+        </Dropdown>
+      </nav>
+    </header>
   )
 }
 export default NavBar;

@@ -1,5 +1,6 @@
 import Header from "../../components/header"
 // import CardNote from "../card/cardNote.jsx"
+import "./sectionNote.css";
 
 const sectionNote = ({css, children}) => {
   return (
