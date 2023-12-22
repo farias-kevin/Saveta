@@ -1,45 +1,35 @@
 import "./dropdown.css"
 import Button from "../button/button";
-import { useRef, useState } from "react";
-import { InfoProvider } from "../../hooks/contextInfo";
 import { useContext } from "react";
-import { useEffect } from "react";
+import { InfoProvider } from "../../hooks/contextInfo";
 
-const Dropdown = ({css, icon, text, title, children}) => {
+const Dropdown = ({css, icon, text, title, children, info}) => {
   // Hook
-  const [isOpen, setIsOpen] = useState(false);
-  const dropdownRef = useRef(null);
-  const { setInfoDropdown } = useContext(InfoProvider)
+  const { infoDropdown, setInfoDropdown } = useContext(InfoProvider)
 
-  useEffect(() => {
-    setInfoDropdown("casa")
-  },[isOpen])
-
-  const handleToggle = () => {
-    //
-    setIsOpen(true);
+  const handleToggle = (data) => {
+    setInfoDropdown(data);
     document.addEventListener('mousedown', handleOutsideClick);
   };
 
   const handleOutsideClick = (e) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
-      setIsOpen(false);
+     if(!e.target.closest('#js-dropdown')){
+      setInfoDropdown("null");
       document.removeEventListener('mousedown', handleOutsideClick);
     }
   };
 
-
   return(
-    <aside className={`${css}`} ref={dropdownRef} >
+    <aside className={`${css}`} id="js-dropdown">
       <Button
-        fn={handleToggle}
+        fn={() => handleToggle(info)}
         text={text}
         title={title}
         icon={icon}
-        dataAttribute={isOpen ? "ON" : ""}
+        dataAttribute={infoDropdown === info ? "ON" : ""}
         css={`${css}_button`}>
       </Button>
-      {(isOpen &&
+      {(infoDropdown === info &&
         <>{children}</>
       )}
     </aside>

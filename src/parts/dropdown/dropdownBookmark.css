@@ -37,7 +37,7 @@
   }
   &_button {
     width: 100%;
-    padding: 0.4rem 2rem 0.4rem 1rem;
+    padding: 0.4rem 1.4rem 0.4rem 0.8rem;
     color:#8e8e8e;
     font-family: var(--title2);
     font-weight: var(--semibold);

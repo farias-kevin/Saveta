@@ -43,6 +43,13 @@ const SideBar = ({css}) => {
             icon={<IconifyFolderOpenOutline/>}
             css={`${css}_card`}
           />
+          <Card
+            fn={() => ButtonFolder("All Bookmarks", 0)}
+            title="Uncategory"
+            text="folder"
+            icon={<IconifyFolderOpenOutline/>}
+            css={`${css}_card`}
+          />
           {folderData.map(elem => (
             <Card
               key={crypto.randomUUID()}

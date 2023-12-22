@@ -17,19 +17,17 @@ main {
 	0% { opacity: 0; transform: translateX(50px);}
 	100% { opacity: 1; transform: translateX(0px);}
 }
-@keyframes myAnimBA {
-	0% { opacity: 0; transform: translateX(50px);}
-	100% { opacity: 1; transform: translateX(0px);}
-}
 
 :root {
   /* VARIABLE */
+  --shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  --shadow-b: rgba(0,0,0,0.1) 5px 5px 20px 1px;
   /* DEFINICION */
   --bodyColor:#ffffff;
   --bannerColor:#dedede;
   --cardColor:#ffffff;
   --cardText:#8e8e8e;
-  --cardButton_active:#dc5d64;
+  --cardButton_active:#ff7675;
   --logoText:#ff7675;
   --navBarColor:#ff7675;
   --sectionCardColor:#ffffff;

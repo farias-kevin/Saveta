@@ -46,7 +46,7 @@
 
 /* !modalCreate: & !modalEdit: */
 .modalCreate,
-.modalEdit {
+.modalExport {
   &_button-close {
     background: #f0f0f0;
     padding: 0.2rem;
@@ -61,7 +61,7 @@
 
 /* !modalCreate: & !modalEdit: */
 .modalCreate_footer,
-.modalEdit_footer {
+.modalExport_footer {
   &_button {
     background-color:#f0f0f0;
     padding: 0.6rem 1.6rem;

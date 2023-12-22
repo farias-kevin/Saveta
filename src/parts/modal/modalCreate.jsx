@@ -97,20 +97,8 @@ const ModalCreate = ({css="modalCreate"}) => {
             icon={<IconifyFolderOutline/>}
             css={`${css}_field`}
           />
-          {/* <Input */}
-          {/*   fn={event => setFormValue( {...formValue, tag:event.target.value} )} */}
           {/*   placeholder="Enter a tag and press Space" */}
-          {/*   name="tag" */}
           {/*   icon={<IconifyMapMarkerOutline/>} */}
-          {/*   css={`${css}_field`} */}
-          {/* /> */}
-          {/* <InputTag */}
-          {/*   placeholder="Enter a tag and press Space" */}
-          {/*   id="VlRmPyArU8" */}
-          {/*   icon={<IconifyMapMarkerOutline/>} */}
-          {/*   keyboard=" " */}
-          {/*   css={`${css}_labelTag`} */}
-          {/* /> */}
         </section>
         <footer className={`${css}_footer`}>
           <Button
