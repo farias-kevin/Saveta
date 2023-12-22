@@ -8,6 +8,7 @@ import imageStatic from "../../assets/example6.jpg"
 import { useContext } from "react";
 import { DataProvider } from "../../hooks/contextData.jsx";
 import { InfoProvider } from "../../hooks/contextInfo.jsx";
+import NotificationDelete from "../notification/notificationDelete";
 
 const SectionCard = ({css, children}) => {
   // hook context, de datos y referencias
@@ -60,8 +61,9 @@ const SectionCard = ({css, children}) => {
           {dataEditTag["bookmarks"].map((elem) => (
             <CardBookmark
               title={elem.title}
-              text={elem.sitename}
+              sitename={elem.sitename}
               tag={elem.tag}
+              url={elem.url}
               image={imageStatic}
               // image={elem.image}
               css={`cardBookmark`}

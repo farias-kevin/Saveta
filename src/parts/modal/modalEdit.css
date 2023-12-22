@@ -5,9 +5,10 @@
   color:#8e8e8e;
   font-family: var(--base);
   border-radius: 15px;
-  box-shadow: 5px 5px 20px 1px rgba(0,0,0,0.1);
+  /* box-shadow: 5px 5px 20px 1px rgba(0,0,0,0.1); */
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   display:flex;
-  flex-direction: row-reverse;
+  /* flex-direction: row-reverse; */
   position: relative;
   gap:3em;
 

@@ -4,10 +4,11 @@ import Button from "../../components/button/button"
 import Input from "../../components/input/input.jsx"
 import Header from "../../components/header/header";
 import EditionForm from "../../utils/editionForm";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext} from "react";
 import overflowController from "../../utils/overflowController";
+import { InfoProvider } from "../../hooks/contextInfo";
 
-const DropdownBookmark = ({css="dropdownBookmark", info}) => {
+const DropdownBookmark = ({css="dropdownBookmark"}) => {
 
   const [isOpen, setIsOpen] = useState(0)
 
@@ -16,7 +17,7 @@ const DropdownBookmark = ({css="dropdownBookmark", info}) => {
   }, [isOpen]);
 
   return (
-    <div className={`${css}`} id="pBCmTKbzbD" >
+    <div className={`${css}`} id="pBCmTKbzbD">
       {isOpen == 0 ?
         <div>
           <article className={`${css}_section`}>
@@ -27,15 +28,23 @@ const DropdownBookmark = ({css="dropdownBookmark", info}) => {
               css={`${css}_button`}
             />
             <Button
+              fn={() => setIsOpen(2)}
               title="Move"
               icon={<IconifyFolderMoveOutline/>}
               css={`${css}_button`}
             />
             <Button
-              title="Info"
-              icon={<IconifyInformationSlabCircleOutline/>}
+              title="Copy link"
+              icon={<IconifyContentCopy/>}
               css={`${css}_button`}
             />
+            {/* !pendiente: */}
+            {/* <Button */}
+            {/*   title="Info" */}
+            {/*   text={<IconifyLockOutline/>} */}
+            {/*   icon={<IconifyInformationSlabCircleOutline/>} */}
+            {/*   css={`${css}_button`} */}
+            {/* /> */}
             <Button
               title="Delete"
               icon={<IconifyDeleteOutline/>}
@@ -43,36 +52,53 @@ const DropdownBookmark = ({css="dropdownBookmark", info}) => {
             />
           </article>
         </div>
-        :
-        <article className={`${css}_section-b`}>
-          <Header
-            css={`${css}_header`}
-            title="Edit Bookmarks"
-          />
-          <div className={`${css}_container`}>
-            <Input
-              placeholder="Website link..."
-              id="iWW6J8IOzW"
-              name="url"
-              icon={<IconifyLink/>}
-              css={`${css}_field`}
+        : (isOpen == 1) ?
+          <article className={`${css}_section-b`}>
+            <Header
+              css={`${css}_header`}
+              title="Edit Bookmarks"
             />
-            <EditionForm
-              css={`${css}_field`}
+            <div className={`${css}_container`}>
+              <EditionForm
+                css={`${css}_field`}
+              />
+            </div>
+            <footer className={`${css}_footer`} >
+              <Button
+                fn={() => setIsOpen(0)}
+                text="Cancel All"
+                css={`${css}_footer_button`}
+              />
+              <Button
+                text="Accept Edit"
+                css={`${css}_footer_button`}
+              />
+            </footer>
+          </article>
+          :
+          <article className={`${css}_section-b`}>
+            <Header
+              css={`${css}_header`}
+              title="Move Bookmarks"
             />
-          </div>
-          <footer className={`${css}_footer`} >
-            <Button
-              fn={() => setIsOpen(0)}
-              text="Cancel All"
-              css={`${css}_footer_button`}
-            />
-            <Button
-              text="Accept Edit"
-              css={`${css}_footer_button`}
-            />
-          </footer>
-        </article>
+            <div className={`${css}_container`}>
+              <EditionForm
+                css={`${css}_field`}
+              />
+            </div>
+            <footer className={`${css}_footer`} >
+              <Button
+                fn={() => setIsOpen(0)}
+                text="Cancel All"
+                css={`${css}_footer_button`}
+              />
+              <Button
+                text="Accept Edit"
+                css={`${css}_footer_button`}
+              />
+            </footer>
+          </article>
+
       }
     </div>
   )

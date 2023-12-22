@@ -1,0 +1,50 @@
+.notificationDelete {
+  background-color: #ffffff;
+  border-left:5px solid #ff7675;
+  /* max-width: 35%; */
+  padding:1rem 1.2rem;
+  color:#8e8e8e;
+  border-radius:5px;
+  box-shadow:var(--shadow);
+  display:flex;
+  align-items: center;
+  gap: 1rem;
+  position: fixed;
+  top: 1rem;
+  right:1rem;
+  z-index: 10;
+  &_textbox {
+    font-family: var(--title2);
+    font-size: var(--s);
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 1rem;
+    &_container {
+      width: 15em;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+    &_text {
+      font-weight: var(--bold);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    &_icon {
+      font-size: var(--xxm);
+    }
+  }
+  &_footer {
+    &_button {
+      background-color:#ff7675;
+      padding: 0.4rem 0.6rem;
+      color: #fff;
+      font-family: var(--title2);
+      font-size: var(--s);
+      font-weight: var(--semibold);
+      border-radius:10px;
+    }
+  }
+}

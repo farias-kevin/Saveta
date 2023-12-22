@@ -9,7 +9,7 @@ import { InfoProvider } from "../../hooks/contextInfo.jsx";
 import { DataProvider } from "../../hooks/contextData.jsx";
 import fileExport from "../../utils/fileExport.jsx";
 
-const ModalExport = ({css="ModalExport"}) => {
+const ModalExport = ({css="modalExport"}) => {
   //
   const { setModalActivate } = useContext(InfoProvider)
   const { dataOriginal, setDataOriginal, setDataEditFolder } = useContext(DataProvider);
@@ -65,17 +65,17 @@ const ModalExport = ({css="ModalExport"}) => {
   return(
     <>
       <div className={`${css}`}>
+        <Button
+          fn={() => setModalActivate(false)}
+          css={`${css}_button-close`}
+          icon={<IconifyWindowClose/>}
+        />
+        <Header
+          css={`${css}_header`}
+          title="Transfer your bookmarks"
+          text="Import or share your data with Saveta">
+        </Header>
         <section className={`${css}_main`}>
-          <Header
-            css={`${css}_header`}
-            title="Transfer your bookmarks"
-            text="Import or share your data with Saveta">
-            <Button
-              css={`${css}_header_action`}
-              icon="mdi:window-close"
-              fn={() => setModalActivate(false)}
-            />
-          </Header>
           <Textarea
             id="ula5goTPzc"
             read="readonly"
@@ -93,24 +93,21 @@ const ModalExport = ({css="ModalExport"}) => {
           <sup className={`${css}_subtext`}>
             * Don't forget to click on "import data", if you have added new information.
           </sup>
-          <span className={`${css}_subtex`}>
-            * Don't forget to click on "import data", if you have added new information.
-          </span>
         </section>
         <footer className={`${css}_footer`}>
           <Button
-            css={`${css}_button`}
             fn={() => funImportData(fileUpload)}
-          >
-            Import data
-          </Button>
-          <Button
-            css={`${css}_button`}
-            fn={() => funExportdata("CdVbxAul57")}>
-            <a id="CdVbxAul57" download="backup-saveta.json" href="#">
-              Export file
-            </a>
-          </Button>
+            text="Import data"
+            css={`${css}_footer_button`}
+          />
+          <a id="CdVbxAul57" download="backup-saveta.json" href="#">
+            <Button
+              fn={() => funExportdata("CdVbxAul57")}
+              type="submit"
+              text="Export file"
+              css={`${css}_footer_button`}
+            />
+          </a>
         </footer>
       </div>
     </>

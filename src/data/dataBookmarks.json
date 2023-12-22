@@ -7,7 +7,8 @@
       "image": "https://picsum.photos/601",
       "content": "learn 8 lady of they such they sure it. Me contained explained my education.",
       "tag": "GAME, MOVIE, MUSIC, VIDEO, DOWNLOAD, SOCIAL NETWORK, UX/UI",
-      "folder":"Learn"
+      "folder":"Learn",
+      "url":"http://sample.info/?insect=fireman&porter=attraction#cave"
     },
     {
       "id": "wsx",
@@ -16,7 +17,8 @@
       "image": "https://picsum.photos/602",
       "content": " Learn 1 instrument out reasonably.",
       "tag": "movie",
-      "folder":"Learn"
+      "folder":"Learn",
+      "url":"http://sample.edu/"
     },
     {
       "id": "edc",
@@ -25,7 +27,8 @@
       "image": "https://picsum.photos/604",
       "content": "none 2 Again keeps at no meant stuff instrument out reasonably",
       "tag": "game, video",
-      "folder": "none"
+      "folder": "none",
+      "url":"http://sample.org/#yak"
     },
     {
       "id": "rfv",
@@ -34,7 +37,8 @@
       "image": "https://picsum.photos/603",
       "content": "recurse 1 Again keeps at no meant stuff.",
       "tag": "video",
-      "folder":"recurse"
+      "folder":"recurse",
+      "url":"https://sample.org/cover"
     }
   ],
   "activities": [
