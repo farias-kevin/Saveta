@@ -12,7 +12,6 @@ const InputSearch = ({id, placeholder, name, css}) => {
 
   function searchWord(e){
     let texto = e.target.value;
-    //
     let result = tagData.filter(elem => {
       return elem.name.indexOf(texto) > -1;
     })

@@ -1,0 +1,35 @@
+.dropdownBookmark {
+  &_search_result ~ &_field {
+    /* border-radius:10px 10px 0 0; */
+  }
+  &_search {
+    position: relative;
+    &_result {
+      width:100%;
+      background:#ffffff;
+      background: #f0f0f0;
+      border-radius:10px;
+      position: absolute;
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+      z-index: 15;
+      top:98%;
+      &_item {
+        width:100%;
+        padding:0.6rem 0.8rem;
+        color:#8e8e8e;
+        font-family: var(--title2);
+        font-weight: var(--semibold);
+        font-size: var(--s);
+        border-top:1px solid #fff;
+        display: flex;
+        gap:0.5rem;
+        &:hover {
+          background: #f0f0f0;
+        }
+        &_title::first-letter {
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+}
