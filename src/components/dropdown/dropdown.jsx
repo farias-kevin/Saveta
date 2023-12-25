@@ -9,18 +9,18 @@ const Dropdown = ({css, icon, text, title, children, info}) => {
 
   const handleToggle = (data) => {
     setInfoDropdown(data);
-    document.addEventListener('mousedown', handleOutsideClick);
+    document.addEventListener("mousedown", handleOutsideClick);
   };
 
   const handleOutsideClick = (e) => {
-     if(!e.target.closest('#js-dropdown')){
+     if(!e.target.closest("[data-js='dropdown']")){
       setInfoDropdown("null");
-      document.removeEventListener('mousedown', handleOutsideClick);
+      document.removeEventListener("mousedown", handleOutsideClick);
     }
   };
 
   return(
-    <aside className={`${css}`} id="js-dropdown">
+    <aside className={`${css}`} data-js="dropdown">
       <Button
         fn={() => handleToggle(info)}
         text={text}
@@ -30,7 +30,7 @@ const Dropdown = ({css, icon, text, title, children, info}) => {
         css={`${css}_button`}>
       </Button>
       {(infoDropdown === info &&
-        <>{children}</>
+        <div>{children}</div>
       )}
     </aside>
   )

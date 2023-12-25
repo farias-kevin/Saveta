@@ -1,34 +1,33 @@
 // recursos
 import "./dropdownBookmark.css";
 import Button from "../../components/button/button"
-import Input from "../../components/input/input.jsx"
-import Header from "../../components/header/header";
-import EditionForm from "../../utils/editionForm";
+import DropdownBookmark_edit from "./dropdownBookmark_edit";
+import DropdownBookmark_move from "./dropdownBookmark_move";
 import { useState, useEffect, useContext} from "react";
-import overflowController from "../../utils/overflowController";
 import { InfoProvider } from "../../hooks/contextInfo";
+import overflowController from "../../utils/overflowController";
 
 const DropdownBookmark = ({css="dropdownBookmark"}) => {
 
-  const [isOpen, setIsOpen] = useState(0)
+  const [openSection, setOpenSection] = useState(0)
 
   useEffect(() => {
     overflowController("pBCmTKbzbD", "posicion")
-  }, [isOpen]);
+  }, [openSection]);
 
   return (
     <div className={`${css}`} id="pBCmTKbzbD">
-      {isOpen == 0 ?
+      {openSection == 0 ?
         <div>
           <article className={`${css}_section`}>
             <Button
-              fn={() => setIsOpen(1)}
+              fn={() => setOpenSection(1)}
               title="Edit"
               icon={<IconifyPencilOutline/>}
               css={`${css}_button`}
             />
             <Button
-              fn={() => setIsOpen(2)}
+              fn={() => setOpenSection(2)}
               title="Move"
               icon={<IconifyFolderMoveOutline/>}
               css={`${css}_button`}
@@ -52,53 +51,14 @@ const DropdownBookmark = ({css="dropdownBookmark"}) => {
             />
           </article>
         </div>
-        : (isOpen == 1) ?
-          <article className={`${css}_section-b`}>
-            <Header
-              css={`${css}_header`}
-              title="Edit Bookmarks"
-            />
-            <div className={`${css}_container`}>
-              <EditionForm
-                css={`${css}_field`}
-              />
-            </div>
-            <footer className={`${css}_footer`} >
-              <Button
-                fn={() => setIsOpen(0)}
-                text="Cancel All"
-                css={`${css}_footer_button`}
-              />
-              <Button
-                text="Accept Edit"
-                css={`${css}_footer_button`}
-              />
-            </footer>
-          </article>
+        : (openSection == 1) ?
+          <DropdownBookmark_edit
+            openSection={setOpenSection}
+          />
           :
-          <article className={`${css}_section-b`}>
-            <Header
-              css={`${css}_header`}
-              title="Move Bookmarks"
-            />
-            <div className={`${css}_container`}>
-              <EditionForm
-                css={`${css}_field`}
-              />
-            </div>
-            <footer className={`${css}_footer`} >
-              <Button
-                fn={() => setIsOpen(0)}
-                text="Cancel All"
-                css={`${css}_footer_button`}
-              />
-              <Button
-                text="Accept Edit"
-                css={`${css}_footer_button`}
-              />
-            </footer>
-          </article>
-
+          <DropdownBookmark_move
+            openSection={setOpenSection}
+          />
       }
     </div>
   )

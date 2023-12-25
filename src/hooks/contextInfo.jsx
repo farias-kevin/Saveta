@@ -15,6 +15,7 @@ const ContextInfo = ({children}) => {
   const [tagInfo, setTagInfo] = useState( {} );
   const [buttonTagName, setButtonTagName] = useState("all");
   const [infoDropdown, setInfoDropdown] = useState("");
+  const [pruebaContext, setPruebaContext] = useState("");
 
   // #04: informacion que 'compartira' el proveedor de datos
   useEffect(() => {
@@ -38,6 +39,7 @@ const ContextInfo = ({children}) => {
     //
     nameFolder,
     setNameFolder,
+    pruebaContext, setPruebaContext,
     //
     infoDropdown,
     setInfoDropdown
