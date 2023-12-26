@@ -2,14 +2,12 @@ import "./searchBase.css"
 import Button from "../button/button.jsx";
 import InputBase from "../input/input.jsx"
 import { useEffect, useState } from "react";
-import { useRef } from "react";
 
 
 const SearchBase = ({ css, inputResul, database, text, icon, children}) => {
   // constantes y variables
   const [ searchResult, setSearchResult ] = useState([]);
   const [ inputResult, setInputResult ] = useState("")
-  const ref = useRef("null");
   let filterResult = [];
 
 
@@ -27,19 +25,15 @@ const SearchBase = ({ css, inputResul, database, text, icon, children}) => {
     setSearchResult([...new Set(filterResult)])
   },[inputResult])
 
-  function clickResult(text){
-    setInputResult(text)
-    ref.current.classList.add("hidden");
-  }
-  function isFocus(){
-    ref.current.classList.remove("hidden");
-  }
-  function isBlur(){
-    ref.current.classList.add("hidden");
+function clickResult(text){
+    console.log("gggg")
+    // inputResult(text)
+    // setSearchResult([])
   }
 
+
   return(
-    <div className={`${css}`} onMouseLeave={isBlur} onFocus={isFocus}>
+    <div className={`${css}`}>
       <InputBase
         value={inputResult}
         fn={(e) => setInputResult(e.target.value)}
@@ -47,25 +41,22 @@ const SearchBase = ({ css, inputResul, database, text, icon, children}) => {
         id="boxInput"
         icon={<IconifyFolderOutline/>}
         css={`${css}_field`}>
+        {( searchResult.length > 0 &&
+          <div className={`${css}_result`}  id="myButton">
+            {searchResult.map(elem =>
+              <Button
+                fn={() => clickResult(elem)}
+                key={crypto.randomUUID()}
+                title={elem}
+                text={text}
+                icon={icon}
+                css={`${css}_result_item`}
+              />
+            )}
+          </div>
+        )}
       </InputBase>
-      <div ref={ref} className="hidden">
-      {( searchResult.length > 0 &&
-        <div className={`${css}_result`} id="myButton">
-          {searchResult.map(elem =>
-            <Button
-              fn={() => clickResult(elem)}
-              key={crypto.randomUUID()}
-              title={elem}
-              text={text}
-              icon={icon}
-              // css={`${css}_result_item`}
-              css={`myButton`}
-            />
-          )}
-        </div>
-      )}
-      </div>
-      <>{children}</>
+      {/* <>{children}</> */}
     </div>
   )
 }

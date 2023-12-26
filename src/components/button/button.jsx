@@ -2,7 +2,7 @@ import "./button.css"
 
 const Button = ({name, text, title, css, fn, value, dataAttribute, type="button", icon, children}) => {
   return(
-    <button className={`${css}`} onClick={fn} type={type} name={name} value={value} data-css={dataAttribute} >
+    <div className={`${css}`} onClick={fn} type={type} name={name} value={value} data-css={dataAttribute} >
       {(icon &&
         <i className={`${css}_icon`}>{icon}</i>
       )}
@@ -15,7 +15,7 @@ const Button = ({name, text, title, css, fn, value, dataAttribute, type="button"
       {(children &&
         <>{children}</>
       )}
-    </button>
+    </div>
   )
 }
 export default Button

@@ -1,48 +1,66 @@
 import "./searchBase.css"
-import { useContext, useEffect, useState } from "react";
-import { DataProvider } from "../../hooks/contextData.jsx";
 import Button from "../button/button.jsx";
-import { InfoProvider } from "../../hooks/contextInfo";
+import InputBase from "../input/input.jsx"
+import { useEffect, useState } from "react";
 
 
-const SearchBase = ({ css, inputValue, fn, text, icon, children}) => {
+const SearchBase = ({ css, inputResul, database, text, icon, children}) => {
   // constantes y variables
-  const { tagData } = useContext(DataProvider)
   const [ searchResult, setSearchResult ] = useState([]);
-  const { setPruebaContext } = useContext(InfoProvider)
-  let filterResult;
+  const [ inputResult, setInputResult ] = useState("")
+  let filterResult = [];
+
 
   useEffect(() => {
-    //
-    if(inputValue.length > 0 ){
-      filterResult = tagData.filter(elem => {
-        return elem.name.indexOf(inputValue) > -1;
-      })
+    // para mejorar rendimiento, añade una validacion
+    if(inputResult.length > 0 ){
+      // filtra la database con el valor de busqueda deseado
+      filterResult = database.data.filter(elem => {
+        return elem[database.search].indexOf(inputResult) > -1;
+      }).map(elem => {
+          return elem.folder
+        })
     }
-    setSearchResult(inputValue.length == 0 ? "" : filterResult)
-  },[inputValue])
+    // actualiza el valor de la caja de resultado
+    setSearchResult([...new Set(filterResult)])
+  },[inputResult])
+
+function clickResult(text){
+    console.log("gggg")
+    // inputResult(text)
+    // setSearchResult([])
+  }
+
 
   return(
-    <div className={`${css}`} >
+    <div className={`${css}`}>
+      <InputBase
+        value={inputResult}
+        fn={(e) => setInputResult(e.target.value)}
+        placeholder="Folder title (Eg: Articles...)"
+        id="boxInput"
+        icon={<IconifyFolderOutline/>}
+        css={`${css}_field`}>
+      </InputBase>
       {( searchResult.length > 0 &&
-        <div className={`${css}_result`}>
+        <div className={`${css}_result`}  id="myButton">
           {searchResult.map(elem =>
             <Button
-              // fn={fn}
+              fn={() => clickResult(elem)}
               key={crypto.randomUUID()}
-              title={elem.name}
+              title={elem}
               text={text}
               icon={icon}
-              css={`${css}_result_item`}
+              // css={`${css}_result_item`}
+              css={`myButton`}
             />
           )}
         </div>
       )}
-      <>
-        {children}
-      </>
+      {/* <>{children}</> */}
     </div>
   )
 }
 
 export default SearchBase;
+
