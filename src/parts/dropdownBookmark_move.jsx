@@ -18,9 +18,9 @@ const DropdownBookmark_edit = ({css="dropdownBookmark", openSection}) => {
 
   //
   let dataSelect = filterData(dataOriginal["bookmarks"], "id", infoDropdown, "");
-  useEffect(() => {
-    setInputResult(dataSelect[0].folder)
-  },[])
+  // useEffect(() => {
+  //   setInputResult(dataSelect[0].folder)
+  // },[])
 
   function acceptChanges(){
     let folder = inputResult;
@@ -38,8 +38,7 @@ const DropdownBookmark_edit = ({css="dropdownBookmark", openSection}) => {
       />
       <div className={`${css}_container`}>
         <SearchBase
-          id="iWW6J8IOzD"
-          inputResult={{ value:inputResult, set:setInputResult }}
+          // inputResult={{ value:inputResult, set:setInputResult }}
           database={{ data:dataOriginal["bookmarks"], search:"folder" }}
           icon={<IconifyArrowRightBottom/>}
           css={`${css}_search`}>
@@ -49,19 +48,19 @@ const DropdownBookmark_edit = ({css="dropdownBookmark", openSection}) => {
           {/*   placeholder="Folder title (Eg: Articles...)" */}
           {/*   id="iWW6J8IOzD" */}
           {/*   icon={<IconifyFolderOutline/>} */}
-          {/*   css={`${css}_field`}> */}
-          {/* </InputBase> */}
+          {/*   css={`${css}_field`} */}
+          {/* /> */}
         </SearchBase>
       </div>
       <footer className={`${css}_footer`} >
         <ButtonBase
-          fn={() => openSection(0)}
+          // fn={acceptChanges}
+          type="submit"
           text="Cancel all"
           css={`${css}_footer_button`}
         />
         <ButtonBase
-          // fn={acceptChanges}
-          type="submit"
+          fn={() => openSection(0)}
           text="Save changes"
           css={`${css}_footer_button`}
         />

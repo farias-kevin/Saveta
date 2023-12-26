@@ -31,7 +31,8 @@
 }
 
 /* !modalCreate: */
-.dropdownBookmark_field {
+.dropdownBookmark_field,
+.dropdownBookmark_search_field {
   display: flex;
   align-items: center;
   border-radius: 10px;

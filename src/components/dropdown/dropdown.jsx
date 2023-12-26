@@ -1,6 +1,6 @@
 import "./dropdown.css"
 import Button from "../button/button";
-import { useContext } from "react";
+import { useContext} from "react";
 import { InfoProvider } from "../../hooks/contextInfo";
 
 const Dropdown = ({css, icon, text, title, children, info}) => {
@@ -9,7 +9,7 @@ const Dropdown = ({css, icon, text, title, children, info}) => {
 
   const handleToggle = (data) => {
     setInfoDropdown(data);
-    document.addEventListener("mousedown", handleOutsideClick);
+    document.addEventListener("mousedown", handleOutsideClick)
   };
 
   const handleOutsideClick = (e) => {
@@ -18,7 +18,6 @@ const Dropdown = ({css, icon, text, title, children, info}) => {
       document.removeEventListener("mousedown", handleOutsideClick);
     }
   };
-
   return(
     <aside className={`${css}`} data-js="dropdown">
       <Button
