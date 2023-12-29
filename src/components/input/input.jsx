@@ -1,6 +1,8 @@
 import "./input.css"
 
-const Input = ({css, id, icon, type="text", children, text, placeholder, name, value, fn}) => {
+const Input = ({css, icon, type="text", children, text, placeholder, name, value, fn}) => {
+  let id = "ID-" + crypto.randomUUID();
+
   return(
     <label className={`${css}`} htmlFor={id}>
       {(text &&
