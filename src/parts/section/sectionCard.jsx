@@ -24,7 +24,6 @@ const SectionCard = ({css, children}) => {
     here.classList.toggle("here");
   }
 
-
   return (
     <div className={`${css}`} id="aaa">
       <section className={`${css}_body`}>
@@ -64,8 +63,8 @@ const SectionCard = ({css, children}) => {
               sitename={elem.sitename}
               tag={elem.tag}
               url={elem.url}
-              image={imageStatic}
-              // image={elem.image}
+              // image={imageStatic}
+              image={elem.image}
               css={`cardBookmark`}
               id={elem.id}
               key={crypto.randomUUID()}>

@@ -17,8 +17,8 @@ export default function App(){
         <ContextInfo>
           <Modal css="modal"/>
           <NavBar css="navBar"/>
-      <NotificationDelete
-      />
+          <NotificationDelete
+          />
           <hr/>
           <HeaderBanner css="headerBanner"/>
           <main>

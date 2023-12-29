@@ -1,7 +1,4 @@
-/*
-!modalCreate:
-!modalEdit:
- */
+/* !modalCreate: y !modalEdit: */
 .modalCreate_field,
 .modalEdit_field {
   display: flex;
@@ -9,6 +6,9 @@
   border-radius: 10px;
   border:1px solid rgba(0,0,0,0.2);
   position: relative;
+  &:focus-within {
+    outline:0.11rem solid #F57D00;
+  }
   &_icon {
     font-size: var(--xm);
     position: absolute;
@@ -24,38 +24,102 @@
     border-radius: 10px;
     border:1px solid transparent;
     flex: 1;
-    &:focus {
-      border:1px solid yellow;
-    }
   }
 }
 
-/* !modalCreate: */
-.dropdownBookmark_field,
-.dropdownBookmark_search_field {
+/* !dropdownBookmark: */
+.navBar_field {
+  background-color:#ffffff;
+  width:25rem;
+  padding: 0.4rem;
+  color:#8e8e8e;
   display: flex;
-  align-items: center;
   border-radius: 10px;
-  border:1px solid rgba(0,0,0,0.2);
+  border:0.1rem solid rgba(0,0,0,0.2);
   position: relative;
+  &:focus-within {
+    outline:0.11rem solid #F57D00;
+  }
   &_icon {
     font-size: var(--m);
     position: absolute;
-    left:0.8rem;
+    right:0.8rem;
+    top:0.3rem;
   }
   &_input {
     background: transparent;
-    /* padding: 0.5rem 0.5rem; */
-    padding: 0.4rem;
-    padding-left: 2.8rem;
+    padding-right: 2.4rem;
     font-weight: var(--semibold);
     font-family: var(--title2);
     font-size: var(--s);
     border-radius: 10px;
     border:1px solid transparent;
     flex: 1;
-    &:focus {
-      border:1px solid yellow;
-    }
   }
+}
+
+
+/* !dropdownBookmark: */
+.dropdownBookmark_field,
+.dropdownBookmark_field-b,
+.dropdownBookmark_search_field {
+  display: flex;
+  border-radius: 10px;
+  border:0.1rem solid rgba(0,0,0,0.2);
+  position: relative;
+  padding: 0.4rem;
+  &:focus-within {
+    outline:0.11rem solid #F57D00;
+  }
+  &_icon {
+    font-size: var(--m);
+    position: absolute;
+    left:0.8rem;
+    top:0.3rem;
+  }
+  &_input {
+    background: transparent;
+    padding-left: 2.4rem;
+    font-weight: var(--semibold);
+    font-family: var(--title2);
+    font-size: var(--s);
+    border-radius: 10px;
+    border:1px solid transparent;
+    flex: 1;
+  }
+}
+
+.dropdownBookmark_field-b {
+  flex-direction: column;
+}
+
+.dropdownBookmark_tag {
+  &_tags:empty {
+    display: none;
+  }
+  &_tags {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap:0.5rem;
+    &_item {
+      background-color:#f0f0f0;
+      padding: .3em .6em;
+      font-family: var(--title2);
+      font-weight: var(--semibold);
+      font-size: var(--xs);
+      border-radius: 8px;
+      gap: 0.5rem;
+      text-transform: lowercase;
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+      /* color:#fff; */
+    /* background: #0052cc; */
+    &_title::first-letter {
+      text-transform: uppercase;
+    }
+
+  }
+}
 }

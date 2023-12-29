@@ -4,14 +4,18 @@ import logoUrl from "../../assets/LogoSaveta.svg"
 import Button from "../../components/button/button.jsx"
 import Logo from "../../components/logo/logo.jsx"
 import Dropdown from "../../components/dropdown/dropdown.jsx"
-import InputSearch from "../input/inputSearch.jsx";
 import DropdownNav from "../dropdown/dropdownNav";
-import { useContext } from "react";
+import InputBase from "../../components/input/input.jsx"
+import SearchBase from "../../components/search/searchBase";
+import { useContext, useState } from "react";
 import { InfoProvider } from "../../hooks/contextInfo";
+import { DataProvider } from "../../hooks/contextData";
 
 const NavBar = ({css}) => {
 
   const { setModalActivate } = useContext(InfoProvider);
+  const { dataOriginal } = useContext(DataProvider)
+  const [ inputResult, setInputResult ] = useState("")
 
   return(
     <header className={`${css}`}>
@@ -20,10 +24,18 @@ const NavBar = ({css}) => {
         image={logoUrl}
         css={`${css}_logo`}
       />
-      <InputSearch
-        id="MmBUBrE89X"
-        css="searchMain"
-      />
+      <SearchBase
+        inputResult={{ value:inputResult, set:setInputResult }}
+        database={{ data:dataOriginal["bookmarks"], search:"title" }}
+        css={`${css}_search`}>
+        <InputBase
+          value={inputResult}
+          fn={(e) => setInputResult(e.target.value)}
+          placeholder="Search by title bookmarks"
+          icon={<IconifyMagnify/>}
+          css={`${css}_field`}
+        />
+      </SearchBase>
       <nav className={`${css}_nav`} >
         <Button
           text="Add new"

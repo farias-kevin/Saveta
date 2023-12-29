@@ -1,44 +1,35 @@
-.dropdownBookmark {
-  &_field_input:focus ~ &_field{
-    background:blue;
-    /* display:flex; */
-  }
-  &_search {
-    position: relative;
-    &_result {
+.dropdownBookmark_search,
+.navBar_search {
+  position: relative;
+  &_result {
+    width:100%;
+    background:#ffffff;
+    border-radius:10px;
+    position: absolute;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    z-index: 15;
+    left: 0;
+    top:98%;
+    &_item {
       width:100%;
-      background:#ffffff;
-      background: #f0f0f0;
-      border-radius:10px;
-      position: absolute;
-      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-      z-index: 15;
-      left: 0;
-      top:98%;
-      &_item {
-        width:100%;
-        padding:0.6rem 0.8rem;
-        color:#8e8e8e;
-        font-family: var(--title2);
-        font-weight: var(--semibold);
-        font-size: var(--s);
-        border-top:1px solid #fff;
-        display: flex;
-        gap:0.5rem;
-        &:hover {
-          background: #f0f0f0;
-        }
-        &_title::first-letter {
-          text-transform: uppercase;
-        }
+      padding:0.6rem 0.8rem;
+      color:#8e8e8e;
+      font-family: var(--title2);
+      font-weight: var(--semibold);
+      font-size: var(--s);
+      border-top:1px solid #fff;
+      display: flex;
+      gap:0.5rem;
+      &:hover {
+        background: #f0f0f0;
+      }
+      &_title::first-letter {
+        text-transform: uppercase;
       }
     }
   }
 }
-  #myInput ~ #myButton {
-  background-color: blue;
-  color: white;
+
+.hidden {
+  display: none;
 }
-    .hidden {
-display: none;
-    }

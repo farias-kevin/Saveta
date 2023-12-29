@@ -8,25 +8,29 @@ import { useState, useContext } from "react";
 import { DataProvider } from "../../hooks/contextData";
 import { InfoProvider } from "../../hooks/contextInfo";
 import filterData from "../../utils/filterData";
-import { useEffect } from "react";
 
 const DropdownBookmark_edit = ({css="dropdownBookmark", openSection}) => {
   //constantes y variables
   const { dataOriginal, setDataOriginal } = useContext(DataProvider)
   const { infoDropdown } = useContext(InfoProvider)
-  const [ inputResult, setInputResult ] = useState("")
 
   //
-  let dataSelect = filterData(dataOriginal["bookmarks"], "id", infoDropdown, "");
-  useEffect(() => {
-    setInputResult(dataSelect[0].folder)
-  },[])
+  const dataSelect = filterData(dataOriginal["bookmarks"], "id", infoDropdown, "");
+  const [ inputResult, setInputResult ] = useState(dataSelect[0].folder)
 
-  function acceptChanges(){
-    let folder = inputResult;
+  function acceptChanges(event){
+    event.preventDefault();
+    //
+    const newData = dataOriginal["bookmarks"].map(elem => {
+      if(elem.id == infoDropdown){
+        return {...elem, folder: inputResult}
+      }
+      return elem
+    })
+
+    //
     setDataOriginal({
-      ...dataOriginal,
-      bookmarks: [folder, ...dataOriginal.folder]
+      ...dataOriginal, bookmarks: newData
     })
   }
 
@@ -38,19 +42,17 @@ const DropdownBookmark_edit = ({css="dropdownBookmark", openSection}) => {
       />
       <div className={`${css}_container`}>
         <SearchBase
-          id="iWW6J8IOzD"
           inputResult={{ value:inputResult, set:setInputResult }}
           database={{ data:dataOriginal["bookmarks"], search:"folder" }}
           icon={<IconifyArrowRightBottom/>}
           css={`${css}_search`}>
-          {/* <InputBase */}
-          {/*   value={inputResult} */}
-          {/*   fn={(e) => setInputResult(e.target.value)} */}
-          {/*   placeholder="Folder title (Eg: Articles...)" */}
-          {/*   id="iWW6J8IOzD" */}
-          {/*   icon={<IconifyFolderOutline/>} */}
-          {/*   css={`${css}_field`}> */}
-          {/* </InputBase> */}
+          <InputBase
+            value={inputResult}
+            fn={(e) => setInputResult(e.target.value)}
+            placeholder="Folder title (Eg: Articles...)"
+            icon={<IconifyFolderOutline/>}
+            css={`${css}_field`}
+          />
         </SearchBase>
       </div>
       <footer className={`${css}_footer`} >
@@ -60,7 +62,6 @@ const DropdownBookmark_edit = ({css="dropdownBookmark", openSection}) => {
           css={`${css}_footer_button`}
         />
         <ButtonBase
-          // fn={acceptChanges}
           type="submit"
           text="Save changes"
           css={`${css}_footer_button`}
@@ -71,3 +72,19 @@ const DropdownBookmark_edit = ({css="dropdownBookmark", openSection}) => {
 }
 
 export default DropdownBookmark_edit
+      // <div className={`${css}_container`}>
+      //   <SearchBase
+      //     inputResult={{ value:inputResult, set:setInputResult }}
+      //     database={{ data:dataOriginal["bookmarks"], search:"folder" }}
+      //     icon={<IconifyArrowRightBottom/>}
+      //     css={`${css}_search`}>
+      //     <InputBase
+      //       value={inputResult}
+      //       fn={(e) => setInputResult(e.target.value)}
+      //       placeholder="Folder title (Eg: Articles...)"
+      //       id="iWW6J8IOzD"
+      //       icon={<IconifyFolderOutline/>}
+      //       css={`${css}_field`}>
+      //     </InputBase>
+      //   </SearchBase>
+      // </div>

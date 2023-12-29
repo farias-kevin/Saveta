@@ -4,7 +4,6 @@ import Button from "../../components/button/button.jsx"
 import Input from "../../components/input/input.jsx"
 import Header from "../../components/header/header.jsx"
 import InputSearch from "../input/inputSearch";
-import InputTag from "../input/inputTag.jsx";
 import { useContext, useEffect, useState } from "react"
 import { DataProvider } from "../../hooks/contextData.jsx"
 import { InfoProvider } from "../../hooks/contextInfo.jsx"
@@ -24,11 +23,6 @@ const ModalCreate = ({css="modalCreate"}) => {
   function funGetData(event) {
     // cancela el efecto de enviar el formulari
     event.preventDefault();
-    const casa = document.querySelectorAll("#VlRmPyArU8 button");
-/*
-    let ca = Array.from(casa, elem => elem.textContent)
-    setFormValue( {...formValue, tag: ca} )
-*/
     // abre una promesa y obten la respuesta del fetch()
     apiJson(formValue.url)
       .then(data => {
@@ -46,16 +40,17 @@ const ModalCreate = ({css="modalCreate"}) => {
 
     // objeto con todos los parametros para el marcador
     let newItem = {
+      id: "id-" + crypto.randomUUID(),
       title:  fetchResult?.title,
-      nickname:  fetchResult?.title,
+      titleTrue:  fetchResult?.title,
       description:  fetchResult?.description,
       image:  fetchResult?.image,
       favicon:  fetchResult?.favicon,
       sitename: editorUrl(formValue?.url),
-      date: getDate,
+      date: getDate(),
       folder:  formValue?.folder,
-      tag:  formValue?.tag,
       url:  formValue?.url,
+      tag:  "",
     }
     // copias los valores y añade los nuevos en el objeto deseado,
     let newData = {
@@ -65,7 +60,6 @@ const ModalCreate = ({css="modalCreate"}) => {
     setDataOriginal(newData)
     setDataEditFolder(newData)
   }
-
   return(
     <>
       <form className={`${css}`} onSubmit={funGetData}>
@@ -83,7 +77,6 @@ const ModalCreate = ({css="modalCreate"}) => {
           <Input
             fn={event => setFormValue( {...formValue, url: event.target.value} )}
             placeholder="Website link (Eg: http://saveta.com...)"
-            id="iWW6J8IOzW"
             name="url"
             icon={<IconifyLink/>}
             type="url"
@@ -92,13 +85,10 @@ const ModalCreate = ({css="modalCreate"}) => {
           <Input
             fn={event => setFormValue( {...formValue, folder:event.target.value} )}
             placeholder="Folder title (Eg: Articles...)"
-            id="enS5OO9HzE"
             name="folder"
             icon={<IconifyFolderOutline/>}
             css={`${css}_field`}
           />
-          {/*   placeholder="Enter a tag and press Space" */}
-          {/*   icon={<IconifyMapMarkerOutline/>} */}
         </section>
         <footer className={`${css}_footer`}>
           <Button

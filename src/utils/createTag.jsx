@@ -1,8 +1,10 @@
 // funcion >> para crear los tag y añadirlos a la database
 const createTag = (dataAll, idObject) => {
 
+
   // con flatmap() aplanas los elementos del array y retornas un nuevo array
-  const tagAll = dataAll.flatMap(data => data[idObject].split(","))
+  // #00: const tagAll = dataAll.flatMap(data => data[idObject].split(","))
+  const tagAll = dataAll.flatMap(data => data[idObject])
   // continuas trabajando en la variable 'tagAll' al adjuntar un .map()
   .map(elem => elem.trim().toLowerCase());
 
