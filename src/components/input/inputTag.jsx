@@ -25,6 +25,7 @@ const InputTag = ({css, icon, text, keyboard, inputResponse, children}) => {
     //
     const newTags = tags.filter((elem) => elem !== tagIndex);
     setTags(newTags);
+    inputResponse.get(newTags)
   };
 
   return (

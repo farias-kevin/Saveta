@@ -6,7 +6,7 @@
       "sitename": "Google.com",
       "image": "https://picsum.photos/601",
       "content": "learn 8 lady of they such they sure it. Me contained explained my education.",
-      "tag": ["GAME", "MOVIE", "MUSIC", "VIDEO", "DOWNLOAD", "SOCIAL NETWORK", "UX/UI"],
+      "tag": ["GAME", "MOVIE", "MUSIC", "VIDEO"],
       "folder": ["Lea"],
       "url":"http://sample.info/?insect=fireman&porter=attraction#cave"
     },
@@ -16,7 +16,7 @@
       "sitename": "Facebook.net",
       "image": "https://picsum.photos/602",
       "content": " Learn 1 instrument out reasonably.",
-      "tag": ["movie"],
+      "tag": ["movie", "SOCIAL NETWORK"],
       "folder": ["Learn"],
       "url":"http://sample.edu/"
     },
@@ -26,7 +26,7 @@
       "sitename": "Dev.to",
       "image": "https://picsum.photos/604",
       "content": "none 2 Again keeps at no meant stuff instrument out reasonably",
-      "tag": ["game", "video"],
+      "tag": ["game", "video", "UX/UI"],
       "folder": ["none"],
       "url": "http://sample.org/#yak"
     },
@@ -36,7 +36,7 @@
       "sitename": "X.com",
       "image": "https://picsum.photos/603",
       "content": "recurse 1 Again keeps at no meant stuff.",
-      "tag": ["video"],
+      "tag": ["DOWNLOAD"],
       "folder": ["recurse"],
       "url": "https://sample.org/cover"
     }

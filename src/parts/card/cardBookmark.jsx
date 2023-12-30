@@ -2,12 +2,8 @@ import "./cardBookmark.css";
 import Button from "../../components/button/button.jsx";
 import Dropdown from "../../components/dropdown/dropdown.jsx";
 import DropdownBookmark from "../dropdown/dropdownBookmark.jsx";
-import { InfoProvider } from "../../hooks/contextInfo";
-import { useContext } from "react";
 
 const CardBookmark = ({css, id, title, sitename, url, image}) => {
-
-  const {resultTextarea, setResultTextarea} = useContext(InfoProvider);
 
   return(
     <article className={`${css} slide-left`} id={id} data-css={"borrar"} >

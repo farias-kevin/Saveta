@@ -3,8 +3,7 @@ import "./dropdownBookmark.css";
 import Button from "../../components/button/button"
 import DropdownBookmark_edit from "./dropdownBookmark_edit";
 import DropdownBookmark_move from "./dropdownBookmark_move";
-import { useState, useEffect, useContext} from "react";
-import { InfoProvider } from "../../hooks/contextInfo";
+import { useState, useEffect} from "react";
 import overflowController from "../../utils/overflowController";
 
 const DropdownBookmark = ({css="dropdownBookmark"}) => {

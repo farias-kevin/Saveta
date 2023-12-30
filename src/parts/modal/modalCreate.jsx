@@ -15,7 +15,7 @@ import getDate from "../../utils/getDate.jsx"
 const ModalCreate = ({css="modalCreate"}) => {
   // hook context, de datos y referencias
   const { dataOriginal, setDataOriginal, setDataEditFolder} = useContext(DataProvider);
-  const { setModalActivate } = useContext(InfoProvider);
+  const { setModalActivate } = useContext(DataProvider);
   // hooks state, para el evento del formulario y el resultado del fetch()
   const [formValue, setFormValue] = useState({});
   const [fetchResult, setFetchResult] = useState([]);

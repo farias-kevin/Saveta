@@ -25,24 +25,12 @@ const ContextInfo = ({children}) => {
 
   const value = {
     //
-    buttonTagName,
-    setButtonTagName,
-    //
-    modalActivate,
-    setModalActivate,
-    //
-    resultTextarea,
-    setResultTextarea,
-    //
-    tagInfo,
-    setTagInfo,
-    //
-    nameFolder,
-    setNameFolder,
-    pruebaContext, setPruebaContext,
-    //
-    infoDropdown,
-    setInfoDropdown
+    // buttonTagName, setButtonTagName,
+    // modalActivate, setModalActivate,
+    // resultTextarea, setResultTextarea,
+    // tagInfo, setTagInfo,
+    // nameFolder, setNameFolder,
+    // infoDropdown, setInfoDropdown
   }
 
 // #03: crea un 'proveedor de datos' que envuelva a los demas componentes

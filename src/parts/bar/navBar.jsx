@@ -8,13 +8,11 @@ import DropdownNav from "../dropdown/dropdownNav";
 import InputBase from "../../components/input/input.jsx"
 import SearchBase from "../../components/search/searchBase";
 import { useContext, useState } from "react";
-import { InfoProvider } from "../../hooks/contextInfo";
 import { DataProvider } from "../../hooks/contextData";
 
 const NavBar = ({css}) => {
 
-  const { setModalActivate } = useContext(InfoProvider);
-  const { dataOriginal } = useContext(DataProvider)
+  const { dataOriginal, setModalActivate } = useContext(DataProvider)
   const [ inputResult, setInputResult ] = useState("")
 
   return(

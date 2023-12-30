@@ -5,13 +5,12 @@ import Textarea from "../../components/input/textarea.jsx"
 import Header from "../../components/header/header.jsx";
 import InputFile from "../input/inputFile.jsx"
 import { useContext, useState } from "react"
-import { InfoProvider } from "../../hooks/contextInfo.jsx";
 import { DataProvider } from "../../hooks/contextData.jsx";
 import fileExport from "../../utils/fileExport.jsx";
 
 const ModalExport = ({css="modalExport"}) => {
   //
-  const { setModalActivate } = useContext(InfoProvider)
+  const { setModalActivate } = useContext(DataProvider)
   const { dataOriginal, setDataOriginal, setDataEditFolder } = useContext(DataProvider);
 
   //

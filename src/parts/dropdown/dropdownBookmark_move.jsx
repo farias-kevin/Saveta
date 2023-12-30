@@ -6,13 +6,12 @@ import InputBase from "../../components/input/input.jsx"
 import SearchBase from "../../components/search/searchBase.jsx";
 import { useState, useContext } from "react";
 import { DataProvider } from "../../hooks/contextData";
-import { InfoProvider } from "../../hooks/contextInfo";
 import filterData from "../../utils/filterData";
 
 const DropdownBookmark_edit = ({css="dropdownBookmark", openSection}) => {
   //constantes y variables
   const { dataOriginal, setDataOriginal } = useContext(DataProvider)
-  const { infoDropdown } = useContext(InfoProvider)
+  const { infoDropdown } = useContext(DataProvider)
 
   //
   const dataSelect = filterData(dataOriginal["bookmarks"], "id", infoDropdown, "");

@@ -1,11 +1,11 @@
 import "./dropdown.css"
 import Button from "../button/button";
 import { useContext} from "react";
-import { InfoProvider } from "../../hooks/contextInfo";
+import { DataProvider } from "../../hooks/contextData";
 
 const Dropdown = ({css, icon, text, title, children, info}) => {
   // Hook
-  const { infoDropdown, setInfoDropdown } = useContext(InfoProvider)
+  const { infoDropdown, setInfoDropdown } = useContext(DataProvider)
 
   const handleToggle = (data) => {
     setInfoDropdown(data);
