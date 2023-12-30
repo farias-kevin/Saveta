@@ -7,14 +7,14 @@ import FooterMain from "./parts/footer/footerMain.jsx"
 import HeaderBanner from "./parts/header/headerBanner.jsx"
 import SectionCard from "./parts/section/sectionCard.jsx"
 import { ContextData } from "./hooks/contextData.jsx"
-import { ContextInfo } from "./hooks/contextInfo.jsx"
+// import { ContextInfo } from "./hooks/contextInfo.jsx"
 import NotificationDelete from "./parts/notification/notificationDelete"
 
 export default function App(){
   return (
     <>
       <ContextData>
-        <ContextInfo>
+        {/* <ContextInfo> */}
           <Modal css="modal"/>
           <NavBar css="navBar"/>
           <NotificationDelete
@@ -26,7 +26,7 @@ export default function App(){
             <SectionCard css="sectionCard" />
           </main>
           <FooterMain css="footerMain" />
-        </ContextInfo>
+        {/* </ContextInfo> */}
       </ContextData>
     </>
   );

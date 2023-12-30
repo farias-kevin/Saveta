@@ -2,11 +2,11 @@
 import "./dropdownNav.css";
 import Button from "../../components/button/button"
 import { useContext } from "react"
-import { InfoProvider } from "../../hooks/contextInfo"
+import { DataProvider } from "../../hooks/contextData";
 
 const DropdownNav = ({ css="dropdownNav" }) => {
 
-  const { setModalActivate } = useContext(InfoProvider);
+  const { setModalActivate } = useContext(DataProvider);
 
   return (
     <div className={`${css}`} >

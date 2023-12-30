@@ -7,7 +7,6 @@ import Header from "../../components/header/header.jsx"
 import apiJson from "../../data/apiJson-iframely.jsx"
 import { useContext, useEffect, useState } from "react"
 import { DataProvider } from "../../hooks/contextData.jsx"
-import { InfoProvider } from "../../hooks/contextInfo.jsx"
 import editorUrl from "../../utils/editorUrl.jsx"
 import getDate from "../../utils/getDate.jsx"
 
@@ -15,7 +14,7 @@ import getDate from "../../utils/getDate.jsx"
 const ModalEdit = ({ css="modalEdit" }) => {
   // hook context, de datos y referencias
   const { dataOriginal, setDataOriginal, setDataEdition} = useContext(DataProvider);
-  const { setModalActivate } = useContext(InfoProvider);
+  const { setModalActivate } = useContext(DataProvider);
   // hooks state, para el evento del formulario y el resultado del fetch()
   const [formValue, setFormValue] = useState({});
   const [fetchResult, setFetchResult] = useState([]);

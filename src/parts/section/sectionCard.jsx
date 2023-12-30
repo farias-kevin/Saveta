@@ -7,28 +7,30 @@ import HeaderTags from "../header/headerTags.jsx";
 import imageStatic from "../../assets/example6.jpg"
 import { useContext } from "react";
 import { DataProvider } from "../../hooks/contextData.jsx";
-import { InfoProvider } from "../../hooks/contextInfo.jsx";
-import NotificationDelete from "../notification/notificationDelete";
 
 const SectionCard = ({css, children}) => {
   // hook context, de datos y referencias
-  const { dataEditTag } = useContext(DataProvider);
-  const { nameFolder, tagInfo, setModalActivate } = useContext(InfoProvider);
+  const { dataEditTag, tagInfo} = useContext(DataProvider);
+
   //
-  let numBookmark = (tagInfo.numItem == undefined)
+  let numBookmark = (tagInfo.itemNum == undefined)
     ? 0
-    : tagInfo.numItem
+    : tagInfo.itemNum
 
   function activeMenu (){
     let here = document.getElementById("qsTHVYGgzl");
     here.classList.toggle("here");
   }
 
+console.warn("IMPRIME TARJETAS")
+console.log(dataEditTag)
+
   return (
     <div className={`${css}`} id="aaa">
       <section className={`${css}_body`}>
         <Header
-          title={nameFolder}
+          // title={nameFolder}
+          title={tagInfo.folderName}
           text={`${numBookmark} bookmarks`}
           css={`${css}_header`}>
           <div className={`${css}_header_container-b`}>
@@ -57,6 +59,7 @@ const SectionCard = ({css, children}) => {
           </HeaderTags>
         </>
         <div className={`${css}_content`}>
+          {/* {dataEditTag["bookmarks"].map((elem) => ( */}
           {dataEditTag["bookmarks"].map((elem) => (
             <CardBookmark
               title={elem.title}

@@ -6,18 +6,18 @@ import InputBase from "../../components/input/input.jsx"
 import InputTag from "../../components/input/inputTag";
 import { useState, useContext } from "react";
 import { DataProvider } from "../../hooks/contextData";
-import { InfoProvider } from "../../hooks/contextInfo";
 import filterData from "../../utils/filterData";
 
 const DropdownBookmark_edit = ( {css="dropdownBookmark", openSection} ) => {
   //constantes
-  const { dataOriginal, setDataOriginal } = useContext(DataProvider)
-  const {infoDropdown} = useContext( InfoProvider );
+  const { dataOriginal, setDataOriginal, setDataEditTag, setDataEditFolder} = useContext(DataProvider)
+  const {infoDropdown} = useContext( DataProvider );
 //
   let dataSelect = filterData( dataOriginal["bookmarks"], "id", infoDropdown, "" );
+  //
   const [inputTitle, setInputTitle] = useState( dataSelect[0].title );
   const [inputTag, setInputTag] = useState( dataSelect[0].tag );
-  const [dataTag, setDataTag] = useState( [] );
+  const [dataTag, setDataTag] = useState( dataSelect[0].tag );
 
 
   function acceptChanges(event){
@@ -29,11 +29,10 @@ const DropdownBookmark_edit = ( {css="dropdownBookmark", openSection} ) => {
       }
       return elem
     })
-    // console.log( newData )
-    //
-    setDataOriginal({
-      ...dataOriginal, bookmarks: newData
-    })
+
+    setDataOriginal(prev => ({
+      ...prev, bookmarks: newData
+    }))
   }
   return (
     <form className={`${css}_section-b`} onSubmit={acceptChanges}>
