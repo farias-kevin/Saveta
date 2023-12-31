@@ -9,27 +9,28 @@ import animationController from "../../utils/animationController";
 
 const SideBar = ({css}) => {
   //
-  const { dataOriginal, setDataEditFolder, folderData } = useContext(DataProvider);
-  const { setTagInfo, tagInfo} = useContext(DataProvider);
+  const { dataOriginal, setDataEditFolder } = useContext(DataProvider);
+  const { setSectionStatus, sectionStatus, folderData } = useContext(DataProvider);
 
-  function ButtonFolder(titleFolder){
+  function ButtonFolder(titleFolder, num){
     //animacion
     animationController("aaa", "animacionA", 300, "animacionB")
     setTimeout(() => {
-      setTagInfo({
-        ...tagInfo,
+      setSectionStatus(prev => ({
+        ...prev,
         folderName: titleFolder,
         tagName: "all",
-      })
-      setDataEditFolder({
-        ...dataOriginal,
+        itemNum: num,
+      }))
+      setDataEditFolder(prev => ({
+        ...prev,
         bookmarks: filterData(dataOriginal["bookmarks"], "folder", titleFolder, 'All Bookmarks')
-      })
+      }))
     },100)
   }
 
   return (
-    <div className={`${css}`} id="qsTHVYGgzl">
+    <div className={`${css}`} data-js="sidebar">
       <section className={`${css}_body`} >
         <Header
           title="All folders"
@@ -38,7 +39,7 @@ const SideBar = ({css}) => {
         />
         <div className={`${css}_main`}>
           <Card
-            fn={() => ButtonFolder("All Bookmarks", 0)}
+            fn={() => ButtonFolder("All Bookmarks", dataOriginal["bookmarks"].length)}
             title="All Bookmarks"
             text="folder"
             icon={<IconifyFolderOpenOutline/>}
@@ -47,7 +48,7 @@ const SideBar = ({css}) => {
           {folderData.map(elem => (
             <Card
               key={crypto.randomUUID()}
-              fn={() => ButtonFolder(elem.name, crypto.randomUUID())}
+              fn={() => ButtonFolder(elem.name, elem.num)}
               title={elem.name}
               text="folder"
               icon={<IconifyFolderOpenOutline/>}

@@ -10,7 +10,7 @@ import filterData from "../../utils/filterData";
 
 const DropdownBookmark_edit = ( {css="dropdownBookmark", openSection} ) => {
   //constantes
-  const { dataOriginal, setDataOriginal, setDataEditTag, setDataEditFolder} = useContext(DataProvider)
+  const {dataOriginal, setDataOriginal} = useContext(DataProvider)
   const {infoDropdown} = useContext( DataProvider );
 //
   let dataSelect = filterData( dataOriginal["bookmarks"], "id", infoDropdown, "" );

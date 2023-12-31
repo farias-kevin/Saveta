@@ -18,21 +18,24 @@ const ContextData = ({children}) => {
   const mainTag = createTag( dataEditFolder["bookmarks"], "tag" );
   const mainFolder = createTag( dataOriginal["bookmarks"], "folder" );
   const mainState = {
-    folderName:"All Bookmarks",
-    tagName:"all"
+    folderName: "All Bookmarks",
+    tagName: "all",
+    itemNum: dataOriginal["bookmarks"].length
   };
   //
   const [tagData, setTagData] = useState( mainTag );
+  const [sectionStatus, setSectionStatus] = useState( mainState );
   const [folderData, setFolderData] = useState( mainFolder );
-  const [tagInfo, setTagInfo] = useState( mainState );
   const [infoDropdown, setInfoDropdown] = useState("");
   const [modalActivate, setModalActivate] = useState("");
 
   // !ActualiacionParaNuevoElemento:
   useEffect(() => {
     setFolderData( createTag( dataOriginal["bookmarks"], "folder" ) );
+    // setTagData( createTag( dataEditFolder["bookmarks"], "tag" ) );
     setDataEditFolder(prev => ({
-      ...prev, bookmarks: filterData(dataOriginal["bookmarks"], "folder", tagInfo.folderName, 'All Bookmarks')
+      ...prev,
+      bookmarks: filterData(dataOriginal["bookmarks"], "folder", sectionStatus.folderName, 'All Bookmarks')
     }))
   },[dataOriginal])
 
@@ -40,16 +43,10 @@ const ContextData = ({children}) => {
   useEffect(() => {
     setTagData( createTag( dataEditFolder["bookmarks"], "tag" ) );
     setDataEditTag(prev => ({
-      ...prev, bookmarks: filterData(dataEditFolder["bookmarks"], "tag", tagInfo.tagName, "all")
+      ...prev,
+      bookmarks: filterData(dataEditFolder["bookmarks"], "tag", sectionStatus.tagName, "all")
     }))
   },[dataEditFolder])
-
-  // !ActualizacionParaEstado:
-  useEffect(() => {
-    setDataEditTag(prev => ({
-      ...prev, bookmarks: filterData(dataEditFolder["bookmarks"], "tag", tagInfo.tagName, "all")
-    }))
-  },[tagInfo])
 
   // #04: informacion que 'compartira' el proveedor de datos
   const value = {
@@ -61,7 +58,7 @@ const ContextData = ({children}) => {
     folderData, setFolderData,
     tagData, setTagData,
     // grupo estados
-    tagInfo, setTagInfo,
+    sectionStatus, setSectionStatus,
     modalActivate, setModalActivate,
     infoDropdown, setInfoDropdown,
   }

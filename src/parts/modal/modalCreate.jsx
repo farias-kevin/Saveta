@@ -53,12 +53,10 @@ const ModalCreate = ({css="modalCreate"}) => {
       tag:  "",
     }
     // copias los valores y añade los nuevos en el objeto deseado,
-    let newData = {
-      ...dataOriginal,
-      bookmarks: [newItem, ...dataOriginal.bookmarks]
-    };
-    setDataOriginal(newData)
-    setDataEditFolder(newData)
+    setDataOriginal(prev => ({
+      ...prev,
+      bookmarks: [newItem, ...prev.bookmarks]
+    }))
   }
   return(
     <>
@@ -100,7 +98,7 @@ const ModalCreate = ({css="modalCreate"}) => {
           <Button
             type="submit"
             text="Create new"
-            css={`${css}_footer_button`}
+            css={`${css}_footer_button-2`}
           />
         </footer>
       </form>

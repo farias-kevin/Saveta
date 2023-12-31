@@ -19,6 +19,8 @@
     font-size: var(--s);
     text-align: left;
     white-space: nowrap;
+    display: flex;
+    gap:0.6rem;
   }
   &_button:hover {
     background-color: #ebebeb;

@@ -22,37 +22,6 @@
   }
 }
 
-/* !sectionCard: */
-.sectionCard_header {
-  padding: 1rem 0;
-  display:flex;
-  align-items: center;
-  gap:1rem;
-  &_container {
-    order: 2;
-    font-family: var(--title2);
-    color:var(--cardText);
-    display:flex;
-    flex-direction: column;
-  }
-  &_container-b {
-    order: 1;
-  }
-  &_container-c {
-    order: 3;
-    margin-left: auto;
-    display:flex;
-    gap:1rem;
-  }
-  &_title {
-    font-size: var(--l);
-    font-weight:var(--bold);
-    text-transform: capitalize;
-  }
-  &_text {
-    font-size: var(--m);
-  }
-}
 
 /* !modalCreate: y !modalEdit: */
 .modalCreate_header,
