@@ -6,7 +6,7 @@ import DropdownBookmark from "../dropdown/dropdownBookmark.jsx";
 const CardBookmark = ({css, id, title, sitename, url, image}) => {
 
   return(
-    <article className={`${css} slide-left`} id={id} data-css={"borrar"} >
+    <article className={`${css} slide-left`} id={id} >
       <header className={`${css}_header`}>
         <a href={url}>
           <img className={`${css}_header_image`} src={image} alt={title} />
@@ -19,9 +19,6 @@ const CardBookmark = ({css, id, title, sitename, url, image}) => {
           />
         </Dropdown>
       </header>
-
-
-
       <section className={`${css}_body`}>
         <span className={`${css}_body_dot`} />
         <div className={`${css}_main`} >

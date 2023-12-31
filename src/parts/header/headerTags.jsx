@@ -2,22 +2,26 @@
 import "./headerTags.css";
 import { useContext} from "react";
 import { DataProvider } from "../../hooks/contextData.jsx";
+import filterData from "../../utils/filterData";
 
-const HeaderTags = ({css}) => {
+const HeaderTags = ({css="headerTags"}) => {
   // hooks context, para tag y datos
-  const { tagData, dataEditFolder} = useContext(DataProvider);
-  const { setTagInfo, tagInfo }  = useContext(DataProvider);
+  const { dataEditFolder, setDataEditTag} = useContext(DataProvider);
+  const { setSectionStatus, sectionStatus, tagData }  = useContext(DataProvider);
 
-  function ButtonActive(name, id, num) {
+  function ButtonActive(tagName, tagId, itemNum) {
     // para hook state
-    setTagInfo({
-      ...tagInfo,
-      tagId: id,
-      tagName: name,
-      itemNum: num
-    })
+    setSectionStatus(prev => ({
+      ...prev,
+      tagId: tagId,
+      tagName: tagName,
+      itemNum: itemNum
+    }))
+    setDataEditTag(prev => ({
+      ...prev,
+      bookmarks: filterData(dataEditFolder["bookmarks"], "tag", tagName, "all")
+    }))
   }
-
 
   return(
     <header className={`${css}`} >
@@ -25,15 +29,14 @@ const HeaderTags = ({css}) => {
         <li
           key={crypto.randomUUID()}
           onClick={() => ButtonActive("all", 0, dataEditFolder["bookmarks"].length)}
-          className={"all" != tagInfo.tagName ? `${css}_tag_item` : `${css}_tag_itemON`}>
+          className={"all" != sectionStatus.tagName ? `${css}_tag_item` : `${css}_tag_itemON`}>
           All
-
         </li>
         {tagData.map((elem)=>(
           <li
             key={crypto.randomUUID()}
             onClick={() => ButtonActive(elem.name, elem.id, elem.num)}
-            className={elem.name != tagInfo.tagName ? `${css}_tag_item` : `${css}_tag_itemON`}>
+            className={elem.name != sectionStatus.tagName ? `${css}_tag_item` : `${css}_tag_itemON`}>
             {elem.name}
           </li>
         ))}

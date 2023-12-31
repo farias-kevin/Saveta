@@ -1,8 +1,8 @@
 import "./button.css"
 
-const Button = ({name, text, title, css, fn, value, dataAttribute, type="button", icon, children}) => {
+const Button = ({name, text, title, css, fn, comingSoon, value, dataAttribute, type="button", icon, children}) => {
   return(
-    <button className={`${css}`} onClick={fn} type={type} name={name} value={value} data-css={dataAttribute} >
+    <button className={`comingSoon ${css}`} onClick={fn} type={type} name={name} value={value} data-css={dataAttribute} >
       {(icon &&
         <i className={`${css}_icon`}>{icon}</i>
       )}
@@ -14,6 +14,11 @@ const Button = ({name, text, title, css, fn, value, dataAttribute, type="button"
       )}
       {(children &&
         <>{children}</>
+      )}
+      {(comingSoon &&
+        <div className={`comingSoon_box`}>
+          <i className={`comingSoon_icon`}>{<IconifyLockOutline/>}</i>
+        </div>
       )}
     </button>
   )

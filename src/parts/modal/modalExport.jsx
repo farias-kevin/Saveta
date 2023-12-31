@@ -1,115 +1,93 @@
-
+// recurse
 import "./modalExport.css";
+import archivo from "../../data/dataBookmarks.json"
 import Button from "../../components/button/button.jsx"
 import Textarea from "../../components/input/textarea.jsx"
 import Header from "../../components/header/header.jsx";
 import InputFile from "../input/inputFile.jsx"
-import { useContext, useState } from "react"
+import { useContext, useState, useRef } from "react"
 import { DataProvider } from "../../hooks/contextData.jsx";
 import fileExport from "../../utils/fileExport.jsx";
 
+
 const ModalExport = ({css="modalExport"}) => {
   //
-  const { setModalActivate } = useContext(DataProvider)
   const { dataOriginal, setDataOriginal, setDataEditFolder } = useContext(DataProvider);
-
-  //
+  const { setModalActivate } = useContext(DataProvider)
   const [ fileName, setFileName ] = useState("")
-  const [ fileUpload, setFileUpload ] = useState(dataOriginal)
 
-  function funExportdata(id){
+  const exportButtonRef = useRef(null)
+
+const [textareaResult, setTextareaResult] = useState("")
+
+  function funExportdata(){
     //
-    let file = JSON.stringify(dataOriginal, null, 2)
-    fileExport(id, file);
+    const site = exportButtonRef.current
+    const file = JSON.stringify(dataOriginal, null, 2)
+    fileExport(site, file);
   }
 
-  function funImportData(file){
+  function funImportData(){
     //
-    let data = JSON.parse(file)
-    setDataOriginal(data)
-    setDataEditFolder(data)
-  }
-
-  function funGetFile(event) {
-    const textarea = document.getElementById("ula5goTPzc")
-    // captura el atributo file
-    const file = event.target.files[0];
-
-    // valida si existe el archivo y de ser 'undefined' cancela el proceso
-    if(file === undefined) return
-
-    // Validar el tipo de archivo
-    if (file.type !== 'application/json') {
-      // actualiza las variables y cancela el proceso
-      setFileName('');
-      textarea.value = "ERROR, the file format is incorrect. Please upload a .json file"
-      return;
+    const data = JSON.parse(textareaResult)
+    const file1 = Object.keys(archivo);
+    const file2 = Object.keys(data);
+    //
+    if(file1[0] === file2[0]){
+      setDataOriginal(data)
+    }else{
+      alert("error")
     }
-    // actualiza la variable con el nombre del archivo
-    setFileName(file.name)
-
-    // usa la api FileReader() y con readAsText() lee el archivo como texto
-    const reader = new FileReader();
-    reader.readAsText(file);
-
-    // con .onload anticipas las acciones que se haran al carga el archivo
-    reader.onload = function(event) {
-      // capturas el contenido del archivo y lo almacenas para su posterior uso
-      const fileContent = event.target.result;
-      setFileUpload(fileContent)
-      textarea.value = fileContent
-    };
   }
 
   return(
-    <>
-      <div className={`${css}`}>
-        <Button
-          fn={() => setModalActivate(false)}
-          css={`${css}_button-close`}
-          icon={<IconifyWindowClose/>}
+    <form className={`${css}`} >
+      <Button
+        fn={() => setModalActivate(false)}
+        css={`${css}_button-close`}
+        icon={<IconifyWindowClose/>}
+      />
+      <Header
+        css={`${css}_header`}
+        title="Transfer your bookmarks"
+        text="Import or share your data with Saveta">
+      </Header>
+      <section className={`${css}_main`}>
+        <Textarea
+          value={textareaResult}
+          fn={event => setTextareaResult( event.target.value )}
+          read="readonly"
+          placeholder="Only .json format files are allowed..."
+          css={`${css}_label`}
         />
-        <Header
-          css={`${css}_header`}
-          title="Transfer your bookmarks"
-          text="Import or share your data with Saveta">
-        </Header>
-        <section className={`${css}_main`}>
-          <Textarea
-            id="ula5goTPzc"
-            read="readonly"
-            css={`${css}_label`}
-            placeholder="Only .json format files are allowed...">
-          </Textarea>
-          <InputFile
-            fun={funGetFile}
-            format=".txt"
-            id="bvcQtTU83Q">
-            <div className={`${css}_button2`}>
-              {fileName ? fileName : 'Upload backup'}
-            </div>
-          </InputFile>
-          <sup className={`${css}_subtext`}>
-            * Don't forget to click on "import data", if you have added new information.
-          </sup>
-        </section>
-        <footer className={`${css}_footer`}>
+        <InputFile
+          css={`${css}_button2`}
+          inputResponse={ {value: textareaResult, set: setTextareaResult, get:setFileName} }
+          format=".txt"
+          id="bvcQtTU83Q"
+          text={fileName ? fileName : 'Upload backup'}>
+        </InputFile>
+
+
+        <sup className={`${css}_subtext`}>
+          * Don't forget to click on "import data", if you have added new information.
+        </sup>
+      </section>
+      <footer className={`${css}_footer`}>
+        <Button
+          fn={() => funImportData()}
+          text="Import data"
+          css={`${css}_footer_button`}
+        />
+        <a ref={exportButtonRef} download="backup-saveta.json" href="#">
           <Button
-            fn={() => funImportData(fileUpload)}
-            text="Import data"
-            css={`${css}_footer_button`}
+            fn={() => funExportdata()}
+            text="Export file"
+            css={`${css}_footer_button-2`}
           />
-          <a id="CdVbxAul57" download="backup-saveta.json" href="#">
-            <Button
-              fn={() => funExportdata("CdVbxAul57")}
-              type="submit"
-              text="Export file"
-              css={`${css}_footer_button`}
-            />
-          </a>
-        </footer>
-      </div>
-    </>
+        </a>
+      </footer>
+    </form>
   )
 }
 export default ModalExport

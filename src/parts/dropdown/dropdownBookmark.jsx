@@ -1,9 +1,12 @@
 // recursos
 import "./dropdownBookmark.css";
 import Button from "../../components/button/button"
+import DropdownBookmark_delete from "./dropdownBookmark_delete";
 import DropdownBookmark_edit from "./dropdownBookmark_edit";
 import DropdownBookmark_move from "./dropdownBookmark_move";
 import { useState, useEffect} from "react";
+import { useContext } from "react";
+import { DataProvider } from "../../hooks/contextData";
 import overflowController from "../../utils/overflowController";
 
 const DropdownBookmark = ({css="dropdownBookmark"}) => {
@@ -33,20 +36,17 @@ const DropdownBookmark = ({css="dropdownBookmark"}) => {
             />
             <Button
               title="Copy link"
+              comingSoon="funcion copiar"
               icon={<IconifyContentCopy/>}
               css={`${css}_button`}
             />
-            {/* !pendiente: */}
-            {/* <Button */}
-            {/*   title="Info" */}
-            {/*   text={<IconifyLockOutline/>} */}
-            {/*   icon={<IconifyInformationSlabCircleOutline/>} */}
-            {/*   css={`${css}_button`} */}
-            {/* /> */}
             <Button
-              title="Delete"
-              icon={<IconifyDeleteOutline/>}
-              css={`${css}_button`}
+              title="Info"
+              comingSoon="mostrar informacion"
+              icon={<IconifyInformationSlabCircleOutline/>}
+              css={`blocked ${css}_button`}
+            />
+            <DropdownBookmark_delete
             />
           </article>
         </div>

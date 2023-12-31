@@ -38,8 +38,9 @@
       height:8em;
       padding: .5em 1em;
       padding-right: 2.5em;
-      font-weight: bold;
-      font-family: var(--base);
+      font-weight: var(--semibold);
+      font-family: var(--title2);
+      font-size: var(--n);
       border:2px solid rgba(0,0,0,0.2);
       border-radius: .8em;
     }

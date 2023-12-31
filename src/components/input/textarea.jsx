@@ -1,31 +1,22 @@
-// recursos
-import { useContext } from "react";
-import { InfoProvider } from "../../hooks/contextInfo";
 
+const TextareaBase = ({css, text, icon, fn, name, value, children, placeholder, read, id}) => {
 
-export default function Textarea ({css, text, icon, name, children, placeholder, read, id}){
-
-  // const [textareaValue, setTextareaValue] = useState('');
-  // const { resultTextarea } = useContext(InfoProvider)
-
-  // const handleChange = (event) => {
-  //   console.log(event.target.value)
-  //   setTextareaValue(event.target.value);
-  // };
+  let keyID = "input-" + crypto.randomUUID();
 
   return(
-    <label className={`${css}`} htmlFor={id}>
+    <label className={`${css}`} htmlFor={keyID}>
       {(text &&
         <span className={`${css}_text`}>{text}</span>
       )}
       <textarea
-        readOnly={read}
         className={`${css}_input`}
-        id={id}
-        placeholder={placeholder}
+        id={keyID}
+        readOnly={read}
+        onChange={fn}
         name={name}
-      >
-      </textarea>
+        value={value}
+        placeholder={placeholder}
+      />
       {(icon &&
         <i className={`${css}_icon`}>{icon}</i>
       )}
@@ -35,3 +26,4 @@ export default function Textarea ({css, text, icon, name, children, placeholder,
     </label>
   )
 }
+export default TextareaBase

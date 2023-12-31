@@ -13,10 +13,12 @@ const DropdownNav = ({ css="dropdownNav" }) => {
       <Button
         title="Nicola F."
         css={`${css}_button`}
+        comingSoon="perfil de usuario"
       />
       <Button
         title="History"
         css={`${css}_button`}
+        comingSoon="historial de busqueda"
       />
       <Button
         fn={() => setModalActivate("modalExport")}
@@ -26,6 +28,7 @@ const DropdownNav = ({ css="dropdownNav" }) => {
       <Button
         css={`${css}_button`}
         title="Log out"
+        comingSoon="cerrar seccion"
       />
     </div>
   )

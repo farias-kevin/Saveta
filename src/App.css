@@ -1,6 +1,13 @@
-hr {
-  height:4rem;
+.comingSoon {
+  &:hover &_box {
+    animation: attention 0.5s ease-out 0s 1 normal forwards;
+  }
+  &_icon {
+    color:rgba(0,0,0,0.35);
+    font-size: var(--xs);
+  }
 }
+
 main {
   min-height:100svh;
   padding:2em 3em;
@@ -8,7 +15,11 @@ main {
   display: flex;
   gap:1rem;
 }
+hr {
+  height:4rem;
+}
 
+/* !animaciones: */
 @keyframes slideaway {
     from { display: block; opacity: 0; }
     to { transform: translateY(0px); opacity: 1;}
@@ -16,6 +27,13 @@ main {
 @keyframes myAnimAB {
 	0% { opacity: 0; transform: translateX(50px);}
 	100% { opacity: 1; transform: translateX(0px);}
+}
+@keyframes attention {
+	0%, 100% { transform: translateX(0); }
+	10%, 30%, 50%, 70% { transform: translateX(-10px); }
+	20%, 40%, 60% {	transform: translateX(10px); }
+	80% {	transform: translateX(8px);	}
+	90% {	transform: translateX(-8px); }
 }
 
 :root {
