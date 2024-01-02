@@ -1,19 +1,20 @@
-// recursos
 import "./dropdownBookmark.css";
-import Button from "../../components/button/button"
+import ButtonBase from "../../components/button/button"
 import { useContext } from "react";
-import { DataProvider } from "../../hooks/contextData";
+import { MainProvider } from "../../hooks/contextMain";
 
 const DropdownBookmark_delete = ({css="dropdownBookmark"}) => {
-
-  const {infoDropdown, dataOriginal, setDataOriginal} = useContext( DataProvider );
+  // constantes
+  const {dataOriginal, setDataOriginal} = useContext( MainProvider );
+  const {infoDropdown} = useContext( MainProvider );
 
   function deleteCard(cardId){
-    //
+    // remueve el elemento deseado y conserva el resto
     const newData = dataOriginal["bookmarks"].filter(elem => {
       return elem.id != cardId
     })
 
+    // envia los datos
     setDataOriginal(prev => ({
       ...prev,
       bookmarks: newData
@@ -21,7 +22,7 @@ const DropdownBookmark_delete = ({css="dropdownBookmark"}) => {
   }
 
   return (
-    <Button
+    <ButtonBase
       title="Delete"
       icon={<IconifyDeleteOutline/>}
       css={`${css}_button`}

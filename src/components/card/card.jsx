@@ -1,7 +1,6 @@
 import "./card.css"
 
-const Card = ({css, icon, text, title, fn, children}) => {
-
+const CardBase = ({css, icon, text, title, fn, children}) => {
   return (
     <article className={`${css}`} onClick={fn}>
       {(icon &&
@@ -22,4 +21,4 @@ const Card = ({css, icon, text, title, fn, children}) => {
   )
 }
 
-export default Card
+export default CardBase

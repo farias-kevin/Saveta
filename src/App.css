@@ -1,6 +1,6 @@
 .comingSoon {
   &:hover &_box {
-    animation: attention 0.5s ease-out 0s 1 normal forwards;
+    animation: alert 0.5s ease-out 0s 1 normal forwards;
   }
   &_icon {
     color:rgba(0,0,0,0.35);
@@ -8,6 +8,7 @@
   }
 }
 
+/* !ajustes: */
 main {
   min-height:100svh;
   padding:2em 3em;
@@ -20,27 +21,35 @@ hr {
 }
 
 /* !animaciones: */
-@keyframes slideaway {
-    from { display: block; opacity: 0; }
-    to { transform: translateY(0px); opacity: 1;}
+@keyframes slideVertical {
+  from { display: block; opacity: 0; }
+  to { transform: translateY(0px); opacity: 1;}
 }
-@keyframes myAnimAB {
-	0% { opacity: 0; transform: translateX(50px);}
-	100% { opacity: 1; transform: translateX(0px);}
+@keyframes slideHorizontal {
+  0% { opacity: 0; transform: translateX(50px);}
+  100% { opacity: 1; transform: translateX(0px);}
 }
-@keyframes attention {
-	0%, 100% { transform: translateX(0); }
-	10%, 30%, 50%, 70% { transform: translateX(-10px); }
-	20%, 40%, 60% {	transform: translateX(10px); }
-	80% {	transform: translateX(8px);	}
-	90% {	transform: translateX(-8px); }
+@keyframes alert {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70% { transform: translateX(-10px); }
+  20%, 40%, 60% {	transform: translateX(10px); }
+  80% {	transform: translateX(8px);	}
+  90% {	transform: translateX(-8px); }
+}
+@keyframes upAnimation {
+  0% { opacity: 0; transform: translateY(-150px);}
+	100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes downAnimation {
+  0% { opacity: 1; transform: translateY(0);}
+	100% { opacity: 0; transform: translateY(250px); }
 }
 
 :root {
-  /* VARIABLE */
+  /* variable */
   --shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  --shadow-b: rgba(0,0,0,0.1) 5px 5px 20px 1px;
-  /* DEFINICION */
+  --shadow-b: rgba(149, 157, 165, 0.15) 0px 3px 6px 0px;
+  /* definicion */
   --bodyColor:#ffffff;
   --bannerColor:#dedede;
   --cardColor:#ffffff;
@@ -48,11 +57,10 @@ hr {
   --cardButton_active:#ff7675;
   --logoText:#ff7675;
   --navBarColor:#ff7675;
+  --navBarText:#ffffff;
   --sectionCardColor:#ffffff;
   --photoColor:#dedede;
   --tagNav:#8e8e8e;
   --tagColor:#f0f0f0;
   --tagText:#8e8e8e;
-
-
 }

@@ -1,14 +1,13 @@
 // recursos
 import "./dropdownNotification.css";
 import Button from '../../components/button/button.jsx'
-import CardList from '../card/cardList.jsx'
 import { useContext } from 'react'
-import { DataProvider } from '../../hooks/contextData.jsx'
+import { MainProvider } from '../../hooks/contextMain.jsx'
 
 
 const DropdownNotification = ({css, type, icon, text}) => {
 
-  const { dataEdition } = useContext(DataProvider);
+  const { dataEdition } = useContext(MainProvider);
 
   return (
     <>
@@ -31,12 +30,6 @@ const DropdownNotification = ({css, type, icon, text}) => {
               </article> )
           })}
         </div>
-
-        {/* <CardList */}
-        {/*   ico={'mdi:file-document-alert-outline'} */}
-        {/*   text={} */}
-        {/*   css={`${type}_card`}> */}
-        {/* </CardList> */}
         <Button
           css={`${type}_button`}>
           Show all activities

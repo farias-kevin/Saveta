@@ -1,14 +1,13 @@
 import "./inputSearch.css"
 import InputBase from "../../components/input/input.jsx";
-import { useContext } from "react";
-import { useState } from "react";
-import { DataProvider } from "../../hooks/contextData";
+import { useContext, useState } from "react";
+import { MainProvider } from "../../hooks/contextMain";
 
-// COMPONENTE
 const InputSearch = ({id, placeholder, name, css}) => {
+  // constante
   const [ valor, setValor ] = useState("");
   const [ resultSearch, setResultSearch ] = useState([]);
-  const { tagData } = useContext(DataProvider)
+  const { tagData } = useContext(MainProvider)
 
   function searchWord(e){
     let texto = e.target.value;

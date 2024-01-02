@@ -6,10 +6,10 @@ import filterData from "../utils/filterData";
 
 
 // #01: crea la instancia del useContext()
-const DataProvider = createContext();
+const MainProvider = createContext();
 
 // #02: crea la funcion de accion del hook
-const ContextData = ({children}) => {
+const ContextMain = ({children}) => {
   //
   const [dataOriginal, setDataOriginal] = useState(dataAll);
   const [dataEditFolder, setDataEditFolder] = useState(dataOriginal);
@@ -32,7 +32,6 @@ const ContextData = ({children}) => {
   // !ActualiacionParaNuevoElemento:
   useEffect(() => {
     setFolderData( createTag( dataOriginal["bookmarks"], "folder" ) );
-    // setTagData( createTag( dataEditFolder["bookmarks"], "tag" ) );
     setDataEditFolder(prev => ({
       ...prev,
       bookmarks: filterData(dataOriginal["bookmarks"], "folder", sectionStatus.folderName, 'All Bookmarks')
@@ -65,9 +64,9 @@ const ContextData = ({children}) => {
 
   // #03: crea un 'proveedor de datos' que envuelva a los demas componentes
   return (
-    <DataProvider.Provider value={value}>
+    <MainProvider.Provider value={value}>
       {children}
-    </DataProvider.Provider>
+    </MainProvider.Provider>
   )
 }
-export { ContextData, DataProvider }
+export { ContextMain, MainProvider }

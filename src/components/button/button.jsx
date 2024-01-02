@@ -1,6 +1,6 @@
 import "./button.css"
 
-const Button = ({name, text, title, css, fn, comingSoon, value, dataAttribute, type="button", icon, children}) => {
+const ButtonBase = ({name, text, title, css, fn, comingSoon, value, dataAttribute, type="button", icon, children}) => {
   return(
     <button className={`comingSoon ${css}`} onClick={fn} type={type} name={name} value={value} data-css={dataAttribute} >
       {(icon &&
@@ -23,4 +23,4 @@ const Button = ({name, text, title, css, fn, comingSoon, value, dataAttribute, t
     </button>
   )
 }
-export default Button
+export default ButtonBase

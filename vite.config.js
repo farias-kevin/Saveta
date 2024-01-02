@@ -5,22 +5,25 @@ import IconsResolver from 'unplugin-icons/resolver'
 import AutoImport from 'unplugin-auto-import/vite'
 
 // https://vitejs.dev/config/
-export default defineConfig({
-  plugins: [
-    react(),
-    AutoImport({
-      resolvers: [
-        IconsResolver({
-          prefix: false,
-          extension: 'jsx',
-          enabledCollections: ['mdi'],
-          alias: {iconify: 'mdi'}
-        }),
-      ],
-    }),
-    Icons({
-      compiler: 'jsx', // or 'solid'
-      jsx: 'react'
-    }),
-  ],
+export default defineConfig(({command}) => {
+  return {
+    plugins: [
+      react(),
+      AutoImport({
+        resolvers: [
+          IconsResolver({
+            prefix: false,
+            extension: 'jsx',
+            enabledCollections: ['mdi'],
+            alias: {iconify: 'mdi'}
+          }),
+        ],
+      }),
+      Icons({
+        compiler: 'jsx', // or 'solid'
+        jsx: 'react'
+      }),
+    ],
+    base: command === "build" ? "https://farias-kevim.github.io/Saveta/" : "/",
+  }
 })

@@ -21,6 +21,7 @@ const InputTag = ({css, icon, text, keyboard, inputResponse, children}) => {
     }
   },[inputResponse.value])
 
+  console.log(tags)
   function removeTag(tagIndex){
     //
     const newTags = tags.filter((elem) => elem !== tagIndex);

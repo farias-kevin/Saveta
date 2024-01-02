@@ -1,13 +1,12 @@
-
 import "./headerBanner.css";
 import Button from "../../components/button/button.jsx";
-import { useContext, useState } from "react";
-import { DataProvider } from "../../hooks/contextData";
-import { useEffect } from "react";
+import { useContext, useState, useEffect } from "react";
+import { MainProvider } from "../../hooks/contextMain";
+
 
 const HeaderBanner = ({css="headerBanner"}) => {
-
-  const { dataOriginal } = useContext(DataProvider);
+  // constantes
+  const {dataOriginal} = useContext(MainProvider);
   const [cardNum, setCardNum] = useState("")
 
   useEffect(() => {
@@ -15,6 +14,7 @@ const HeaderBanner = ({css="headerBanner"}) => {
   },[dataOriginal])
 
   function cardLength(num){
+    // formateo los valores
     return (num < 10) ? "0" + num : num;
   }
 

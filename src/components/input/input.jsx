@@ -1,6 +1,7 @@
 import "./input.css"
 
-const Input = ({css, icon, type="text", children, text, placeholder, name, value, fn}) => {
+const InputBase = ({css, icon, type="text", children, text, placeholder, name, value, fn}) => {
+  // Claves random para los input
   let keyID = "input-" + crypto.randomUUID();
 
   return(
@@ -26,7 +27,7 @@ const Input = ({css, icon, type="text", children, text, placeholder, name, value
     </label>
   )
 }
-export default Input
+export default InputBase
 
 
 

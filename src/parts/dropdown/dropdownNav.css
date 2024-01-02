@@ -10,7 +10,7 @@
   top:100%;
   right:0.4em;
   z-index: 2;
-  animation: slideaway 200ms;
+  animation: slideVertical 0.3s ease 0s 1 normal forwards;
   &_button {
     padding: 0.4rem 1.4rem 0.4rem 0.8rem;
     color:#8e8e8e;

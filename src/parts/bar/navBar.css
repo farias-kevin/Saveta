@@ -1,24 +1,20 @@
-/*
-!Cabecera:
- */
 .navBar {
   background-color:var(--navBarColor);
-  background-color:#ff7675;
-  color:#ffffff;
+  width: 100%;
+  color:var(--navBarText);
   height:4em;
   padding:0 2em;
-  box-shadow:0 3px 6px 1px rgba(149, 157, 165, 0.15);
+  box-shadow: var(--shadow);
   display:flex;
   justify-content:space-between;
   align-items:center;
   gap:0.8em;
   position: fixed;
-  z-index:10;
-  width: 100%;
   top:0;
+  z-index:10;
   &_nav {
     display:flex;
     align-items:center;
-    gap:0 0.5em;
+    gap:0.5em;
   }
 }
