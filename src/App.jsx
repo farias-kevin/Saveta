@@ -6,28 +6,23 @@ import SideBar from "./parts/bar/sideBar.jsx"
 import FooterMain from "./parts/footer/footerMain.jsx"
 import HeaderBanner from "./parts/header/headerBanner.jsx"
 import SectionCard from "./parts/section/sectionCard.jsx"
-import { ContextData } from "./hooks/contextData.jsx"
-// import { ContextInfo } from "./hooks/contextInfo.jsx"
+import { ContextMain } from "./hooks/contextMain.jsx"
 // import NotificationDelete from "./parts/notification/notificationDelete"
 
 export default function App(){
   return (
-    <>
-      <ContextData>
-        {/* <ContextInfo> */}
-          <Modal css="modal"/>
-          <NavBar css="navBar"/>
-          {/* <NotificationDelete */}
-          {/* /> */}
-          <hr/>
-          <HeaderBanner css="headerBanner"/>
-          <main>
-            <SideBar css="sideBar" />
-            <SectionCard css="sectionCard" />
-          </main>
-          <FooterMain css="footerMain" />
-        {/* </ContextInfo> */}
-      </ContextData>
-    </>
+    <ContextMain>
+      <Modal css="modal"/>
+      <NavBar css="navBar"/>
+      {/* <NotificationDelete */}
+      {/* /> */}
+      <hr/>
+      <HeaderBanner css="headerBanner"/>
+      <main>
+        <SideBar css="sideBar" />
+        <SectionCard css="sectionCard" />
+      </main>
+      <FooterMain css="footerMain" />
+    </ContextMain>
   );
 }

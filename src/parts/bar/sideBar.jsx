@@ -1,26 +1,27 @@
-
 import "./sideBar.css";
-import Card from "../../components/card/card.jsx"
-import Header from "../../components/header/header.jsx"
+import CardBase from "../../components/card/card.jsx"
+import HeaderBase from "../../components/header/header.jsx"
 import { useContext } from "react"
-import { DataProvider } from "../../hooks/contextData"
+import { MainProvider } from "../../hooks/contextMain"
 import filterData from "../../utils/filterData.jsx";
-import animationController from "../../utils/animationController";
+import controlAnimation from "../../utils/controlAnimation";
+
 
 const SideBar = ({css}) => {
-  //
-  const { dataOriginal, setDataEditFolder } = useContext(DataProvider);
-  const { setSectionStatus, sectionStatus, folderData } = useContext(DataProvider);
+  // constantes
+  const {dataOriginal, setDataEditFolder} = useContext(MainProvider);
+  const {setSectionStatus, folderData} = useContext(MainProvider);
 
   function ButtonFolder(titleFolder, num){
-    //animacion
-    animationController("aaa", "animacionA", 300, "animacionB")
+    // añade la animacion
+    controlAnimation("[data-js='sectionBookmark']", "animationA", 300, "animationB");
+    // temporizador de aparicion de elementos
     setTimeout(() => {
       setSectionStatus(prev => ({
         ...prev,
         folderName: titleFolder,
-        tagName: "all",
         itemNum: num,
+        tagName: "all",
       }))
       setDataEditFolder(prev => ({
         ...prev,
@@ -30,15 +31,15 @@ const SideBar = ({css}) => {
   }
 
   return (
-    <div className={`${css}`} data-js="sidebar">
+    <div className={`${css}`} data-js="sideBar">
       <section className={`${css}_body`} >
-        <Header
+        <HeaderBase
           title="All folders"
           text="Upgrade 23/02/2023"
           css={`${css}_header`}
         />
         <div className={`${css}_main`}>
-          <Card
+          <CardBase
             fn={() => ButtonFolder("All Bookmarks", dataOriginal["bookmarks"].length)}
             title="All Bookmarks"
             text="folder"
@@ -46,7 +47,7 @@ const SideBar = ({css}) => {
             css={`${css}_card`}
           />
           {folderData.map(elem => (
-            <Card
+            <CardBase
               key={crypto.randomUUID()}
               fn={() => ButtonFolder(elem.name, elem.num)}
               title={elem.name}

@@ -27,29 +27,9 @@
     transition: all 0.5s ease;
   }
 }
-@keyframes myAnimA {
-  0% {
-		opacity: 0;
-		transform: translateY(-150px);
-	}
-	100% {
-		opacity: 1;
-		transform: translateY(0);
-	}
-
-}@keyframes myAnimB {
-	0% {
-		opacity: 1;
-		transform: translateY(0);
-	}
-	100% {
-		opacity: 0;
-		transform: translateY(250px);
-	}
+.animationA {
+  animation: upAnimation 0.5s ease 0s 1 normal forwards;
 }
-.animacionA {
-  animation: myAnimA 0.5s ease 0s 1 normal forwards;
-}
-.animacionB {
-  animation: myAnimB 0.3s ease 0s 1 normal forwards;
+.animationB {
+  animation: downAnimation 0.3s ease 0s 1 normal forwards;
 }

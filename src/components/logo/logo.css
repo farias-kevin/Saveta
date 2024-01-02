@@ -1,12 +1,10 @@
-/* !logo: */
-.logo.navBar_logo {
+/* !navBar: */
+.navBar_logo {
   display:flex;
   align-items: center;
   gap:0.5em;
   &_title {
     color:var(--logoText);
-    /* color:#ff7675; */
-    color:#fff;
     font-family:var(--title);
     font-size:var(--xl);
   }

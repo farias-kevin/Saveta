@@ -1,13 +1,13 @@
 // recursos
 import "./headerTags.css";
 import { useContext} from "react";
-import { DataProvider } from "../../hooks/contextData.jsx";
+import { MainProvider } from "../../hooks/contextMain.jsx";
 import filterData from "../../utils/filterData";
 
 const HeaderTags = ({css="headerTags"}) => {
   // hooks context, para tag y datos
-  const { dataEditFolder, setDataEditTag} = useContext(DataProvider);
-  const { setSectionStatus, sectionStatus, tagData }  = useContext(DataProvider);
+  const { dataEditFolder, setDataEditTag} = useContext(MainProvider);
+  const { setSectionStatus, sectionStatus, tagData }  = useContext(MainProvider);
 
   function ButtonActive(tagName, tagId, itemNum) {
     // para hook state

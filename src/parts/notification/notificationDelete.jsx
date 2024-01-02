@@ -1,16 +1,17 @@
 import "./notificationDelete.css"
 import Button from '../../components/button/button.jsx'
 import Header from '../../components/header/header.jsx'
-import { DataProvider } from "../../hooks/contextData"
+import { MainProvider } from "../../hooks/contextMain"
 import { useContext } from "react"
 import filterData from "../../utils/filterData"
 import { useState } from "react"
 
-const NotificationDelete = ({css="notificationDelete"}) => {
 
+const NotificationDelete = ({css="notificationDelete"}) => {
+  // constantes
   const [isOpen, setIsOpen] = useState(true);
-  const {dataEditFolder} = useContext(DataProvider)
-  const { infoDropdown } = useContext(DataProvider)
+  const {dataEditFolder} = useContext(MainProvider)
+  const { infoDropdown } = useContext(MainProvider)
   let dataSelect = filterData(dataEditFolder["bookmarks"], "id", infoDropdown, "");
 
   setTimeout(() => (

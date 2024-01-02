@@ -1,31 +1,31 @@
 // recursos
 import "./dropdownNav.css";
-import Button from "../../components/button/button"
+import ButtonBase from "../../components/button/button.jsx"
 import { useContext } from "react"
-import { DataProvider } from "../../hooks/contextData";
+import { MainProvider } from "../../hooks/contextMain.jsx";
 
 const DropdownNav = ({ css="dropdownNav" }) => {
 
-  const { setModalActivate } = useContext(DataProvider);
+  const { setModalActivate } = useContext(MainProvider);
 
   return (
     <div className={`${css}`} >
-      <Button
+      <ButtonBase
         title="Nicola F."
         css={`${css}_button`}
         comingSoon="perfil de usuario"
       />
-      <Button
+      <ButtonBase
         title="History"
         css={`${css}_button`}
         comingSoon="historial de busqueda"
       />
-      <Button
+      <ButtonBase
         fn={() => setModalActivate("modalExport")}
         title="Backup data"
         css={`${css}_button`}
       />
-      <Button
+      <ButtonBase
         css={`${css}_button`}
         title="Log out"
         comingSoon="cerrar seccion"

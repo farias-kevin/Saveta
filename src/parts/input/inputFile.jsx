@@ -1,6 +1,6 @@
 import Button from "../../components/button/button";
 
-const inputfile = ({css, inputResponse, format, text, icon, title, children}) => {
+const InputFile = ({css, inputResponse, format, text, icon, title, children}) => {
 
   function getFile(event) {
     // captura el atributo file
@@ -43,7 +43,7 @@ const inputfile = ({css, inputResponse, format, text, icon, title, children}) =>
   );
 }
 
-export default inputfile;
+export default InputFile;
 
 export const ButtonDiv = ({text, title, css, dataAttribute, icon, children}) => {
   return(

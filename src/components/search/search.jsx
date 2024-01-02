@@ -1,40 +1,46 @@
-import "./searchBase.css"
+import "./search.css"
 import { useEffect, useState, useRef } from "react";
-import Input from "../input/input";
 
-const SearchBase = ({ inputResult, database, css, text, icon, children}) => {
-  // constantes y variables
-  const [ searchResult, setSearchResult ] = useState([]);
-  const ref = useRef("null");
+
+const SearchBase = ({inputResponse, dataBase, css, text, icon, children}) => {
+  // constantes
+  const [searchResult, setSearchResult] = useState( [] );
+  const searchRef = useRef("null");
   let filterResult = [];
 
   useEffect(() => {
-    // para mejorar rendimiento, añade una validacion
-    if(inputResult.value.length > 0 ){
-      // filtra la database con el valor de busqueda deseado
-      filterResult = database.data.filter(elem => {
-        const regex = new RegExp('\\b' + inputResult.value, 'i');
-        return regex.test(elem[database.search])
-        // return elem[database.search].indexOf(inputResult.value) > -1
+    // añade una validacion para evitar renderizados innecesarios
+    if(inputResponse.value.length > 0 ){
+      // filtra la dataBase con el valor de busqueda deseado
+      filterResult = dataBase.data.filter(elem => {
+        // con expresion regular y una
+        const regex = new RegExp('\\b' + inputResponse.value, 'i');
+        //
+        return regex.test(elem[dataBase.search])
+        //
       }).map(elem => elem.folder)
     }
-
+    // eliminas duplicados
+    let finalResult = [...new Set(filterResult)]
     // actualiza el valor de la caja de resultado
-    setSearchResult([...new Set(filterResult)])
-  },[inputResult.value])
+    setSearchResult(finalResult)
+  },[inputResponse.value])
 
   function clickResult(text){
-    inputResult.set(text)
-    ref.current.classList.add("hidden");
+    // añade el texto seleccionado y oculta los resultados
+    inputResponse.set(text)
+    searchRef.current.classList.add("hidden");
   }
+
   function isVisible(){
-    ref.current.classList.toggle("hidden");
+    // activa la caja de los resultados
+    searchRef.current.classList.toggle("hidden");
   }
 
   return(
     <div className={`${css}`} onMouseLeave={isVisible} onFocus={isVisible}>
       <>{children}</>
-      <ul className={`${css}_result hidden`} ref={ref}>
+      <ul className={`${css}_result hidden`} ref={searchRef}>
         {searchResult.map(elem =>
           <ListItem
             fn={() => clickResult(elem)}
@@ -53,12 +59,12 @@ const SearchBase = ({ inputResult, database, css, text, icon, children}) => {
 export default SearchBase;
 
   // function prueba(text){
-  //   const parts = text.split(inputResult.value);
+  //   const parts = text.split(inputResponse.value);
   //   const formatted = parts.map((part, index) => {
   //     if (index < parts.length - 1) {
   //       return (
   //         <span key={index}>
-  //           {part}<b>{inputResult.value}</b>
+  //           {part}<b>{inputResponse.value}</b>
   //         </span>
   //       );
   //     }

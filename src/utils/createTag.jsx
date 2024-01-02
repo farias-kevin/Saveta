@@ -1,25 +1,24 @@
-// funcion >> para crear los tag y añadirlos a la database
-const createTag = (dataAll, idObject) => {
+// #funcion: para crear  y añadirlos a la database
+const createTag = (dataBase, objectID) => {
 
   // con flatmap() aplanas los elementos del array y retornas un nuevo array
-  const tagAll = dataAll.flatMap(data => data[idObject])
-  // continuas trabajando en la variable 'tagAll' al adjuntar un .map()
+  const elementData = dataBase.flatMap(data => data[objectID])
+  // al adjuntar un .map() continuas trabajando en la variable
   .map(elem => elem.trim().toLowerCase());
 
-  // con new set() eliminas los valores duplicados
-  // luego con '...' clonas el resultado en un nuevo array
-  const tagNames = [ ...new Set(tagAll)];
+  // con new set() eliminas los duplicados y con '...' clonas el resultado
+  const elementName = [ ...new Set(elementData)];
 
-  // recorre los elementos unicos
-  const dataUpgrade = tagNames.map((name, indice) => {
-    // retornas un objeto al nuevo array con los parametros necesarios
+  // determina cuantos elementos unicos existen
+  const finalData = elementName.map((name, indice) => {
     return {
-      num: tagAll.filter(data => data.includes(name)).length,
+      // retornas un objeto con los parametros que quieras
+      num: elementData.filter(elem => elem.includes(name)).length,
       name: name,
       id: indice + 1
     }
   });
-  return dataUpgrade;
+  return finalData;
 }
 
 export default createTag

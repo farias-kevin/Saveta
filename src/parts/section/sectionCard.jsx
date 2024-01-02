@@ -1,22 +1,18 @@
-// recursos
 import "./sectionCard.css";
 import Button from "../../components/button/button.jsx";
 import CardBookmark from "../card/cardBookmark.jsx";
 import HeaderTags from "../header/headerTags.jsx";
 import imageStatic from "../../assets/example6.jpg"
 import { useContext } from "react";
-import { DataProvider } from "../../hooks/contextData.jsx";
+import { MainProvider } from "../../hooks/contextMain.jsx";
 import HeaderBookmarks from "../header/headerBookmarks";
 
 const SectionCard = ({css, children}) => {
-  // hook context, de datos y referencias
-  const { dataEditTag, sectionStatus} = useContext(DataProvider);
-
-  // console.warn('renderiza')
-  // console.log(dataEditTag["bookmarks"].length)
+  // conztantes
+  const {dataEditTag} = useContext(MainProvider);
 
   return (
-    <div className={`${css}`} id="aaa">
+    <div className={`${css}`} data-js="sectionBookmark">
       <section className={`${css}_body`}>
         <HeaderBookmarks
         />
@@ -31,10 +27,9 @@ const SectionCard = ({css, children}) => {
               url={elem.url}
               // image={imageStatic}
               image={elem.image}
-              css={`cardBookmark`}
               id={elem.id}
-              key={crypto.randomUUID()}>
-            </CardBookmark>
+              key={crypto.randomUUID()}
+            />
           ))}
         </div>
       </section>

@@ -1,42 +1,44 @@
 // recursos
 import "./dropdownBookmark.css";
 import ButtonBase from "../../components/button/button.jsx"
-import Header from "../../components/header/header.jsx";
+import HeaderBase from "../../components/header/header.jsx";
 import InputBase from "../../components/input/input.jsx"
 import InputTag from "../../components/input/inputTag";
 import { useState, useContext } from "react";
-import { DataProvider } from "../../hooks/contextData";
+import { MainProvider } from "../../hooks/contextMain";
 import filterData from "../../utils/filterData";
 
 const DropdownBookmark_edit = ( {css="dropdownBookmark", openSection} ) => {
   //constantes
-  const {dataOriginal, setDataOriginal} = useContext(DataProvider)
-  const {infoDropdown} = useContext( DataProvider );
-//
+  const {dataOriginal, setDataOriginal} = useContext(MainProvider)
+  const {infoDropdown} = useContext( MainProvider );
+
+  // filtra los marcadores y obten solo el requerido
   let dataSelect = filterData( dataOriginal["bookmarks"], "id", infoDropdown, "" );
-  //
+
+  // datos del marcador actual
   const [inputTitle, setInputTitle] = useState( dataSelect[0].title );
   const [inputTag, setInputTag] = useState( dataSelect[0].tag );
   const [dataTag, setDataTag] = useState( dataSelect[0].tag );
 
-
   function acceptChanges(event){
     event.preventDefault();
-    //
+    // añade los cambios solo al marcador actual
     const newData = dataOriginal["bookmarks"].map(elem => {
       if(elem.id == infoDropdown){
         return {...elem, title:inputTitle, tag:dataTag}
       }
       return elem
     })
-
+    // envia los datos
     setDataOriginal(prev => ({
-      ...prev, bookmarks: newData
+      ...prev,
+      bookmarks: newData
     }))
   }
   return (
     <form className={`${css}_section-b`} onSubmit={acceptChanges}>
-      <Header
+      <HeaderBase
         css={`${css}_header`}
         title="Edit Bookmarks"
       />

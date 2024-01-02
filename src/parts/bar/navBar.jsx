@@ -1,29 +1,29 @@
-// recursos
 import "./navBar.css";
 import logoUrl from "../../assets/LogoSaveta.svg"
-import Button from "../../components/button/button.jsx"
-import Logo from "../../components/logo/logo.jsx"
-import Dropdown from "../../components/dropdown/dropdown.jsx"
-import DropdownNav from "../dropdown/dropdownNav";
+import ButtonBase from "../../components/button/button.jsx"
+import DropdownBase from "../../components/dropdown/dropdown.jsx"
+import DropdownNav from "../dropdown/dropdownNav.jsx";
 import InputBase from "../../components/input/input.jsx"
-import SearchBase from "../../components/search/searchBase";
+import LogoBase from "../../components/logo/logo.jsx"
+import SearchBase from "../../components/search/search.jsx";
 import { useContext, useState } from "react";
-import { DataProvider } from "../../hooks/contextData";
+import { MainProvider } from "../../hooks/contextMain.jsx";
+
 
 const NavBar = ({css}) => {
-
-  const { dataOriginal, setModalActivate } = useContext(DataProvider)
-  const [ inputResult, setInputResult ] = useState("")
+  // constantes
+  const {dataOriginal, setModalActivate} = useContext(MainProvider)
+  const [inputResult, setInputResult] = useState("")
 
   return(
     <header className={`${css}`}>
-      <Logo
+      <LogoBase
         title="Saveta"
         image={logoUrl}
         css={`${css}_logo`}
       />
       <SearchBase
-        inputResult={{ value:inputResult, set:setInputResult }}
+        inputResponse={{ value:inputResult, set:setInputResult }}
         database={{ data:dataOriginal["bookmarks"], search:"title" }}
         css={`${css}_search`}>
         <InputBase
@@ -35,24 +35,24 @@ const NavBar = ({css}) => {
         />
       </SearchBase>
       <nav className={`${css}_nav`} >
-        <Button
+        <ButtonBase
           text="Add new"
           fn={() => setModalActivate("modalCreate")}
           icon={<IconifyPlus/>}
           css={`${css}_nav_button`}
         />
-        <Button
+        <ButtonBase
           text="Discover"
           icon={<IconifyCompassOutline/>}
           css={`${css}_nav_button`}
         />
-        <Dropdown
+        <DropdownBase
           text="Nicola"
           icon={<IconifyEmoticonExcitedOutline/>}
           css={`${css}_nav_dropdown`}>
           <DropdownNav
           />
-        </Dropdown>
+        </DropdownBase>
       </nav>
     </header>
   )

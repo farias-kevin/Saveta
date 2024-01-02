@@ -1,6 +1,6 @@
 import "./header.css"
 
-const Header = ({title, text, children, css}) => {
+const HeaderBase = ({title, text, children, css}) => {
   return(
     <header className={`${css}`}>
       <div className={`${css}_container`}>
@@ -18,4 +18,4 @@ const Header = ({title, text, children, css}) => {
   )
 }
 
-export default Header
+export default HeaderBase

@@ -2,19 +2,19 @@
 import "./headerBookmarks.css"
 import Button from "../../components/button/button"
 import { useContext } from "react";
-import { DataProvider } from "../../hooks/contextData.jsx";
+import { MainProvider } from "../../hooks/contextMain.jsx";
 
 
 const HeaderBookmarks = ({css="headerBookmarks"}) => {
-  //
-  const { dataEditTag, sectionStatus} = useContext(DataProvider);
+  // constantes
+  const { dataEditTag, sectionStatus} = useContext(MainProvider);
 
-  //
+  // obten la cantidad de marcadores disponibles
   let numBookmark = (dataEditTag["bookmarks"].length > 0 )
     ? dataEditTag["bookmarks"].length + " bookmarks"
     : "The folder has been removed, please select a valid folder"
 
-  const here = document.querySelector("[data-js='sidebar']");
+  const here = document.querySelector("[data-js='sideBar']");
   function activeMenu (){
     //
     here.classList.toggle("here");
@@ -22,7 +22,7 @@ const HeaderBookmarks = ({css="headerBookmarks"}) => {
   }
 
   function closeMenu(e){
-    if(!e.target.closest("[data-js='sidebar']")){
+    if(!e.target.closest("[data-js='sideBar']")){
       here.classList.remove("here");
       document.removeEventListener("mousedown", closeMenu);
     }
