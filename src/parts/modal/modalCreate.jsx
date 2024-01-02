@@ -5,7 +5,8 @@ import HeaderBase from "../../components/header/header.jsx"
 import InputSearch from "../input/inputSearch";
 import { useContext, useEffect, useState } from "react"
 import { MainProvider } from "../../hooks/contextMain.jsx"
-import apiJson from "../../data/apiJson-iframely.jsx"
+// import apiJson from "../../data/apiJson-iframely.jsx"
+import apiJson from "../../data/apiJson-jsonlink.jsx"
 import editorUrl from "../../utils/editorUrl.jsx"
 import getDate from "../../utils/getDate.jsx"
 

@@ -1,4 +1,4 @@
-// funcion >> para solicitar reapuesta a la api
+// #funcion: para solicitar reapuesta a la api
 const apiJson = async (url) => {
 
   // informacion para la api de 'iframely'
@@ -9,7 +9,6 @@ const apiJson = async (url) => {
     // Metodo para obtener acceso a la api
     const response =  await fetch(apiUrl);
     const data = await response.json();
-// console.log(data)
 
     // parametros selecionados para que se envien en la respuesta
     const dataParameter = {
@@ -17,6 +16,14 @@ const apiJson = async (url) => {
       description: data?.meta?.description,
       image: data?.links?.thumbnail?.[0]?.href,
       favicon: data?.links?.icon?.[0]?.href,
+      // datos extras
+      type: data?.medium,
+      date: data?.date,
+      author: data?.author,
+      authorUrl: data?.author_url,
+      duration: data?.duration,
+      likes: data?.likes,
+      views: data?.views,
     }
     return dataParameter;
     // Metodo para capturar errores en la solicitud
