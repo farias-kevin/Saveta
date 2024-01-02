@@ -9,12 +9,13 @@ const apiJson = async (url) => {
     // Metodo para obtener acceso a la api
     const response =  await fetch(apiUrl);
     const data = await response.json();
+
     // parametros selecionados para que se envien en la respuesta
     const dataParameter = {
-      title: data.title,
-      description: data.description,
-      image: data.images[0],
-      domain: data.domain,
+      title: data?.title,
+      description: data?.description,
+      image: data?.images?.[0],
+      favicon: data?.favicon,
     }
     return dataParameter;
     // Metodo para capturar errores en la solicitud

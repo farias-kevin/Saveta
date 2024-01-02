@@ -24,6 +24,6 @@ export default defineConfig(({command}) => {
         jsx: 'react'
       }),
     ],
-    base: command === "build" ? "https://farias-kevim.github.io/Saveta/" : "/",
+    base: command === "build" ? "https://farias-kevin.github.io/Saveta/" : "/",
   }
 })

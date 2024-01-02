@@ -20,6 +20,27 @@ hr {
   height:4rem;
 }
 
+/* !colores: */
+:root {
+  /* variable */
+  --shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  --shadow-b: rgba(149, 157, 165, 0.15) 0px 3px 6px 0px;
+  /* definicion */
+  --bodyColor:#ffffff;
+  --bannerColor:#dedede;
+  --cardColor:#ffffff;
+  --cardText:#8e8e8e;
+  --cardButton_active:#ff7675;
+  --logoText:#ffffff;
+  --navBarColor:#ff7675;
+  --navBarText:#ffffff;
+  --sectionCardColor:#ffffff;
+  --photoColor:#dedede;
+  --tagNav:#8e8e8e;
+  --tagColor:#f0f0f0;
+  --tagText:#8e8e8e;
+}
+
 /* !animaciones: */
 @keyframes slideVertical {
   from { display: block; opacity: 0; }
@@ -43,24 +64,4 @@ hr {
 @keyframes downAnimation {
   0% { opacity: 1; transform: translateY(0);}
 	100% { opacity: 0; transform: translateY(250px); }
-}
-
-:root {
-  /* variable */
-  --shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  --shadow-b: rgba(149, 157, 165, 0.15) 0px 3px 6px 0px;
-  /* definicion */
-  --bodyColor:#ffffff;
-  --bannerColor:#dedede;
-  --cardColor:#ffffff;
-  --cardText:#8e8e8e;
-  --cardButton_active:#ff7675;
-  --logoText:#ff7675;
-  --navBarColor:#ff7675;
-  --navBarText:#ffffff;
-  --sectionCardColor:#ffffff;
-  --photoColor:#dedede;
-  --tagNav:#8e8e8e;
-  --tagColor:#f0f0f0;
-  --tagText:#8e8e8e;
 }
