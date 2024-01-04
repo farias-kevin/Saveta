@@ -42,6 +42,7 @@ const ModalExport = ({css="modalExport"}) => {
       alert("infomacion no valida")
     }
     // ¡LocalSave:
+    saveData("reset", "saveData")
     saveData("save", "savetaData", data)
   }
 

@@ -11,11 +11,15 @@ const MainProvider = createContext();
 // #02: crea la funcion de accion del hook
 const ContextMain = ({children}) => {
 
-  //
-  const [dataOriginal, setDataOriginal] = useState(dataAll);
+  // !CargarDatosGuardados:
+  const saveLocal = saveData("get", "savetaData");
+  // valida si existe la informacion y si es 'true' actualiza la dataBase
+  let database = saveLocal ? saveLocal : dataAll
+  // base de datos
+  const [dataOriginal, setDataOriginal] = useState(database);
   const [dataEditFolder, setDataEditFolder] = useState(dataOriginal["bookmarks"]);
   const [dataEditTag, setDataEditTag] = useState(dataEditFolder);
- //
+  // constantes
   const [infoDropdown, setInfoDropdown] = useState("");
   const [modalActivate, setModalActivate] = useState("");
   const [folderData, setFolderData] = useState( createTag(dataOriginal["bookmarks"], "folder") );
@@ -25,15 +29,6 @@ const ContextMain = ({children}) => {
     tagName: "all",
     itemNum: dataOriginal["bookmarks"].length
   });
-
-  // !CargarDatosGuardados:
-  useEffect(() => {
-    // valida si existe la informacion y si es 'true' actualiza la dataBase
-    const saveLocal = saveData("get", "savetaData");
-    if(saveLocal){
-      setDataOriginal( saveLocal )
-    }
-  },[])
 
   // !ActualiacionParaNuevoElemento:
   useEffect(() => {

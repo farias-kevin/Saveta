@@ -21,6 +21,10 @@
   &_container-b {
     width:calc(62.5rem - 4rem); /*width (content class) - padding (main element)*/
   }
+  &_container[data-css="no"],
+  &_container-b[data-css="no"] {
+    display:none;
+  }
   &_container {
     padding: 1rem 0;
     display:grid;
