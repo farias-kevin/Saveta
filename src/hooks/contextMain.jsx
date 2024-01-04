@@ -1,8 +1,8 @@
-// recurso
 import { useState, createContext, useEffect } from "react";
 import dataAll from '../data/dataBookmarks.json' // DATA
-import createTag from "../utils/createTag.jsx";
+import createTag from "../utils/createTag";
 import filterData from "../utils/filterData";
+import saveData from "../utils/saveData";
 
 
 // #01: crea la instancia del useContext()
@@ -10,41 +10,49 @@ const MainProvider = createContext();
 
 // #02: crea la funcion de accion del hook
 const ContextMain = ({children}) => {
+
   //
   const [dataOriginal, setDataOriginal] = useState(dataAll);
-  const [dataEditFolder, setDataEditFolder] = useState(dataOriginal);
+  const [dataEditFolder, setDataEditFolder] = useState(dataOriginal["bookmarks"]);
   const [dataEditTag, setDataEditTag] = useState(dataEditFolder);
-  //
-  const mainTag = createTag( dataEditFolder["bookmarks"], "tag" );
-  const mainFolder = createTag( dataOriginal["bookmarks"], "folder" );
-  const mainState = {
+ //
+  const [infoDropdown, setInfoDropdown] = useState("");
+  const [modalActivate, setModalActivate] = useState("");
+  const [folderData, setFolderData] = useState( createTag(dataOriginal["bookmarks"], "folder") );
+  const [tagData, setTagData] = useState( createTag(dataEditFolder, "tag") );
+  const [sectionStatus, setSectionStatus] = useState({
     folderName: "All Bookmarks",
     tagName: "all",
     itemNum: dataOriginal["bookmarks"].length
-  };
-  //
-  const [tagData, setTagData] = useState( mainTag );
-  const [sectionStatus, setSectionStatus] = useState( mainState );
-  const [folderData, setFolderData] = useState( mainFolder );
-  const [infoDropdown, setInfoDropdown] = useState("");
-  const [modalActivate, setModalActivate] = useState("");
+  });
+
+  // !CargarDatosGuardados:
+  useEffect(() => {
+    // valida si existe la informacion y si es 'true' actualiza la dataBase
+    const saveLocal = saveData("get", "savetaData");
+    if(saveLocal){
+      setDataOriginal( saveLocal )
+    }
+  },[])
 
   // !ActualiacionParaNuevoElemento:
   useEffect(() => {
-    setFolderData( createTag( dataOriginal["bookmarks"], "folder" ) );
-    setDataEditFolder(prev => ({
-      ...prev,
-      bookmarks: filterData(dataOriginal["bookmarks"], "folder", sectionStatus.folderName, 'All Bookmarks')
-    }))
+
+    // crea y actualiza los elementos
+    setFolderData( createTag(dataOriginal["bookmarks"], "folder") );
+    // filtra los datos y envia la informacion
+    let newData = filterData(dataOriginal["bookmarks"], "folder", sectionStatus.folderName, 'All Bookmarks')
+    setDataEditFolder( newData )
   },[dataOriginal])
 
   // !ActualizacionParaTags:
   useEffect(() => {
-    setTagData( createTag( dataEditFolder["bookmarks"], "tag" ) );
-    setDataEditTag(prev => ({
-      ...prev,
-      bookmarks: filterData(dataEditFolder["bookmarks"], "tag", sectionStatus.tagName, "all")
-    }))
+
+    // crea y actualiza los elementos
+    setTagData( createTag( dataEditFolder, "tag" ) );
+    // filtra la base de datos y envia la informacion
+    let newTags = filterData(dataEditFolder, "tag", sectionStatus.tagName, "all")
+    setDataEditTag( newTags )
   },[dataEditFolder])
 
   // #04: informacion que 'compartira' el proveedor de datos

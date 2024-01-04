@@ -12,21 +12,22 @@ const SideBar = ({css}) => {
   const {dataOriginal, setDataEditFolder} = useContext(MainProvider);
   const {setSectionStatus, folderData} = useContext(MainProvider);
 
-  function ButtonFolder(titleFolder, num){
+  function ButtonFolder(folderName, itemNum){
     // añade la animacion
     controlAnimation("[data-js='sectionBookmark']", "animationA", 300, "animationB");
+
     // temporizador de aparicion de elementos
     setTimeout(() => {
+      // actualizo el estado con la informacion del boton activo
       setSectionStatus(prev => ({
         ...prev,
-        folderName: titleFolder,
-        itemNum: num,
+        folderName: folderName,
+        itemNum: itemNum,
         tagName: "all",
       }))
-      setDataEditFolder(prev => ({
-        ...prev,
-        bookmarks: filterData(dataOriginal["bookmarks"], "folder", titleFolder, 'All Bookmarks')
-      }))
+      // filtra los datos y envia la informacion
+      let newFolders = filterData(dataOriginal["bookmarks"], "folder", folderName, 'All Bookmarks');
+      setDataEditFolder( newFolders );
     },100)
   }
 
@@ -47,14 +48,16 @@ const SideBar = ({css}) => {
             css={`${css}_card`}
           />
           {folderData.map(elem => (
-            <CardBase
-              key={crypto.randomUUID()}
-              fn={() => ButtonFolder(elem.name, elem.num)}
-              title={elem.name}
-              text="folder"
-              icon={<IconifyFolderOpenOutline/>}
-              css={`${css}_card`}
-            />
+            elem.name ?
+              <CardBase
+                key={crypto.randomUUID()}
+                fn={() => ButtonFolder(elem.name, elem.num)}
+                title={elem.name}
+                text="folder"
+                icon={<IconifyFolderOpenOutline/>}
+                css={`${css}_card`}
+              />
+              : null
           ))}
         </div>
       </section>

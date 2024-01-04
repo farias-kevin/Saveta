@@ -1,6 +1,6 @@
 import "./input.css"
 
-const InputBase = ({css, icon, type="text", children, text, placeholder, name, value, fn}) => {
+const InputBase = ({css, icon, type="text", autocomplete="off", children, text, placeholder, name, value, fn}) => {
   // Claves random para los input
   let keyID = "input-" + crypto.randomUUID();
 
@@ -10,6 +10,7 @@ const InputBase = ({css, icon, type="text", children, text, placeholder, name, v
         <span className={`${css}_text`}>{text}</span>
       )}
       <input
+        autoComplete={autocomplete}
         className={`${css}_input`}
         id={keyID}
         onChange={fn}

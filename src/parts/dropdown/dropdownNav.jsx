@@ -1,11 +1,11 @@
-// recursos
 import "./dropdownNav.css";
 import ButtonBase from "../../components/button/button.jsx"
 import { useContext } from "react"
 import { MainProvider } from "../../hooks/contextMain.jsx";
 
-const DropdownNav = ({ css="dropdownNav" }) => {
 
+const DropdownNav = ({ css="dropdownNav" }) => {
+  // constantes
   const { setModalActivate } = useContext(MainProvider);
 
   return (

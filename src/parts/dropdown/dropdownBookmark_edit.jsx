@@ -1,4 +1,3 @@
-// recursos
 import "./dropdownBookmark.css";
 import ButtonBase from "../../components/button/button.jsx"
 import HeaderBase from "../../components/header/header.jsx";
@@ -7,6 +6,8 @@ import InputTag from "../../components/input/inputTag";
 import { useState, useContext } from "react";
 import { MainProvider } from "../../hooks/contextMain";
 import filterData from "../../utils/filterData";
+import saveData from "../../utils/saveData";
+
 
 const DropdownBookmark_edit = ( {css="dropdownBookmark", openSection} ) => {
   //constantes
@@ -35,6 +36,8 @@ const DropdownBookmark_edit = ( {css="dropdownBookmark", openSection} ) => {
       ...prev,
       bookmarks: newData
     }))
+    // ¡LocalSave:
+    saveData("save", "savetaData", {...dataOriginal, bookmarks: newData})
   }
   return (
     <form className={`${css}_section-b`} onSubmit={acceptChanges}>

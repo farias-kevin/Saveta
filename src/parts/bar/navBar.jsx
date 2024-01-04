@@ -24,7 +24,7 @@ const NavBar = ({css}) => {
       />
       <SearchBase
         inputResponse={{ value:inputResult, set:setInputResult }}
-        database={{ data:dataOriginal["bookmarks"], search:"title" }}
+        dataBase={{ data:dataOriginal["bookmarks"], search:"title" }}
         css={`${css}_search`}>
         <InputBase
           value={inputResult}
@@ -42,6 +42,7 @@ const NavBar = ({css}) => {
           css={`${css}_nav_button`}
         />
         <ButtonBase
+          fn={() => local()}
           text="Discover"
           icon={<IconifyCompassOutline/>}
           css={`${css}_nav_button`}

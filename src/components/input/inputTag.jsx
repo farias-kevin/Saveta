@@ -2,29 +2,33 @@ import  { useEffect, useState } from "react";
 import Button from "../../components/button/button.jsx";
 
 const InputTag = ({css, icon, text, keyboard, inputResponse, children}) => {
-  //
+  // constantes
   const [tags, setTags] = useState( [] );
 
   useEffect(()=>{
-      setTags(inputResponse.value);
-      inputResponse.set("");
+    // actualiza valores
+    setTags(inputResponse.value);
+    inputResponse.set("");
   },[])
 
   useEffect(()=>{
     // determino cual fue la ultima letra pulsada
     let letter = inputResponse.value[inputResponse.value.length - 1];
+    // validacion
     if (letter === keyboard){
-      //
+      // crea un array con los datos recibidos por el input
       setTags([...tags, inputResponse.value.trim()]);
+      // guarda y envia la informacion de los tags
       inputResponse.get([...tags, inputResponse.value.trim()])
+      // vacia el input
       inputResponse.set("");
     }
   },[inputResponse.value])
 
-  console.log(tags)
   function removeTag(tagIndex){
-    //
+    // elimina el resultado seleccionado y conserva el resto
     const newTags = tags.filter((elem) => elem !== tagIndex);
+    // actualiza los valores
     setTags(newTags);
     inputResponse.get(newTags)
   };
@@ -45,9 +49,6 @@ const InputTag = ({css, icon, text, keyboard, inputResponse, children}) => {
           ))}
         </>
       : ""}
-      {/* <li> */}
-      {/*   {children} */}
-      {/* </li> */}
     </ul>
   );
 };

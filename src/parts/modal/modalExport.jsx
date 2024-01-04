@@ -7,6 +7,7 @@ import InputFile from "../input/inputFile.jsx"
 import { useContext, useState, useRef } from "react"
 import { MainProvider } from "../../hooks/contextMain.jsx";
 import exportFile from "../../utils/exportFile.jsx";
+import saveData from "../../utils/saveData";
 
 
 const ModalExport = ({css="modalExport"}) => {
@@ -25,6 +26,9 @@ const ModalExport = ({css="modalExport"}) => {
   }
 
   function importData(){
+    // validador en caso de vacio
+    if(textareaResult === "") return setModalActivate(false)
+
     // formatea el texto a json
     const data = JSON.parse(textareaResult)
     // obten las claves principales del objeto
@@ -37,6 +41,8 @@ const ModalExport = ({css="modalExport"}) => {
     }else{
       alert("infomacion no valida")
     }
+    // ¡LocalSave:
+    saveData("save", "savetaData", data)
   }
 
   return(

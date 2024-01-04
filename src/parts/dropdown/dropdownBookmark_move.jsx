@@ -1,4 +1,3 @@
-// recursos
 import "./dropdownBookmark.css";
 import ButtonBase from "../../components/button/button.jsx"
 import HeaderBase from "../../components/header/header.jsx";
@@ -7,6 +6,7 @@ import SearchBase from "../../components/search/search.jsx";
 import { useState, useContext } from "react";
 import { MainProvider } from "../../hooks/contextMain";
 import filterData from "../../utils/filterData";
+
 
 const DropdownBookmark_edit = ({css="dropdownBookmark", openSection}) => {
   //constantes y variables
@@ -32,6 +32,7 @@ const DropdownBookmark_edit = ({css="dropdownBookmark", openSection}) => {
     setDataOriginal({
       ...dataOriginal, bookmarks: newData
     })
+    saveData("save", "savetaData", {...dataOriginal, bookmarks: newData})
   }
 
   return (

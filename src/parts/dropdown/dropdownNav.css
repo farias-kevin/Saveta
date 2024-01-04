@@ -26,9 +26,3 @@
     background-color: #ebebeb;
   }
 }
-
-
-@keyframes slideaway {
-    from { display: block; opacity: 0; }
-    to { transform: translateY(0px); opacity: 1;}
-}

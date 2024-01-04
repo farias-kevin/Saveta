@@ -3,6 +3,7 @@ import ButtonBase from "../../components/button/button"
 import { useContext } from "react";
 import { MainProvider } from "../../hooks/contextMain";
 
+
 const DropdownBookmark_delete = ({css="dropdownBookmark"}) => {
   // constantes
   const {dataOriginal, setDataOriginal} = useContext( MainProvider );
@@ -19,6 +20,8 @@ const DropdownBookmark_delete = ({css="dropdownBookmark"}) => {
       ...prev,
       bookmarks: newData
     }))
+    // ¡LocalSave:
+    saveData("save", "savetaData", {...dataOriginal, bookmarks: newData})
   }
 
   return (

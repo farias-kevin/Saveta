@@ -8,16 +8,15 @@ import { MainProvider } from "../../hooks/contextMain";
 const Modal = ({css="modal"}) => {
   // constantes
   const { modalActivate, setModalActivate } = useContext(MainProvider);
-  let IsActive = modalActivate
 
   return (
     <>
-      {(IsActive &&
+      {(modalActivate &&
         <aside className={`${css}`}>
           <div className={`${css}_container`} onClick={() => setModalActivate(false)}/>
-          { IsActive == "modalCreate"
+          { modalActivate == "modalCreate"
             ? <ModalCreate/>
-            : IsActive == "modalExport"
+            : modalActivate == "modalExport"
               ? <ModalExport/>
               : null }
         </aside>

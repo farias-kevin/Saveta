@@ -6,22 +6,21 @@ const SearchBase = ({inputResponse, dataBase, css, text, icon, children}) => {
   // constantes
   const [searchResult, setSearchResult] = useState( [] );
   const searchRef = useRef("null");
-  let filterResult = [];
+  let result = [];
 
   useEffect(() => {
     // añade una validacion para evitar renderizados innecesarios
     if(inputResponse.value.length > 0 ){
       // filtra la dataBase con el valor de busqueda deseado
-      filterResult = dataBase.data.filter(elem => {
-        // con expresion regular y una
+      result = dataBase.data.filter(elem => {
+        //
         const regex = new RegExp('\\b' + inputResponse.value, 'i');
         //
         return regex.test(elem[dataBase.search])
-        //
-      }).map(elem => elem.folder)
+      }).map(elem => elem[dataBase.search])
     }
     // eliminas duplicados
-    let finalResult = [...new Set(filterResult)]
+    let finalResult = [...new Set(result)]
     // actualiza el valor de la caja de resultado
     setSearchResult(finalResult)
   },[inputResponse.value])
