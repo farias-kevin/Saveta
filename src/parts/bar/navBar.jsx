@@ -48,7 +48,7 @@ const NavBar = ({css}) => {
           css={`${css}_nav_button`}
         />
         <DropdownBase
-          text="Nicola"
+          text="Profile"
           icon={<IconifyEmoticonExcitedOutline/>}
           css={`${css}_nav_dropdown`}>
           <DropdownNav
