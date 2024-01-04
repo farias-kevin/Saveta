@@ -10,6 +10,7 @@ import editorUrl from "../../utils/editorUrl.jsx"
 import getDate from "../../utils/getDate.jsx"
 import saveData from "../../utils/saveData";
 import SearchBase from "../../components/search/search";
+import createNum from "../../utils/createNum";
 
 
 const ModalCreate = ({css="modalCreate"}) => {
@@ -48,6 +49,8 @@ const ModalCreate = ({css="modalCreate"}) => {
       url:  inputUrl,
       folder: [(inputFolder ? inputFolder : 'Uncategory')],
       tag:  [getDate("month year", "/")],
+      likeNum: createNum("yes"),
+      commentNum: createNum(),
     }
     // copias los valores y añade los nuevos en el objeto deseado,
     setDataOriginal(prev => ({
@@ -91,6 +94,7 @@ const ModalCreate = ({css="modalCreate"}) => {
           dataBase={{ data:dataOriginal["bookmarks"], search:"folder" }}
           css={`${css}_search`}>
           <InputBase
+            autocomplete="on"
             value={inputFolder}
             fn={event => setInputFolder(event.target.value)}
             placeholder="Folder title (Eg: Articles...)"

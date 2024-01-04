@@ -17,7 +17,7 @@ const HeaderBookmarks = ({css="headerBookmarks"}) => {
 
   function closeMenu(e){
     // con 'closest' valida si existe la clave en el componente pulsado
-    if(!e.target.closest("[data-js='sideBar']")){
+    if(!e.target.closest("[data-js='sideBar']")){ // #protegido: (headerBookmarks y sideBar)
       // remueve tanto el evento como la clase
       sidebarLocation.classList.remove("here");
       document.removeEventListener("mousedown", closeMenu);
@@ -26,11 +26,13 @@ const HeaderBookmarks = ({css="headerBookmarks"}) => {
 
   return(
     <header className={`${css}`}>
-      <ButtonBase
-        css={`${css}_buttonB`}
-        fn={()=> activeMenu()}
-        icon={<IconifyMenuOpen/>} >
-      </ButtonBase>
+      <div data-js='sideBar'>
+        <ButtonBase
+          css={`${css}_buttonB`}
+          fn={()=> activeMenu()}
+          icon={<IconifyMenuOpen/>} >
+        </ButtonBase>
+      </div>
       <div className={`${css}_container`}>
         <h2 className={`${css}_title`}>{sectionStatus.folderName}</h2>
         <p className={`${css}_text`}>{`${dataEditTag.length} bookmarks`}</p>
