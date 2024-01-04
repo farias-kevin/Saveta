@@ -4,10 +4,8 @@ import CardBookmark from "../card/cardBookmark.jsx";
 import CardEmpty from "../card/cardEmpty";
 import HeaderBookmarks from "../header/headerBookmarks";
 import HeaderTags from "../header/headerTags.jsx";
-import imageStatic from "../../assets/example6.jpg"
 import { useContext } from "react";
 import { MainProvider } from "../../hooks/contextMain.jsx";
-import createNum from "../../utils/createNum";
 
 
 const SectionCard = ({css}) => {
@@ -21,8 +19,7 @@ const SectionCard = ({css}) => {
         />
         <HeaderTags
         />
-        {dataEditTag.length > 0 ?
-          <div className={`${css}_container`}>
+          <div className={`${css}_container`} data-css={ (dataEditTag.length > 0) ? "yes" : "no"} >
             {dataEditTag.map((elem) => (
               <CardBookmark
                 title={elem.title}
@@ -31,19 +28,16 @@ const SectionCard = ({css}) => {
                 url={elem.url}
                 likeNum={elem.likeNum}
                 commentNum={elem.commentNum}
-                // image={imageStatic}
                 image={elem.image}
                 id={elem.id}
                 key={crypto.randomUUID()}
               />
             ))}
           </div>
-          :
-          <div className={`${css}_container-b`}>
+          <div className={`${css}_container-b`} data-css={ (dataEditTag.length === 0) ? "yes" : "no"} >
             <CardEmpty
             />
           </div>
-        }
       </section>
       <aside className={`${css}_aside`}>
         <a href="#">
