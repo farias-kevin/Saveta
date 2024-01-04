@@ -11,7 +11,7 @@ const DropdownNav = ({ css="dropdownNav" }) => {
   return (
     <div className={`${css}`} >
       <ButtonBase
-        title="Nicola F."
+        title="My Profile"
         css={`${css}_button`}
         comingSoon="perfil de usuario"
       />
