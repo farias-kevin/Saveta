@@ -1,0 +1,30 @@
+{
+  "bookmarks": [
+    {
+      "id": "qaz",
+      "title": "Lea, game movie music video, Google.com",
+      "sitename": "Google.com",
+      "image": "https://picsum.photos/601",
+      "content": "learn 8 lady of they such they sure it. Me contained explained my education.",
+      "tag": ["GAME", "MOVIE", "MUSIC", "VIDEO"],
+      "folder": ["Lea"],
+      "url":"http://sample.info/?insect=fireman&porter=attraction#cave",
+      "likeNum": "987 k",
+      "commentNum": "12"
+    },
+    {
+      "id": "wsx",
+      "title": "Learn, movie social mu, Facebook Meta",
+      "sitename": "Facebook.net",
+      "image": "https://picsum.photos/602",
+      "content": " Learn 1 instrument out reasonably.",
+      "tag": ["movie", "SOCIAL NETWORK", "MU"],
+      "folder": ["Learn"],
+      "url":"http://sample.edu/",
+      "likeNum": "654 M",
+      "commentNum": "34"
+    }
+  ],
+  "activities": [
+  ]
+}

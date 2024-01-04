@@ -1,20 +1,6 @@
 {
   "bookmarks": [
-    {
-      "id": "qaz",
-      "title": "Example bookmarks 01",
-      "sitename": "Google.com",
-      "image": "https://picsum.photos/601",
-      "content": "learn 8 lady of they such they sure it. Me contained explained my education.",
-      "tag": ["GAME", "MOVIE", "MUSIC", "VIDEO"],
-      "folder": ["new"],
-      "url":"http://sample.info/?insect=fireman&porter=attraction#cave"
-    }
   ],
   "activities": [
-    {
-      "text": "implementa la función de búsqueda para el componente search.",
-      "state": "EnProceso"
-    }
   ]
 }

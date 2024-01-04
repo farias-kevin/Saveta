@@ -4,7 +4,7 @@ import DropdownBase from "../../components/dropdown/dropdown.jsx";
 import DropdownBookmark from "../dropdown/dropdownBookmark.jsx";
 
 
-const CardBookmark = ({css="cardBookmark", id, title, sitename, url, image}) => {
+const CardBookmark = ({css="cardBookmark", id, title, likeNum, commentNum, sitename, url, image}) => {
   return(
     <article className={`${css} slide-left`} id={id} >
       <header className={`${css}_header`}>
@@ -21,18 +21,20 @@ const CardBookmark = ({css="cardBookmark", id, title, sitename, url, image}) => 
       </header>
       <section className={`${css}_body`}>
         <span className={`${css}_body_dot`} />
-        <div className={`${css}_main`} >
-          <p className={`${css}_text`} >{sitename}</p>
-          <p className={`${css}_title`}>{title}</p>
-        </div>
+        <a href={url}>
+          <div className={`${css}_main`} >
+            <p className={`${css}_text`} >{sitename}</p>
+            <p className={`${css}_title`}>{title}</p>
+          </div>
+        </a>
         <div className={`${css}_footer`}>
           <ButtonBase
-            text="15"
+            text={commentNum}
             icon={<IconifyChatProcessingOutline/>}
             css={`${css}_footer_button`}
           />
           <ButtonBase
-            text="975 k"
+            text={likeNum}
             icon={<IconifyHeartOutline/>}
             css={`${css}_footer_button`}
           />

@@ -7,6 +7,8 @@ import HeaderTags from "../header/headerTags.jsx";
 import imageStatic from "../../assets/example6.jpg"
 import { useContext } from "react";
 import { MainProvider } from "../../hooks/contextMain.jsx";
+import createNum from "../../utils/createNum";
+
 
 const SectionCard = ({css}) => {
   // constantes
@@ -27,6 +29,8 @@ const SectionCard = ({css}) => {
                 sitename={elem.sitename}
                 tag={elem.tag}
                 url={elem.url}
+                likeNum={elem.likeNum}
+                commentNum={elem.commentNum}
                 // image={imageStatic}
                 image={elem.image}
                 id={elem.id}
