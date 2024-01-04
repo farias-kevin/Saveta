@@ -2,22 +2,23 @@ import "./modalCreate.css";
 import ButtonBase from "../../components/button/button.jsx"
 import InputBase from "../../components/input/input.jsx"
 import HeaderBase from "../../components/header/header.jsx"
-import InputSearch from "../input/inputSearch";
 import { useContext, useEffect, useState } from "react"
 import { MainProvider } from "../../hooks/contextMain.jsx"
-// import apiJson from "../../data/apiJson-iframely.jsx"
-import apiJson from "../../data/apiJson-jsonlink.jsx"
+import apiJson from "../../data/apiJson-iframely.jsx"
+// import apiJson from "../../data/apiJson-jsonlink.jsx"
 import editorUrl from "../../utils/editorUrl.jsx"
 import getDate from "../../utils/getDate.jsx"
+import saveData from "../../utils/saveData";
+import SearchBase from "../../components/search/search";
 
 
 const ModalCreate = ({css="modalCreate"}) => {
   // constantes
   const { dataOriginal, setDataOriginal} = useContext(MainProvider);
   const { setModalActivate } = useContext(MainProvider);
+  const [fetchResult, setFetchResult] = useState( [] );
   const [inputUrl, setInputUrl] = useState("");
   const [inputFolder, setInputFolder] = useState("");
-  const [fetchResult, setFetchResult] = useState( [] );
 
   function getJson(event){ // #01:
     event.preventDefault();
@@ -43,21 +44,28 @@ const ModalCreate = ({css="modalCreate"}) => {
       image:  fetchResult?.image,
       favicon:  fetchResult?.favicon,
       sitename: editorUrl(inputUrl),
-      date: getDate(),
+      date: getDate("all", "/"),
       url:  inputUrl,
-      folder: (inputFolder != undefined ? inputFolder : 'Uncategory'),
-      tag:  ['new'],
+      folder: [(inputFolder ? inputFolder : 'Uncategory')],
+      tag:  [getDate("month year", "/")],
     }
     // copias los valores y añade los nuevos en el objeto deseado,
     setDataOriginal(prev => ({
       ...prev,
       bookmarks: [newItem, ...prev.bookmarks]
     }))
-    setInputUrl("")
+    // reseteo el inpit del url
+    setInputUrl("");
+
+    // ¡LocalSave:
+    saveData("save", "savetaData", {
+      ...dataOriginal,
+      bookmarks: [newItem, ...dataOriginal.bookmarks]
+    })
   }
 
   return(
-    <form className={`${css}`} onSubmit={(e) => getJson(e)}>
+    <form className={`${css}`} onSubmit={(event) => getJson(event)}>
       <ButtonBase
         fn={() => setModalActivate(false)}
         icon={<IconifyWindowClose/>}
@@ -78,14 +86,19 @@ const ModalCreate = ({css="modalCreate"}) => {
           type="url"
           css={`${css}_field`}
         />
-        <InputBase
-          value={inputFolder}
-          fn={event => setInputFolder(event.target.value)}
-          placeholder="Folder title (Eg: Articles...)"
-          name="folder"
-          icon={<IconifyFolderOutline/>}
-          css={`${css}_field`}
-        />
+        <SearchBase
+          inputResponse={{ value:inputFolder, set:setInputFolder }}
+          dataBase={{ data:dataOriginal["bookmarks"], search:"folder" }}
+          css={`${css}_search`}>
+          <InputBase
+            value={inputFolder}
+            fn={event => setInputFolder(event.target.value)}
+            placeholder="Folder title (Eg: Articles...)"
+            name="folder"
+            icon={<IconifyFolderOutline/>}
+            css={`${css}_field`}
+          />
+        </SearchBase>
       </section>
       <footer className={`${css}_footer`}>
         <ButtonBase

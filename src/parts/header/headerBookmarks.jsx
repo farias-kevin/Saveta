@@ -1,6 +1,5 @@
-// recurse
 import "./headerBookmarks.css"
-import Button from "../../components/button/button"
+import ButtonBase from "../../components/button/button"
 import { useContext } from "react";
 import { MainProvider } from "../../hooks/contextMain.jsx";
 
@@ -8,46 +7,42 @@ import { MainProvider } from "../../hooks/contextMain.jsx";
 const HeaderBookmarks = ({css="headerBookmarks"}) => {
   // constantes
   const { dataEditTag, sectionStatus} = useContext(MainProvider);
+  const sidebarLocation = document.querySelector("[data-js='sideBar']");
 
-  // obten la cantidad de marcadores disponibles
-  let numBookmark = (dataEditTag["bookmarks"].length > 0 )
-    ? dataEditTag["bookmarks"].length + " bookmarks"
-    : "The folder has been removed, please select a valid folder"
-
-  const here = document.querySelector("[data-js='sideBar']");
   function activeMenu (){
-    //
-    here.classList.toggle("here");
+    // añade la clase y el evento
+    sidebarLocation.classList.toggle("here");
     document.addEventListener("mousedown", closeMenu)
   }
 
   function closeMenu(e){
+    // con 'closest' valida si existe la clave en el componente pulsado
     if(!e.target.closest("[data-js='sideBar']")){
-      here.classList.remove("here");
+      // remueve tanto el evento como la clase
+      sidebarLocation.classList.remove("here");
       document.removeEventListener("mousedown", closeMenu);
     }
   }
 
-
   return(
     <header className={`${css}`}>
-      <Button
+      <ButtonBase
         css={`${css}_buttonB`}
         fn={()=> activeMenu()}
         icon={<IconifyMenuOpen/>} >
-      </Button>
+      </ButtonBase>
       <div className={`${css}_container`}>
         <h2 className={`${css}_title`}>{sectionStatus.folderName}</h2>
-        <p className={`${css}_text`}>{`${numBookmark}`}</p>
+        <p className={`${css}_text`}>{`${dataEditTag.length} bookmarks`}</p>
       </div>
       <div className={`${css}_container-b`}>
-        <Button
+        <ButtonBase
           title="Type"
           css={`${css}_button`}
           icon={<IconifyTune/>}
           comingSoon="funcion filtrar"
         />
-        <Button
+        <ButtonBase
           title="Order"
           css={`${css}_button`}
           icon={<IconifyOrderAlphabeticalAscending/>}

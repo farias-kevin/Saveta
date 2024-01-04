@@ -1,15 +1,16 @@
 .dropdownBookmark_search,
+.modalCreate_search,
 .navBar_search {
   position: relative;
   &_result {
     width:100%;
     background:#ffffff;
-    border-radius:10px;
+    border-radius: 0 0 10px 10px;
     position: absolute;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     z-index: 15;
     left: 0;
-    top:98%;
+    top:90%;
     &_item {
       width:100%;
       padding:0.6rem 0.8rem;

@@ -9,14 +9,14 @@ const HeaderBanner = ({css="headerBanner"}) => {
   const {dataOriginal} = useContext(MainProvider);
   const [cardNum, setCardNum] = useState("")
 
-  useEffect(() => {
-    setCardNum( cardLength(dataOriginal["bookmarks"].length) )
-  },[dataOriginal])
-
   function cardLength(num){
     // formateo los valores
     return (num < 10) ? "0" + num : num;
   }
+  useEffect(() => {
+    setCardNum( cardLength(dataOriginal["bookmarks"].length) )
+  },[dataOriginal])
+
 
   return(
     <header className={`${css}`}>

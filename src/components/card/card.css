@@ -14,7 +14,9 @@
   &_title {
     font-size: var(--m);
     font-weight:var(--bold);
-    text-transform: capitalize;
+    &::first-letter {
+      text-transform: uppercase;
+    }
   }
   &_text {
     font-size: var(--s);

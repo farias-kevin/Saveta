@@ -1,4 +1,3 @@
-// recursos
 import "./App.css"
 import Modal from "./components/modal/modal.jsx"
 import NavBar from "./parts/bar/navBar.jsx"
@@ -7,15 +6,12 @@ import FooterMain from "./parts/footer/footerMain.jsx"
 import HeaderBanner from "./parts/header/headerBanner.jsx"
 import SectionCard from "./parts/section/sectionCard.jsx"
 import { ContextMain } from "./hooks/contextMain.jsx"
-// import NotificationDelete from "./parts/notification/notificationDelete"
 
 export default function App(){
   return (
     <ContextMain>
       <Modal css="modal"/>
       <NavBar css="navBar"/>
-      {/* <NotificationDelete */}
-      {/* /> */}
       <hr/>
       <HeaderBanner css="headerBanner"/>
       <main>

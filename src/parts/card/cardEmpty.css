@@ -1,0 +1,27 @@
+.cardEmpty {
+    padding:2rem 4rem;
+    color:#8e8e8e;
+    font-family: var(--title2);
+    border:8px dashed #f0f0f0;
+    border-radius: 30px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    transition: all 0.2s ease-out;
+    span {
+      color:#ff7675;
+      font-weight: var(--semibold);
+    }
+    &_image {
+      width:18rem;
+      margin-bottom: 1rem;
+    }
+    &_title {
+      font-size:var(--xm);
+      font-weight: var(--bold);
+    }
+    &_text {
+      font-size:var(--l);
+  }
+}

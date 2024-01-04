@@ -31,7 +31,7 @@
 .navBar_field {
   background-color:#ffffff;
   width:25rem;
-  padding: 0.4rem;
+  padding: 0.4rem 0.4rem 0.45rem;
   color:#8e8e8e;
   display: flex;
   border-radius: 10px;

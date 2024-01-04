@@ -1,4 +1,4 @@
-// funcion >> para solicitar reapuesta a la api
+// #funcion: para solicitar reapuesta a la api
 const apiJson = async (url) => {
 
   // informacion para la api de 'jsonlink'
@@ -10,7 +10,7 @@ const apiJson = async (url) => {
     const response =  await fetch(apiUrl);
     const data = await response.json();
 
-    // parametros selecionados para que se envien en la respuesta
+   // parametros selecionados para que se envien en la respuesta
     const dataParameter = {
       title: data?.title,
       description: data?.description,

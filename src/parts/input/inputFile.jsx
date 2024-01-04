@@ -1,5 +1,3 @@
-import Button from "../../components/button/button";
-
 const InputFile = ({css, inputResponse, format, text, icon, title, children}) => {
 
   function getFile(event) {

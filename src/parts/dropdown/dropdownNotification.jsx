@@ -1,12 +1,11 @@
-// recursos
 import "./dropdownNotification.css";
-import Button from '../../components/button/button.jsx'
+import ButtonBase from '../../components/button/button.jsx'
 import { useContext } from 'react'
 import { MainProvider } from '../../hooks/contextMain.jsx'
 
 
 const DropdownNotification = ({css, type, icon, text}) => {
-
+  // constantes
   const { dataEdition } = useContext(MainProvider);
 
   return (
@@ -30,10 +29,10 @@ const DropdownNotification = ({css, type, icon, text}) => {
               </article> )
           })}
         </div>
-        <Button
+        <ButtonBase
           css={`${type}_button`}>
           Show all activities
-        </Button>
+        </ButtonBase>
       </aside>
     </>
   )
