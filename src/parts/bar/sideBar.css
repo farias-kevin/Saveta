@@ -8,15 +8,24 @@
     gap:1rem;
   }
   &_main {
-    padding: 1rem 0;
+    padding: 1rem 1.5rem 1rem 0;
     display:flex;
     flex-direction: column;
-    gap:1.5rem;
+    gap:1.4rem;
+    height:0;
+    overflow-y:scroll;
+    transition: all 0.5s ease-in;
   }
 }
 
 /* #opcional: */
-.sideBar.here{
-  width:50%;
+.here {
   transition: all 0.5s ease-in;
 }
+.here.sideBar{
+  width:50%;
+}
+.here .sideBar_main {
+  height:25.5rem;
+}
+
