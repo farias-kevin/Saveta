@@ -11,9 +11,9 @@
   /* !aside: */
   &_aside {
     height:1px;
+    margin-bottom: 2rem;
     position: sticky;
     bottom:4rem;
-    z-index: 1;
   }
 
   /* !content: */

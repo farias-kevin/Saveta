@@ -81,6 +81,7 @@ const ModalCreate = ({css="modalCreate"}) => {
       />
       <section className={`${css}_main`}>
         <InputBase
+          autocomplete="on"
           value={inputUrl}
           fn={event => setInputUrl(event.target.value)}
           placeholder="Website link (Eg: http://saveta.com...)"
@@ -94,7 +95,6 @@ const ModalCreate = ({css="modalCreate"}) => {
           dataBase={{ data:dataOriginal["bookmarks"], search:"folder" }}
           css={`${css}_search`}>
           <InputBase
-            autocomplete="on"
             value={inputFolder}
             fn={event => setInputFolder(event.target.value)}
             placeholder="Folder title (Eg: Articles...)"
