@@ -9,7 +9,7 @@ const apiJson = async (url) => {
     // Metodo para obtener acceso a la api
     const response =  await fetch(apiUrl);
     const data = await response.json();
-
+console.log(data)
     // parametros selecionados para que se envien en la respuesta
     const dataParameter = {
       title: data?.meta?.title,

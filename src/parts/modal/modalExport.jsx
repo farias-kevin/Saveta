@@ -8,6 +8,7 @@ import { useContext, useState, useRef } from "react"
 import { MainProvider } from "../../hooks/contextMain.jsx";
 import exportFile from "../../utils/exportFile.jsx";
 import saveData from "../../utils/saveData";
+import createDate from "../../utils/createDate";
 
 
 const ModalExport = ({css="modalExport"}) => {
@@ -83,7 +84,7 @@ const ModalExport = ({css="modalExport"}) => {
           text="Import data"
           css={`${css}_footer_button`}
         />
-        <a ref={exportButtonBaseRef} download="backup-saveta.json" href="#">
+        <a ref={exportButtonBaseRef} download={`backup-saveta-${createDate("all", "_")}.json`} href="#">
           <ButtonBase
             fn={() => exportData()}
             text="Export file"

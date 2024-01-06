@@ -1,9 +1,9 @@
 .cardBookmark {
   background-color:var(--cardColor);
-  width:13rem;
   width:20vw;
-  border-radius: 1rem;
-  box-shadow:var(--shadow-b);
+  height:14.4rem;
+  border-radius:10px;
+  box-shadow: 0 5px 10px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
   display:flex;
   flex-direction: column;
   gap:0.4rem;
@@ -11,27 +11,67 @@
   transition: all 0.3s ease;
   &:hover {
     transition: all 0.3s ease;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
   }
   &:hover &_header_dropdown_button {
     display: flex;
   }
 
   /* !header: */
-  &_header,
-  &_header_image {
-    background-color:var(--photoColor);
-    height:7rem;
-    border-radius: 0.6rem 0.6rem 0 0;
+  &_header {
     position: relative;
-    &_image {
+    &_image,
+    &_container {
       width:100%;
+      height:7rem;
+      border-radius: 10px 10px 0 0;
+    }
+    &_image {
+      background-color:var(--photoColor);
+    }
+    &_container {
+      background: #ff7575;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color:white;
+    }
+    &_title {
+      width:80%;
+      font-family: var(--title2);
+      font-weight: var(--bold);
+        font-size:var(--xm);
+      display:flex;
+      flex-wrap: wrap;
+      gap:0.1rem 0.15rem;
+      /* flex-direction: column; */
+      /* justify-content:space-between; */
+      & span {
+      border:2px solid #ffffff;
+      padding: 0.2rem;
+
+      }
+      & span:nth-of-type(1) {
+        text-align: left;
+        text-align:center;
+      }
+      & span:nth-of-type(2) {
+        text-align:center;
+      }
+    }
+    &_dot {
+      padding: 0.6rem;
+      position:absolute;
+      border-radius: 100%;
+      top: 0;
+      right:0;
     }
   }
 
   /* !body: */
   &_body {
     height:100%;
-    padding:0 0.8rem 0.8rem;
+    padding:0.5rem 0.8rem 0.8rem;
     display:flex;
     flex-direction: column;
     justify-content: space-between;
@@ -41,10 +81,11 @@
       background-color:var(--cardColor);
       width:100%;
       height:0.5em;
-      border-radius: 35px 35px 0 0;
+      /* border-radius: 35px 35px 0 0; */
       position: absolute;
       top:-0.8rem;
       left:0;
+    display:none;
     }
   }
 

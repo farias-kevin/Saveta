@@ -47,62 +47,6 @@ const SideBar = ({css}) => {
             icon={<IconifyFolderOpenOutline/>}
             css={`${css}_card`}
           />
-          <CardBase
-            fn={() => ButtonFolder("All Bookmarks", dataOriginal["bookmarks"].length)}
-            title="All Bookmarks"
-            text="folder"
-            icon={<IconifyFolderOpenOutline/>}
-            css={`${css}_card`}
-          />
-          <CardBase
-            fn={() => ButtonFolder("All Bookmarks", dataOriginal["bookmarks"].length)}
-            title="All Bookmarks"
-            text="folder"
-            icon={<IconifyFolderOpenOutline/>}
-            css={`${css}_card`}
-          />
-          <CardBase
-            fn={() => ButtonFolder("All Bookmarks", dataOriginal["bookmarks"].length)}
-            title="All Bookmarks"
-            text="folder"
-            icon={<IconifyFolderOpenOutline/>}
-            css={`${css}_card`}
-          />
-          <CardBase
-            fn={() => ButtonFolder("All Bookmarks", dataOriginal["bookmarks"].length)}
-            title="All Bookmarks"
-            text="folder"
-            icon={<IconifyFolderOpenOutline/>}
-            css={`${css}_card`}
-          />
-          <CardBase
-            fn={() => ButtonFolder("All Bookmarks", dataOriginal["bookmarks"].length)}
-            title="All Bookmarks"
-            text="folder"
-            icon={<IconifyFolderOpenOutline/>}
-            css={`${css}_card`}
-          />
-          <CardBase
-            fn={() => ButtonFolder("All Bookmarks", dataOriginal["bookmarks"].length)}
-            title="All Bookmarks"
-            text="folder"
-            icon={<IconifyFolderOpenOutline/>}
-            css={`${css}_card`}
-          />
-          <CardBase
-            fn={() => ButtonFolder("All Bookmarks", dataOriginal["bookmarks"].length)}
-            title="All Bookmarks"
-            text="folder"
-            icon={<IconifyFolderOpenOutline/>}
-            css={`${css}_card`}
-          />
-          <CardBase
-            fn={() => ButtonFolder("All Bookmarks", dataOriginal["bookmarks"].length)}
-            title="All Bookmarks"
-            text="folder"
-            icon={<IconifyFolderOpenOutline/>}
-            css={`${css}_card`}
-          />
           {folderData.map(elem => (
             elem.name ?
               <CardBase
