@@ -7,7 +7,7 @@ import { MainProvider } from "../../hooks/contextMain.jsx"
 import apiJson from "../../data/apiJson-iframely.jsx"
 // import apiJson from "../../data/apiJson-jsonlink.jsx"
 import editorUrl from "../../utils/editorUrl.jsx"
-import getDate from "../../utils/getDate.jsx"
+import createDate from "../../utils/createDate.jsx"
 import saveData from "../../utils/saveData";
 import SearchBase from "../../components/search/search";
 import createNum from "../../utils/createNum";
@@ -45,10 +45,10 @@ const ModalCreate = ({css="modalCreate"}) => {
       image:  fetchResult?.image,
       favicon:  fetchResult?.favicon,
       sitename: editorUrl(inputUrl),
-      date: getDate("all", "/"),
+      date: createDate("all", "/"),
       url:  inputUrl,
       folder: [(inputFolder ? inputFolder : 'Uncategory')],
-      tag:  [getDate("month year", "/")],
+      tag:  [createDate("month year", "/")],
       likeNum: createNum("yes"),
       commentNum: createNum(),
     }

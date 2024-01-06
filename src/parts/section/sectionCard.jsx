@@ -19,25 +19,26 @@ const SectionCard = ({css}) => {
         />
         <HeaderTags
         />
-          <div className={`${css}_container`} data-css={ (dataEditTag.length > 0) ? "yes" : "no"} >
-            {dataEditTag.map((elem) => (
-              <CardBookmark
-                title={elem.title}
-                sitename={elem.sitename}
-                tag={elem.tag}
-                url={elem.url}
-                likeNum={elem.likeNum}
-                commentNum={elem.commentNum}
-                image={elem.image}
-                id={elem.id}
-                key={crypto.randomUUID()}
-              />
-            ))}
-          </div>
-          <div className={`${css}_container-b`} data-css={ (dataEditTag.length === 0) ? "yes" : "no"} >
-            <CardEmpty
+        <div className={`${css}_container`} data-css={ (dataEditTag.length > 0) ? "yes" : "no"} >
+          {dataEditTag.map((elem) => (
+            <CardBookmark
+              title={elem.title}
+              sitename={elem.sitename}
+              tag={elem.tag}
+              url={elem.url}
+              likeNum={elem.likeNum}
+              commentNum={elem.commentNum}
+              image={elem.image}
+              favicon={elem.favicon}
+              id={elem.id}
+              key={crypto.randomUUID()}
             />
-          </div>
+          ))}
+        </div>
+        <div className={`${css}_container-b`} data-css={ (dataEditTag.length === 0) ? "yes" : "no"} >
+          <CardEmpty
+          />
+        </div>
       </section>
       <aside className={`${css}_aside`}>
         <a href="#">
