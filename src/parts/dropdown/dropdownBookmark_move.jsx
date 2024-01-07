@@ -6,6 +6,7 @@ import SearchBase from "../../components/search/search.jsx";
 import { useState, useContext } from "react";
 import { MainProvider } from "../../hooks/contextMain";
 import filterData from "../../utils/filterData";
+import saveData from "../../utils/saveData";
 
 
 const DropdownBookmark_edit = ({css="dropdownBookmark", openSection}) => {
@@ -24,7 +25,7 @@ const DropdownBookmark_edit = ({css="dropdownBookmark", openSection}) => {
     // añade los cambios solo al marcador actual
     const newData = dataOriginal["bookmarks"].map(elem => {
       if(elem.id == infoDropdown){
-        return {...elem, folder: inputResult}
+        return {...elem, folder: [inputResult]}
       }
       return elem
     })

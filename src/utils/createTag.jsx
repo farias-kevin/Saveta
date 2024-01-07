@@ -1,6 +1,5 @@
 // #funcion: para crear  y añadirlos a la database
 const createTag = (dataBase, objectID) => {
-
   // con flatmap() aplanas los elementos del array y retornas un nuevo array
   const elementData = dataBase.flatMap(data => data[objectID])
   // al adjuntar un .map() continuas trabajando en la variable

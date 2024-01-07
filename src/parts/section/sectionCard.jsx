@@ -10,7 +10,7 @@ import { MainProvider } from "../../hooks/contextMain.jsx";
 
 const SectionCard = ({css}) => {
   // constantes
-  const {dataEditTag} = useContext(MainProvider);
+  const {dataEditTag, tagData} = useContext(MainProvider);
 
   return (
     <div className={`${css}`} data-js="sectionBookmark">
@@ -28,6 +28,7 @@ const SectionCard = ({css}) => {
               url={elem.url}
               likeNum={elem.likeNum}
               commentNum={elem.commentNum}
+              date={elem.date}
               image={elem.image}
               favicon={elem.favicon}
               id={elem.id}

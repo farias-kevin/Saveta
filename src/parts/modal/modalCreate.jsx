@@ -45,12 +45,12 @@ const ModalCreate = ({css="modalCreate"}) => {
       image:  fetchResult?.image,
       favicon:  fetchResult?.favicon,
       sitename: editorUrl(inputUrl),
-      date: createDate("all", "/"),
-      url:  inputUrl,
-      folder: [(inputFolder ? inputFolder : 'Uncategory')],
-      tag:  [createDate("month year", "/")],
+      date: createDate("", "/"),
       likeNum: createNum("yes"),
       commentNum: createNum(),
+      folder: [(inputFolder ? inputFolder : 'Uncategory')],
+      tag:  [createDate("month", "/")],
+      url:  inputUrl,
     }
     // copias los valores y añade los nuevos en el objeto deseado,
     setDataOriginal(prev => ({
@@ -81,7 +81,7 @@ const ModalCreate = ({css="modalCreate"}) => {
       />
       <section className={`${css}_main`}>
         <InputBase
-          autocomplete="on"
+          // autocomplete="on"
           value={inputUrl}
           fn={event => setInputUrl(event.target.value)}
           placeholder="Website link (Eg: http://saveta.com...)"

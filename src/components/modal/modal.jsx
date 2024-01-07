@@ -14,10 +14,10 @@ const Modal = ({css="modal"}) => {
       {(modalActivate &&
         <aside className={`${css}`}>
           <div className={`${css}_container`} onClick={() => setModalActivate(false)}/>
-          { modalActivate == "modalCreate"
-            ? <ModalCreate/>
-            : modalActivate == "modalExport"
-              ? <ModalExport/>
+          { modalActivate == "modalCreate" ?
+            <ModalCreate/>
+            : modalActivate == "modalExport" ?
+              <ModalExport/>
               : null }
         </aside>
       )}

@@ -63,7 +63,6 @@ const ModalExport = ({css="modalExport"}) => {
         <Textarea
           value={textareaResult}
           fn={event => setTextareaResult( event.target.value )}
-          read="readonly"
           placeholder="Only .json format files are allowed..."
           css={`${css}_label`}
         />

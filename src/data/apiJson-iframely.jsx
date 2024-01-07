@@ -9,9 +9,10 @@ const apiJson = async (url) => {
     // Metodo para obtener acceso a la api
     const response =  await fetch(apiUrl);
     const data = await response.json();
-console.log(data)
     // parametros selecionados para que se envien en la respuesta
+    console.log(data)
     const dataParameter = {
+      // datos basicos
       title: data?.meta?.title,
       description: data?.meta?.description,
       image: data?.links?.thumbnail?.[0]?.href,

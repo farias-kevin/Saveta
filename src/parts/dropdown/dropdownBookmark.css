@@ -25,20 +25,6 @@
     padding:0.8rem 1rem;
     gap:1rem;
   }
-  &_button {
-    width: 100%;
-    padding: 0.4rem 1.4rem 0.4rem 0.8rem;
-    color:#8e8e8e;
-    font-family: var(--title2);
-    font-weight: var(--semibold);
-    font-size: var(--s);
-    white-space: nowrap;
-    display: flex;
-    gap: 0.5rem;
-  }
-  &_button:hover {
-    background-color: #ebebeb;
-  }
   &_container {
     display:flex;
     flex-direction: column;
@@ -48,24 +34,6 @@
     display:flex;
     /* justify-content: flex-end; */
     gap:0.5em;
-    &_button {
-      width: 100%;
-      padding: 0.4rem 1rem;
-      color:#8e8e8e;
-      font-family: var(--title2);
-      font-weight: var(--semibold);
-      font-size: var(--s);
-      white-space: nowrap;
-      text-align: center;
-      border-radius:10px;
-    }
-    &_button:nth-of-type(2) {
-      background:#ff7675 ;
-      color: #fff;
-    }
-    &_button:hover {
-      background-color: #ebebeb;
-    }
   }
 }
 

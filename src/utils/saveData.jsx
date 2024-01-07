@@ -11,7 +11,7 @@ const saveData = (action, keyName, dataBase) => {
 
     case "reset":
       // para eliminar toda la informacion de una clave.
-      localStorage.setRemove(keyName);
+      localStorage.removeItem(keyName);
       break;
 
     case "key":
@@ -21,7 +21,8 @@ const saveData = (action, keyName, dataBase) => {
     default:
       // transforma de string a json y obten el localStorage
       const data = localStorage.getItem(keyName);
-      return JSON.parse(data);
+      const dataJson = JSON.parse(data)
+      return dataJson ;
   }
 }
 
