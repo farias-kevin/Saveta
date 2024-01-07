@@ -4,7 +4,6 @@ import createTag from "../utils/createTag";
 import filterData from "../utils/filterData";
 import saveData from "../utils/saveData";
 
-
 // #01: crea la instancia del useContext()
 const MainProvider = createContext();
 

@@ -21,10 +21,9 @@ const HeaderTags = ({css="headerTags"}) => {
     let newTags = filterData(dataEditFolder, "tag", tagName, "all")
     setDataEditTag( newTags )
   }
-
   return(
     <>
-      {dataEditTag.length > 0 ?
+      { (dataEditTag.length > 0 || tagData.length > 0) ?
         <header className={`${css}`} >
           <ul className={`${css}_tag`} >
             <li
@@ -43,7 +42,7 @@ const HeaderTags = ({css="headerTags"}) => {
             ))}
           </ul>
         </header>
-        : 
+        :
         null}
     </>
   )

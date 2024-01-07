@@ -1,18 +1,26 @@
 .notificationDelete {
   background-color: #ffffff;
-  border-left:5px solid #ff7675;
+  border:1px solid #ff7675;
   /* max-width: 35%; */
   padding:1rem 1.2rem;
   color:#8e8e8e;
-  border-radius:5px;
-  box-shadow:var(--shadow);
+  border-radius:15px;
+  box-shadow:var(--shadow-b);
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
   display:flex;
   align-items: center;
   gap: 1rem;
   position: fixed;
-  top: 1rem;
-  right:1rem;
-  z-index: 10;
+  /* top: 1rem; */
+  /* right:1rem; */
+  bottom:1rem;
+  left:2rem;
+  z-index: 11;
+  color:#ff7675;
+  &:hover {
+    animation: slideVertical 0.3s ease 0s 1 normal forwards;
+
+  }
   &_textbox {
     font-family: var(--title2);
     font-size: var(--s);
@@ -42,7 +50,7 @@
       padding: 0.4rem 0.6rem;
       color: #fff;
       font-family: var(--title2);
-      font-size: var(--s);
+      font-size: var(--xs);
       font-weight: var(--semibold);
       border-radius:10px;
     }

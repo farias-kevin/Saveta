@@ -6,11 +6,13 @@ import FooterMain from "./parts/footer/footerMain.jsx"
 import HeaderBanner from "./parts/header/headerBanner.jsx"
 import SectionCard from "./parts/section/sectionCard.jsx"
 import { ContextMain } from "./hooks/contextMain.jsx"
+import NotificationDelete from "./parts/notification/notificationDelete"
 
 export default function App(){
   return (
     <ContextMain>
       <Modal css="modal"/>
+{/* <NotificationDelete /> */}
       <NavBar css="navBar"/>
       <hr/>
       <HeaderBanner css="headerBanner"/>

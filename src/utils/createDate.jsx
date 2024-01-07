@@ -1,5 +1,5 @@
 // #funcion: para obtener la fecha actual
-const createDate = (styleDate, styleSeparator) => {
+const createDate = (styleDate, separator) => {
 
   // variables y constantes
   const date = new Date();
@@ -16,10 +16,9 @@ const createDate = (styleDate, styleSeparator) => {
 
   // estiliza el resultado
   const dateParts = {
-    "all": formatDay + styleSeparator + formatMonth + styleSeparator + year,
-    "day month": formatDay + styleSeparator + formatMonth,
-    "month year": formatMonth + styleSeparator + year,
-    "month": formatMonth,
+    "all": formatDay + separator + formatMonth + separator + year,
+    "day": formatDay + separator + formatMonth,
+    "month": formatMonth + separator + year,
     "year": year,
   };
   // si los valores no cumple, envia un formato predeterminado

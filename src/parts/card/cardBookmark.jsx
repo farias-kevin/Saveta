@@ -2,35 +2,41 @@ import "./cardBookmark.css";
 import ButtonBase from "../../components/button/button.jsx";
 import DropdownBase from "../../components/dropdown/dropdown.jsx";
 import DropdownBookmark from "../dropdown/dropdownBookmark.jsx";
-import test from "../../assets/load.png"
 import { useState } from "react";
+import editarDate from "../../utils/editorDate";
+import { useEffect } from "react";
 
-const CardBookmark = ({css="cardBookmark", id, title, likeNum, commentNum, sitename, url, image, favicon}) => {
-
-const [imageError, setImageError] = useState(false);
+const CardBookmark = ({css="cardBookmark", id, title, date, commentNum, sitename, url, image, favicon, theme}) => {
+  // constantes
+  const [imageError, setImageError] = useState(false);
+  const nameImage = sitename.split(".");
 
   const handleImageError = () => {
     console.warn("check")
     setImageError(true);
   }
 
-let prueba = "designsystem.com"
-// let prueba = sitename
+useEffect(() => {
+    setImageError(false);
+  }, [image]);
+console.log(image, sitename)
+console.warn(imageError)
 
-let nameImage = prueba.split(".");
 
 
   return(
     <article className={`${css} slide-left`} id={id} >
       <header className={`${css}_header`}>
-        <a href={url} className={`${css}_header_container`}>
-            {image === undefined ?
+        <a href={url} target="_blank" className={`${css}_header_container`}>
+            {imageError == true ?
               <div className={`${css}_header_title`}>
-                <span>{nameImage[0]} </span>
-                <span>{nameImage[1]} </span>
+                <span> {nameImage[0]} </span>
+                <span>.{nameImage[1]} </span>
               </div>
+              : imageError == false && image === undefined ?
+              <img className={`${css}_header_favicon`} src={favicon + "?random=12345"} onError={() => { setImageError(true) }}/>
               :
-              <img className={`${css}_header_image`} src={image} alt={title} onError={handleImageError}/>
+              <img className={`${css}_header_image`} src={image + "?random=12345"} onError={() => { setImageError(true) }}/>
             }
         </a>
         <div className={`${css}_header_dot`}>
@@ -44,7 +50,6 @@ let nameImage = prueba.split(".");
         </div>
       </header>
       <section className={`${css}_body`}>
-        <span className={`${css}_body_dot`} />
         <a href={url} target="_blank">
           <div className={`${css}_main`} >
             <p className={`${css}_text`} >{sitename}</p>
@@ -52,18 +57,13 @@ let nameImage = prueba.split(".");
           </div>
         </a>
         <div className={`${css}_footer`}>
-          {/* <ButtonBase */}
-          {/*   text={commentNum} */}
-          {/*   icon={<IconifyChatProcessingOutline/>} */}
-          {/*   css={`${css}_footer_button`} */}
-          {/* /> */}
           <ButtonBase
-            text={likeNum}
-            icon={<IconifyHeartOutline/>}
+            text={commentNum}
+            icon={<IconifyChatProcessingOutline/>}
             css={`${css}_footer_button`}
           />
           <ButtonBase
-            text="Ene/24"
+            text={ editarDate(date, "day", `/`) }
             icon={<IconifyClockTimeThreeOutline/>}
             css={`${css}_footer_button`}
           />
