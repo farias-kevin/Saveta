@@ -36,7 +36,7 @@
 .dropdownBookmark {
   &_button {
     width: 100%;
-    padding: 0.4rem 1rem 0.4rem 0.6rem;
+    padding: 0.4rem 1.4rem 0.4rem 0.6rem;
     color:#8e8e8e;
     font-family: var(--title2);
     font-weight: var(--semibold);

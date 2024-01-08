@@ -11,7 +11,7 @@
   transition: all 0.3s ease;
   &:hover {
     transition: all 0.3s ease;
-    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.15), 0 4px 6px -4px rgba(0,0,0,0.1);
   }
   &:hover &_header_dropdown_button {
     display: flex;
@@ -28,9 +28,6 @@
     }
     &_image {
       background-color:var(--photoColor);
-    }
-    &_favicon {
-height:3rem;
     }
     &_container {
       background: #ff7575;

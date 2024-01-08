@@ -2,15 +2,15 @@ import "./modalCreate.css";
 import ButtonBase from "../../components/button/button.jsx"
 import InputBase from "../../components/input/input.jsx"
 import HeaderBase from "../../components/header/header.jsx"
+import SearchBase from "../../components/search/search";
 import { useContext, useEffect, useState } from "react"
 import { MainProvider } from "../../hooks/contextMain.jsx"
 import apiJson from "../../data/apiJson-iframely.jsx"
-// import apiJson from "../../data/apiJson-jsonlink.jsx"
 import editorUrl from "../../utils/editorUrl.jsx"
 import createDate from "../../utils/createDate.jsx"
 import saveData from "../../utils/saveData";
-import SearchBase from "../../components/search/search";
 import createNum from "../../utils/createNum";
+import validateImage from "../../utils/validateImage";
 
 
 const ModalCreate = ({css="modalCreate"}) => {
@@ -52,6 +52,12 @@ const ModalCreate = ({css="modalCreate"}) => {
       tag:  [createDate("month", "/")],
       url:  inputUrl,
     }
+
+    // validar si la imagen carga
+    validateImage(newItem.image)
+      .then(result => {})
+      .catch(error => {});
+
     // copias los valores y añade los nuevos en el objeto deseado,
     setDataOriginal(prev => ({
       ...prev,

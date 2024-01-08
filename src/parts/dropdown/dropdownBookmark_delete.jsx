@@ -8,7 +8,7 @@ import saveData from "../../utils/saveData";
 const DropdownBookmark_delete = ({css="dropdownBookmark"}) => {
   // constantes
   const {dataOriginal, setDataOriginal} = useContext( MainProvider );
-  const {infoDropdown} = useContext( MainProvider );
+  const {infoDropdown, setInfoDropdown} = useContext( MainProvider );
 
   function deleteCard(cardId){
     // remueve el elemento deseado y conserva el resto
@@ -21,6 +21,8 @@ const DropdownBookmark_delete = ({css="dropdownBookmark"}) => {
       ...prev,
       bookmarks: newData
     }))
+    // cierra el dropdown
+    setInfoDropdown(null)
     // ¡LocalSave:
     saveData("save", "savetaData", {...dataOriginal, bookmarks: newData})
   }

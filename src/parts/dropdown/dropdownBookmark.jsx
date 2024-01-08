@@ -1,5 +1,6 @@
 import "./dropdownBookmark.css";
 import ButtonBase from "../../components/button/button"
+import DropdownBookmark_copy from "./dropdownBookmark_copy";
 import DropdownBookmark_delete from "./dropdownBookmark_delete";
 import DropdownBookmark_edit from "./dropdownBookmark_edit";
 import DropdownBookmark_move from "./dropdownBookmark_move";
@@ -34,11 +35,7 @@ const DropdownBookmark = ({css="dropdownBookmark"}) => {
               icon={<IconifyFolderMoveOutline/>}
               css={`${css}_button`}
             />
-            <ButtonBase
-              title="Copy link"
-              comingSoon="funcion copiar"
-              icon={<IconifyContentCopy/>}
-              css={`${css}_button`}
+            <DropdownBookmark_copy
             />
             <ButtonBase
               title="Info"

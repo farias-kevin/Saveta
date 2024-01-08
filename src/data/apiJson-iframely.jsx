@@ -10,7 +10,6 @@ const apiJson = async (url) => {
     const response =  await fetch(apiUrl);
     const data = await response.json();
     // parametros selecionados para que se envien en la respuesta
-    console.log(data)
     const dataParameter = {
       // datos basicos
       title: data?.meta?.title,
