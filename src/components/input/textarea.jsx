@@ -1,4 +1,4 @@
-const TextareaBase = ({css, text, icon, fn, name, value, children, placeholder, read, id}) => {
+const TextareaBase = ({css, text, icon, fn, row, ref, name, value, children, placeholder, read, id}) => {
 
   let keyID = "input-" + crypto.randomUUID();
 
@@ -8,8 +8,9 @@ const TextareaBase = ({css, text, icon, fn, name, value, children, placeholder, 
         <span className={`${css}_text`}>{text}</span>
       )}
       <textarea
-        className={`${css}_input`}
+        rows={row}
         id={keyID}
+        className={`${css}_input`}
         readOnly={read}
         onChange={fn}
         name={name}

@@ -1,0 +1,19 @@
+.paginationSection{
+  width:100%;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  &_button {
+    background-color:var(--tagColor);
+    padding:0.4rem 0.8rem;
+    color:var(--tagText);
+    font-family: var(--title2);
+    font-size:var(--m);
+    font-weight:var(--bold);
+    border-radius:10px;
+  }
+  &_button[data-css="on"] {
+    background-color:#404040;
+    color:white;
+  }
+}

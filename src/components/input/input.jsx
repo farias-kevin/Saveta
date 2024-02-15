@@ -10,9 +10,9 @@ const InputBase = ({css, icon, type="text", autocomplete="off", children, text, 
         <span className={`${css}_text`}>{text}</span>
       )}
       <input
+        id={keyID}
         autoComplete={autocomplete}
         className={`${css}_input`}
-        id={keyID}
         onChange={fn}
         type={type}
         name={name}

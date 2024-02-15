@@ -6,11 +6,22 @@ import HeaderBookmarks from "../header/headerBookmarks";
 import HeaderTags from "../header/headerTags.jsx";
 import { useContext } from "react";
 import { MainProvider } from "../../hooks/contextMain.jsx";
+import { useState } from "react";
+import PaginationSection from "../pagination/paginationSection";
+import { useEffect } from "react";
 
 
 const SectionCard = ({css}) => {
   // constantes
-  const {dataEditTag, tagData} = useContext(MainProvider);
+  const {dataEditTag, sectionStatus} = useContext(MainProvider);
+  const [prevPag, setPrevPag] = useState(0);
+  const [nextPag, setNextPag] = useState(12);
+
+  useEffect(() => {
+    setPrevPag(0);
+    setNextPag(12);
+  },[sectionStatus])
+
 
   return (
     <div className={`${css}`} data-js="sectionBookmark">
@@ -20,7 +31,7 @@ const SectionCard = ({css}) => {
         <HeaderTags
         />
         <div className={`${css}_container`} data-css={ (dataEditTag.length > 0) ? "yes" : "no"} >
-          {dataEditTag.map((elem) => (
+          {dataEditTag.slice(prevPag, nextPag).map((elem) => (
             <CardBookmark
               title={elem.title}
               sitename={elem.sitename}
@@ -36,6 +47,16 @@ const SectionCard = ({css}) => {
             />
           ))}
         </div>
+        <PaginationSection
+          valuePrev={ {get:prevPag, set:setPrevPag} }
+          valueNext={ {get:nextPag, set:setNextPag} }
+          valueData={ dataEditTag }
+          numItem={12}
+          numPagination={ 3 }
+          css="paginationSection"
+        />
+        <div>
+        </div>
         <div className={`${css}_container-b`} data-css={ (dataEditTag.length === 0) ? "yes" : "no"} >
           <CardEmpty
           />
@@ -44,7 +65,6 @@ const SectionCard = ({css}) => {
       <aside className={`${css}_aside`}>
         <a href="#">
           <Button
-            // icon={<IconifyChevronUpCircleOutline/>}
             icon={<IconifyArrowUp/>}
             css={`${css}_aside_button`}
           />

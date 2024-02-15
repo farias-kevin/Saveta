@@ -12,7 +12,7 @@ export default function App(){
   return (
     <ContextMain>
       <Modal css="modal"/>
-{/* <NotificationDelete /> */}
+      {/* <NotificationDelete /> */}
       <NavBar css="navBar"/>
       <hr/>
       <HeaderBanner css="headerBanner"/>

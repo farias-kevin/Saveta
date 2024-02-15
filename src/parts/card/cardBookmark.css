@@ -37,6 +37,7 @@
       align-items: center;
     }
     &_title {
+      padding:0.2rem 2rem ;
       font-family: var(--title2);
       font-weight: var(--bold);
       font-size:var(--xm);

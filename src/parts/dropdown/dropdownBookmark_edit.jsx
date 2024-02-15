@@ -3,10 +3,12 @@ import ButtonBase from "../../components/button/button.jsx"
 import HeaderBase from "../../components/header/header.jsx";
 import InputBase from "../../components/input/input.jsx"
 import InputTag from "../../components/input/inputTag";
-import { useState, useContext } from "react";
+import { useState, useContext, useRef } from "react";
 import { MainProvider } from "../../hooks/contextMain";
 import filterData from "../../utils/filterData";
 import saveData from "../../utils/saveData";
+import TextareaBase from "../../components/input/textarea";
+import { useEffect } from "react";
 
 
 const DropdownBookmark_edit = ( {css="dropdownBookmark", openSection} ) => {
@@ -21,6 +23,13 @@ const DropdownBookmark_edit = ( {css="dropdownBookmark", openSection} ) => {
   const [inputTitle, setInputTitle] = useState( dataSelect[0].title );
   const [inputTag, setInputTag] = useState( dataSelect[0].tag );
   const [dataTag, setDataTag] = useState( dataSelect[0].tag );
+  const [textSize, setTextSize] = useState(1);
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    textCalc();
+  }, [])
+
 
   function acceptChanges(event){
     event.preventDefault();
@@ -39,6 +48,13 @@ const DropdownBookmark_edit = ( {css="dropdownBookmark", openSection} ) => {
     // ¡LocalSave:
     saveData("save", "savetaData", {...dataOriginal, bookmarks: newData})
   }
+
+  function textCalc(){
+    // console.log(inputRef.current.target.value)
+    // let size = inputRef.current.value.length > 25 ? 2 : 1;
+    // setTextSize(size)
+  }
+
   return (
     <form className={`${css}_section-b`} onSubmit={acceptChanges}>
       <HeaderBase
@@ -46,7 +62,8 @@ const DropdownBookmark_edit = ( {css="dropdownBookmark", openSection} ) => {
         title="Edit Bookmarks"
       />
       <div className={`${css}_container`}>
-        <InputBase
+        <TextareaBase
+          row={textSize}
           value={inputTitle}
           fn={event => setInputTitle(event.target.value)}
           placeholder="Title bookmark..."

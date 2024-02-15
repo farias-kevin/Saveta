@@ -15,7 +15,7 @@ const HeaderTags = ({css="headerTags"}) => {
       ...prev,
       tagId: tagId,
       tagName: tagName,
-      itemNum: itemNum
+      itemNum: itemNum,
     }))
     // filtra los datos y envia la informacion
     let newTags = filterData(dataEditFolder, "tag", tagName, "all")

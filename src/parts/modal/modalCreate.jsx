@@ -37,6 +37,10 @@ const ModalCreate = ({css="modalCreate"}) => {
 
   function createBookmark(){ // #03:
     // objeto con todos los parametros para el marcador
+
+// let imageReal = validateImage(fetchResult?.image)
+// console.log(imageReal)
+
     let newItem = {
       id: "ID-" + crypto.randomUUID(),
       title:  fetchResult?.title,
@@ -52,11 +56,6 @@ const ModalCreate = ({css="modalCreate"}) => {
       tag:  [createDate("month", "/")],
       url:  inputUrl,
     }
-
-    // validar si la imagen carga
-    validateImage(newItem.image)
-      .then(result => {})
-      .catch(error => {});
 
     // copias los valores y añade los nuevos en el objeto deseado,
     setDataOriginal(prev => ({
